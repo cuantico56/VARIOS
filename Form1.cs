@@ -538,21 +538,21 @@ namespace TEST
             data.Clear();
             
 
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = "C:\\UnoSoloTipo";
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            
 
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
 
-                string direcccion = openFileDialog1.InitialDirectory;
-                openFileDialog1.Dispose();
+                string direcccion = dialog.SelectedPath;
+                folderBrowserDialog1.Dispose();
             }
 
 
 
             
-            string[] allfiles = System.IO.Directory.GetFiles(dialog.InitialDirectory, "*.txt*", System.IO.SearchOption.AllDirectories);
+            string[] allfiles = System.IO.Directory.GetFiles(dialog.SelectedPath, "*.txt*", System.IO.SearchOption.AllDirectories);
             
             int cuantos = allfiles.Length;
             rep = "";
