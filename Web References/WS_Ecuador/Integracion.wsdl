@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Factura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContenidoArchivoTexto" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreArchivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FacturaResult" type="tns:RespuestaTimbradoTXT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RespuestaTimbradoTXT">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Procesado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NrodeAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XMLTimbrado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LOTE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContenidoArchivoTexto" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreArchivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LOTEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LOTEResult" type="tns:RespLoteIntegracion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RespLoteIntegracion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="detalleLote" type="tns:ArrayOfRespuestaTimbradoTXT" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numdeDocumentos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="correctos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="incorrectos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRespuestaTimbradoTXT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RespuestaTimbradoTXT" nillable="true" type="tns:RespuestaTimbradoTXT" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TimbresRestantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RUCEmisor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimbresRestantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimbresRestantesResult" type="tns:Timbresrestantes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Timbresrestantes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Procesado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NrodeTickets" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DescargaFacturaXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DescargaFacturaXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DescargaFacturaXMLResult" type="tns:DescargaDocumentoXML" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DescargaDocumentoXML">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="documentobase64" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DescargaFacturaPDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DescargaFacturaPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DescargaFacturaPDFResult" type="tns:GetDocument" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="documentBase64" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidaUsuarioResult" type="tns:UsuarioIntegracion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UsuarioIntegracion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EstatusDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EstatusDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EstatusDocumentoResult" type="tns:EstadoDocumento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EstadoDocumento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:Factura" />
+  </wsdl:message>
+  <wsdl:message name="FacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:FacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="LOTESoapIn">
+    <wsdl:part name="parameters" element="tns:LOTE" />
+  </wsdl:message>
+  <wsdl:message name="LOTESoapOut">
+    <wsdl:part name="parameters" element="tns:LOTEResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimbresRestantesSoapIn">
+    <wsdl:part name="parameters" element="tns:TimbresRestantes" />
+  </wsdl:message>
+  <wsdl:message name="TimbresRestantesSoapOut">
+    <wsdl:part name="parameters" element="tns:TimbresRestantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DescargaFacturaXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:DescargaFacturaXML" />
+  </wsdl:message>
+  <wsdl:message name="DescargaFacturaXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:DescargaFacturaXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="DescargaFacturaPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:DescargaFacturaPDF" />
+  </wsdl:message>
+  <wsdl:message name="DescargaFacturaPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:DescargaFacturaPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EstatusDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:EstatusDocumento" />
+  </wsdl:message>
+  <wsdl:message name="EstatusDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:EstatusDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IntegracionSoap">
+    <wsdl:operation name="Factura">
+      <wsdl:input message="tns:FacturaSoapIn" />
+      <wsdl:output message="tns:FacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LOTE">
+      <wsdl:input message="tns:LOTESoapIn" />
+      <wsdl:output message="tns:LOTESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimbresRestantes">
+      <wsdl:input message="tns:TimbresRestantesSoapIn" />
+      <wsdl:output message="tns:TimbresRestantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DescargaFacturaXML">
+      <wsdl:input message="tns:DescargaFacturaXMLSoapIn" />
+      <wsdl:output message="tns:DescargaFacturaXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DescargaFacturaPDF">
+      <wsdl:input message="tns:DescargaFacturaPDFSoapIn" />
+      <wsdl:output message="tns:DescargaFacturaPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <wsdl:input message="tns:ValidaUsuarioSoapIn" />
+      <wsdl:output message="tns:ValidaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EstatusDocumento">
+      <wsdl:input message="tns:EstatusDocumentoSoapIn" />
+      <wsdl:output message="tns:EstatusDocumentoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IntegracionSoap" type="tns:IntegracionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Factura">
+      <soap:operation soapAction="http://tempuri.org/Factura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LOTE">
+      <soap:operation soapAction="http://tempuri.org/LOTE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimbresRestantes">
+      <soap:operation soapAction="http://tempuri.org/TimbresRestantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescargaFacturaXML">
+      <soap:operation soapAction="http://tempuri.org/DescargaFacturaXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescargaFacturaPDF">
+      <soap:operation soapAction="http://tempuri.org/DescargaFacturaPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <soap:operation soapAction="http://tempuri.org/ValidaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusDocumento">
+      <soap:operation soapAction="http://tempuri.org/EstatusDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IntegracionSoap12" type="tns:IntegracionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Factura">
+      <soap12:operation soapAction="http://tempuri.org/Factura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LOTE">
+      <soap12:operation soapAction="http://tempuri.org/LOTE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimbresRestantes">
+      <soap12:operation soapAction="http://tempuri.org/TimbresRestantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescargaFacturaXML">
+      <soap12:operation soapAction="http://tempuri.org/DescargaFacturaXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DescargaFacturaPDF">
+      <soap12:operation soapAction="http://tempuri.org/DescargaFacturaPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ValidaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EstatusDocumento">
+      <soap12:operation soapAction="http://tempuri.org/EstatusDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Integracion">
+    <wsdl:port name="IntegracionSoap" binding="tns:IntegracionSoap">
+      <soap:address location="http://testint.thefactoryhka.com.ec/Integracion.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IntegracionSoap12" binding="tns:IntegracionSoap12">
+      <soap12:address location="http://testint.thefactoryhka.com.ec/Integracion.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

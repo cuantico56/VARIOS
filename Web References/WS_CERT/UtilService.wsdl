@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DownloadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pto_emi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cod_estab" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extension" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="anio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSerieDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pto_emi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cod_estab" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipodoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSerieDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSerieDocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDocumentsSend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuarioAplicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PasswordAplicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDocumentsSendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDocumentsSendResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCertificado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuarioAplicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PasswordAplicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ruc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="certificado64" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="certificadoClaveBase64" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCertificadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCertificadoResult" type="tns:InternalResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InternalResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Firmar">
+        <s:complexType />
+      </s:element>
+      <s:element name="FirmarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirmarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DownloadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadFile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadLogSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadLog" />
+  </wsdl:message>
+  <wsdl:message name="DownloadLogSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSerieDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:getSerieDocument" />
+  </wsdl:message>
+  <wsdl:message name="getSerieDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:getSerieDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentsSendSoapIn">
+    <wsdl:part name="parameters" element="tns:getDocumentsSend" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentsSendSoapOut">
+    <wsdl:part name="parameters" element="tns:getDocumentsSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCertificadoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCertificado" />
+  </wsdl:message>
+  <wsdl:message name="SetCertificadoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCertificadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmarSoapIn">
+    <wsdl:part name="parameters" element="tns:Firmar" />
+  </wsdl:message>
+  <wsdl:message name="FirmarSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UtilServiceSoap">
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input message="tns:DownloadFileSoapIn" />
+      <wsdl:output message="tns:DownloadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadLog">
+      <wsdl:input message="tns:DownloadLogSoapIn" />
+      <wsdl:output message="tns:DownloadLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSerieDocument">
+      <wsdl:input message="tns:getSerieDocumentSoapIn" />
+      <wsdl:output message="tns:getSerieDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentsSend">
+      <wsdl:input message="tns:getDocumentsSendSoapIn" />
+      <wsdl:output message="tns:getDocumentsSendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCertificado">
+      <wsdl:input message="tns:SetCertificadoSoapIn" />
+      <wsdl:output message="tns:SetCertificadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Firmar">
+      <wsdl:input message="tns:FirmarSoapIn" />
+      <wsdl:output message="tns:FirmarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UtilServiceSoap" type="tns:UtilServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/DownloadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadLog">
+      <soap:operation soapAction="http://tempuri.org/DownloadLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSerieDocument">
+      <soap:operation soapAction="http://tempuri.org/getSerieDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentsSend">
+      <soap:operation soapAction="http://tempuri.org/getDocumentsSend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCertificado">
+      <soap:operation soapAction="http://tempuri.org/SetCertificado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Firmar">
+      <soap:operation soapAction="http://tempuri.org/Firmar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UtilServiceSoap12" type="tns:UtilServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DownloadFile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadLog">
+      <soap12:operation soapAction="http://tempuri.org/DownloadLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSerieDocument">
+      <soap12:operation soapAction="http://tempuri.org/getSerieDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentsSend">
+      <soap12:operation soapAction="http://tempuri.org/getDocumentsSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCertificado">
+      <soap12:operation soapAction="http://tempuri.org/SetCertificado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Firmar">
+      <soap12:operation soapAction="http://tempuri.org/Firmar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UtilService">
+    <wsdl:port name="UtilServiceSoap" binding="tns:UtilServiceSoap">
+      <soap:address location="http://testint.thefactoryhka.com.ec/UtilService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UtilServiceSoap12" binding="tns:UtilServiceSoap12">
+      <soap12:address location="http://testint.thefactoryhka.com.ec/UtilService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
