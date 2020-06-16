@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TEST
 {
     public partial class Form4 : Form
@@ -19,13 +20,15 @@ namespace TEST
         {
             InitializeComponent();
             timer1.Start();
+            button1.Enabled = false;
         }
-
+        
         public string total = "";
         public List<string> secuencias = new List<string>();
         public List<int> numsecuencias = new List<int>();
-        public List<string> NuSec = new List<string>();
+        public List<int> NuSec = new List<int>();
         public int cont = 0;
+        int tope = 0;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -64,9 +67,11 @@ namespace TEST
             FechaVieja = contenido[17];
 
             secuencialviejo = Convert.ToInt32(contenido[16]);
-            secuencialnuevo = secuencialviejo+allfiles.Length;
-            int decimalLength = secuencialnuevo.ToString("D").Length + 6; 
-            contenido[16]= secuencialnuevo.ToString("D" + decimalLength.ToString());            
+
+            secuencialnuevo =NuSec[j] ;
+            
+            //int decimalLength = secuencialnuevo.ToString("D").Length + 6; 
+            contenido[16]= NuSec.ToString().PadLeft(9,'0');            
             textBox1.Text = contenido[16];
 
             DateTime hoy = new DateTime();
@@ -81,10 +86,16 @@ namespace TEST
 
             StreamWriter escribir = File.CreateText(allfiles[j]);
             escribir.Write(cambiado);
+            escribir.Dispose();
             escribir.Close();
-
+            
                 
              }
+
+            
+
+
+
         }
 
 
@@ -151,7 +162,7 @@ namespace TEST
             try
             {
                 con.Open();
-                MessageBox.Show("Connection ok!");
+                
 
                 MySqlDataReader resp = comand.ExecuteReader();
 
@@ -162,7 +173,9 @@ namespace TEST
                     
 
                 }
-            
+                
+                resp.Dispose();
+                
 
             }
             catch (MySqlException ex)
@@ -170,8 +183,10 @@ namespace TEST
                 MessageBox.Show("Connection Error string '" + "' [" + ex.Number + "]: " + ex.Message);
             }
 
-
+            con.Dispose();
             con.Close();
+
+            label7.Text = secuencias.Count.ToString();
 
             for(int j = 0; j < secuencias.Count-1; j++)
             {
@@ -181,11 +196,15 @@ namespace TEST
               
             }
 
+
+
+
             for (int j = 1; j < secuencias.Count - 1; j++)
             {
                 numsecuencias.Add(Convert.ToInt32(secuencias[j]));
 
             }
+            secuencias.Clear();
 
             int max = numsecuencias.Max();
             int min = numsecuencias.Min();
@@ -193,30 +212,43 @@ namespace TEST
             label6.Text = Convert.ToString(min);
 
             cont = min;
-         
-            for(int i = 0; i <= numsecuencias.Count; i++)
-            {
-                if (!numsecuencias.Contains(cont))
-                {
-                    NuSec.Add(Convert.ToString(i).PadLeft(9, '0'));
+            tope =0;
+           
+            
+            NuSec.Clear();
 
-                }
-                else
+            for(int i = 0; i <=max-min; i++)
+            {
+                if (numsecuencias.Contains(cont)==false)
                 {
+                    tope++;
+                    NuSec.Add(cont);
+                    
+                    
                     
                 }
-                cont++;
-             }
+                if (tope == 100)
+                {
+                    break;
+                }
 
-             for(int i = 0; i < NuSec.Count; i++)
+
+                cont++;
+                
+                
+             }
+            label9.Text = tope.ToString();
+            label8.Text = NuSec.Count.ToString();
+
+            for (int i = 0; i < NuSec.Count; i++)
             {
                 dataGridView2.Rows.Add();
-                dataGridView2.Rows[i].Cells[0].Value = NuSec[i];
+                dataGridView2.Rows[i].Cells[0].Value = NuSec[i].ToString().PadLeft(9,'0');
 
 
             }
 
-
+            button1.Enabled = true;
 
 
 
