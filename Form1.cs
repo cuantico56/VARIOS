@@ -284,7 +284,7 @@ namespace TEST
                 var res = mario.EstatusDocumento("1792433738001", "1792433738001_INT", "X1X339SF13BA", num);
                 codigo = res.codigo;
                 MenEstatus = "codigo: " + Convert.ToString(codigo) + "\n" + "Mensaje: " + res.mensaje;
-
+                mario.Dispose();
 
             }
             catch (Exception e)
@@ -567,7 +567,7 @@ namespace TEST
 
 
             //******************************************************CAMBIAR SECUENCIA Y FECHA DE CADA ARCHIVO*****************************
-
+/*
             string camb = File.ReadAllText(allfiles[0]);
             string[] contenido = camb.Split('|');
             int secuencial;
@@ -577,7 +577,7 @@ namespace TEST
             secuencial += secuencial;
             contenido[16] = Convert.ToString(secuencial);
 
-
+*/
 
 
             //********************************* AQUI SE ENVIAN LA CANTIDAD DE ARCHIVOS****************************************     
