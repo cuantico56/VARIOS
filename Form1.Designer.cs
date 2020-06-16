@@ -71,6 +71,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.progressBar5 = new System.Windows.Forms.ProgressBar();
             this.timer7 = new System.Windows.Forms.Timer(this.components);
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // button1
@@ -486,6 +487,7 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.ProgressBar progressBar5;
         private System.Windows.Forms.Timer timer7;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 
