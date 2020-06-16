@@ -27,33 +27,36 @@ namespace TEST
         public List<string> secuencias = new List<string>();
         public List<int> numsecuencias = new List<int>();
         public List<int> NuSec = new List<int>();
+        public string[] allfiles;
         public int cont = 0;
         int tope = 0;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.InitialDirectory = "C:\\UnoSoloTipo";
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            
 
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
 
-                string direcccion = openFileDialog1.InitialDirectory;
-                openFileDialog1.Dispose();
+                string direccion = folderBrowserDialog1.SelectedPath;
+                
+               
+                folderBrowserDialog1.Dispose();
             }
+            allfiles = System.IO.Directory.GetFiles(dialog.SelectedPath, "*.txt*", System.IO.SearchOption.AllDirectories);
 
 
 
 
-            string[] allfiles = System.IO.Directory.GetFiles(dialog.InitialDirectory, "*.txt*", System.IO.SearchOption.AllDirectories);
 
 
 
             //******************************************************CAMBIAR SECUENCIA Y FECHA DE CADA ARCHIVO*****************************
 
 
-            for(int j=0; j < allfiles.Length; j++){ 
+            for (int j=0; j < allfiles.Length; j++){ 
 
 
             string camb = File.ReadAllText(allfiles[j]);
@@ -159,6 +162,7 @@ namespace TEST
             MySqlCommand comand = new MySqlCommand();
             comand.CommandText= "SELECT secuencial FROM testecfel.invoices x WHERE emisor_ruc = 1792433738001 and cod_establecimiento = 001 and punto_emision = 101 ORDER by secuencial ASC;";
             comand.Connection = con;
+           
             try
             {
                 con.Open();

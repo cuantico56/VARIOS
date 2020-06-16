@@ -593,8 +593,8 @@ namespace TEST
             {
                 byte[] d = File.ReadAllBytes(allfiles[j]);
                 Tareas.Add( Task.Run(() => { resp.Add(envi.Factura("1792433738001", "1792433738001_INT", "X1X339SF13BA", d, "facturaTEST4")); }));
-                
 
+                
             }
 
             progressBar5.Value = 0;
