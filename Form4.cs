@@ -160,7 +160,7 @@ namespace TEST
         {
             MySqlConnection con =new MySqlConnection("SERVER= 172.16.70.10" +";" + "DATABASE=testecfel"+";" + "UID=scastillo" + ";" + "PASSWORD=Tfhka2019..@" + ";");
             MySqlCommand comand = new MySqlCommand();
-            comand.CommandText= "SELECT secuencial FROM testecfel.invoices x WHERE emisor_ruc = 1792433738001 and cod_establecimiento = 001 and punto_emision = 101 ORDER by secuencial ASC;";
+            comand.CommandText= "SELECT secuencial FROM testecfel.invoices x WHERE emisor_ruc = 1792433738001 and cod_establecimiento = 001 and punto_emision = 201 ORDER by secuencial ASC;";
             comand.Connection = con;
            
             try
@@ -192,7 +192,7 @@ namespace TEST
 
             label7.Text = secuencias.Count.ToString();
 
-            for(int j = 0; j < secuencias.Count-1; j++)
+            for(int j = 0; j < secuencias.Count; j++)
             {
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[j].Cells[0].Value = secuencias[j];
@@ -203,7 +203,7 @@ namespace TEST
 
 
 
-            for (int j = 1; j < secuencias.Count - 1; j++)
+            for (int j = 0; j < secuencias.Count ; j++)
             {
                 numsecuencias.Add(Convert.ToInt32(secuencias[j]));
 
@@ -241,8 +241,8 @@ namespace TEST
                 
                 
              }
-            label9.Text = tope.ToString();
-            label8.Text = NuSec.Count.ToString();
+            label9.Text = max.ToString();
+            label8.Text = min.ToString();
 
             for (int i = 0; i < NuSec.Count; i++)
             {
@@ -257,6 +257,29 @@ namespace TEST
 
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            NuSec.Clear();
+            dataGridView2.Rows.Clear();
+            int min=Convert.ToInt32(textBox4.Text);
+            int max=Convert.ToInt32(textBox5.Text);
+            int tope = max-min;
+            for (int i = 0; i <tope+1 ; i++)
+            {
+                dataGridView2.Rows.Add();
+                dataGridView2.Rows[i].Cells[0].Value = min.ToString().PadLeft(9, '0');
+                NuSec.Add(min);
+                ++min;
+
+            }
+            button1.Enabled = true;
+
+
+
+        }
+
+     
     }
 }
     
