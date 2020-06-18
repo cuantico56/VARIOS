@@ -539,8 +539,8 @@ namespace TEST
             
 
             FolderBrowserDialog dialog = new FolderBrowserDialog();
-            
 
+            dialog.SelectedPath= "C:\\LISTA";
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
