@@ -177,7 +177,7 @@ namespace TEST
 
             
 
-                var resp = samir.Factura("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", a, "facturaTEST");
+                var resp = samir.Factura("1792433738001", "1792433738001_INT", "645.2GLWX52C", a, "facturaTEST");
                 
 
 
@@ -200,7 +200,7 @@ namespace TEST
                 byte[] b = File.ReadAllBytes(textBox2.Text);
 
 
-                var resp = samir.Factura("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", b, "facturaTEST2");
+                var resp = samir.Factura("1792433738001", "1792433738001_INT", "645.2GLWX52C", b, "facturaTEST2");
                 
 
 
@@ -227,7 +227,7 @@ namespace TEST
 
       
 
-            var resp = samir.Factura("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", c, "facturaTEST3");
+            var resp = samir.Factura("1792433738001", "1792433738001_INT", "645.2GLWX52C", c, "facturaTEST3");
 
 
 
@@ -253,7 +253,7 @@ namespace TEST
 
 
 
-            var resp = samir.Factura("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", d, "facturaTEST4");
+            var resp = samir.Factura("1792433738001", "1792433738001_INT", "645.2GLWX52C", d, "facturaTEST4");
 
 
 
@@ -281,7 +281,7 @@ namespace TEST
             {
 
                 WS_DEMO.Integracion mario = new WS_DEMO.Integracion();
-                var res = mario.EstatusDocumento("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", num);
+                var res = mario.EstatusDocumento("1792433738001", "1792433738001_INT", "645.2GLWX52C", num);
                 codigo = res.codigo;
                 MenEstatus = "codigo: " + Convert.ToString(codigo) + "\n" + "Mensaje: " + res.mensaje;
                 mario.Dispose();
@@ -592,7 +592,7 @@ namespace TEST
             for (int j= 0; j<allfiles.Length; j++)
             {
                 byte[] d = File.ReadAllBytes(allfiles[j]);
-                Tareas.Add( Task.Run(() => { resp.Add(envi.Factura("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", d, "facturaTEST4")); }));
+                Tareas.Add( Task.Run(() => { resp.Add(envi.Factura("1792433738001", "1792433738001_INT", "645.2GLWX52C", d, "facturaTEST4")); }));
 
                 
             }
