@@ -83,6 +83,7 @@ namespace TEST
             FechaNueva = hoy.Day.ToString().PadLeft(2, '0') + "-" + hoy.Month.ToString().PadLeft(2, '0') + "-" + hoy.Year.ToString().PadLeft(2, '0') + " " + hoy.Hour.ToString().PadLeft(2, '0') + ":" + hoy.Minute.ToString().PadLeft(2, '0') + ":" + hoy.Second.ToString().PadLeft(2, '0');
                 textBox3.Text = FechaNueva;
 
+
             string cambiado = camb.Replace(Convert.ToString(secuencialviejo), Convert.ToString(secuencialnuevo));
              camb = cambiado;
             cambiado = camb.Replace(FechaVieja, FechaNueva);
@@ -108,21 +109,30 @@ namespace TEST
         {
 
             Ping p = new Ping();
-            
 
-            PingReply resp = await p.SendPingAsync("172.16.70.10");
-
-            if (resp.Buffer != null)
+            try
             {
-                label4.BackColor = Color.Green;
-                
+                PingReply resp = await p.SendPingAsync("172.16.70.10");
 
-                label4.Text = "Ping BDD: " + Convert.ToString(resp.RoundtripTime);
+                if (resp.Buffer != null)
+                {
+                    label4.BackColor = Color.Green;
 
+
+                    label4.Text = "Ping BDD: " + Convert.ToString(resp.RoundtripTime);
+
+                }
+                else
+                {
+                    label4.Text = "No hay ping";
+                }
             }
-            else
+
+            catch (Exception e)
             {
-                label4.Text = "No hay ping";
+
+
+                MessageBox.Show("Algun problema de red :/  "+e);
             }
 
 
@@ -160,7 +170,7 @@ namespace TEST
         {
             MySqlConnection con =new MySqlConnection("SERVER= 172.16.70.10" +";" + "DATABASE=testecfel"+";" + "UID=scastillo" + ";" + "PASSWORD=Tfhka2019..@" + ";");
             MySqlCommand comand = new MySqlCommand();
-            comand.CommandText= "SELECT secuencial FROM testecfel.invoices x WHERE emisor_ruc = 1792433738001 and cod_establecimiento = 001 and punto_emision = 201 ORDER by secuencial ASC;";
+            comand.CommandText= "SELECT secuencial FROM testecfel.invoices x WHERE emisor_ruc = 1792433738001 and cod_establecimiento = 001 and punto_emision = 300 ORDER by secuencial ASC;";
             comand.Connection = con;
            
             try
@@ -231,7 +241,7 @@ namespace TEST
                     
                     
                 }
-                if (tope == 100)
+                if (tope == 50)
                 {
                     break;
                 }

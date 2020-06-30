@@ -121,8 +121,7 @@ namespace TEST
 
         }
 
-
-                                 
+                               
         private static void ValidationEventHandler(object sender, ValidationEventArgs args)
         {
             {
@@ -132,15 +131,13 @@ namespace TEST
                 {
                     throw args.Exception;
                     
-                    
-
                 }
 
                 MessageBox.Show(args.Message);
             
 
-    }
-}
+             }
+         }
 
 
 

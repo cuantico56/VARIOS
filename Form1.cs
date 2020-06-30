@@ -170,7 +170,7 @@ namespace TEST
 
         public string EnviarFactura()
         {
-            WS_Ecuador.Integracion samir = new WS_Ecuador.Integracion();
+            WS_DEMO.Integracion samir = new WS_DEMO.Integracion();
             
                 byte[] a = File.ReadAllBytes(textBox1.Text);
 
@@ -194,7 +194,7 @@ namespace TEST
 
         public string EnviarFactura2()
         {
-            WS_Ecuador.Integracion samir = new WS_Ecuador.Integracion();
+            WS_DEMO.Integracion samir = new WS_DEMO.Integracion();
 
             
                 byte[] b = File.ReadAllBytes(textBox2.Text);
@@ -219,7 +219,7 @@ namespace TEST
 
         public string EnviarFactura3()
         {
-            WS_Ecuador.Integracion samir = new WS_Ecuador.Integracion();
+            WS_DEMO.Integracion samir = new WS_DEMO.Integracion();
 
 
             byte[] c = File.ReadAllBytes(textBox3.Text);
@@ -245,7 +245,7 @@ namespace TEST
 
         public string EnviarFactura4()
         {
-            WS_Ecuador.Integracion samir = new WS_Ecuador.Integracion();
+            WS_DEMO.Integracion samir = new WS_DEMO.Integracion();
 
 
             byte[] d = File.ReadAllBytes(textBox4.Text);
@@ -280,7 +280,7 @@ namespace TEST
             try
             {
 
-                WS_Ecuador.Integracion mario = new WS_Ecuador.Integracion();
+                WS_DEMO.Integracion mario = new WS_DEMO.Integracion();
                 var res = mario.EstatusDocumento("1792433738001", "1792433738001_INT", "O.CMZ27ICHDN", num);
                 codigo = res.codigo;
                 MenEstatus = "codigo: " + Convert.ToString(codigo) + "\n" + "Mensaje: " + res.mensaje;
@@ -360,7 +360,7 @@ namespace TEST
             catch (Exception a)
             {
                 timer3.Stop();
-                MessageBox.Show("NO puede dejar en blanco: ");
+                MessageBox.Show("NO puede dejar en blanco: "+a);
             }
 
 
@@ -567,27 +567,27 @@ namespace TEST
 
 
             //******************************************************CAMBIAR SECUENCIA Y FECHA DE CADA ARCHIVO*****************************
-/*
-            string camb = File.ReadAllText(allfiles[0]);
-            string[] contenido = camb.Split('|');
-            int secuencial;
+            /*
+                        string camb = File.ReadAllText(allfiles[0]);
+                        string[] contenido = camb.Split('|');
+                        int secuencial;
 
 
-            secuencial = Convert.ToInt32(contenido[16]);
-            secuencial += secuencial;
-            contenido[16] = Convert.ToString(secuencial);
+                        secuencial = Convert.ToInt32(contenido[16]);
+                        secuencial += secuencial;
+                        contenido[16] = Convert.ToString(secuencial);
 
-*/
+            */
 
 
             //********************************* AQUI SE ENVIAN LA CANTIDAD DE ARCHIVOS****************************************     
 
-            WS_Ecuador.Integracion envi = new WS_Ecuador.Integracion();
+            WS_DEMO.Integracion envi = new WS_DEMO.Integracion();
            
             timer7.Start();
                                           
             List<Task> Tareas = new List<Task>();
-            List<WS_Ecuador.RespuestaTimbradoTXT> resp = new List<WS_Ecuador.RespuestaTimbradoTXT>();
+            List<WS_DEMO.RespuestaTimbradoTXT> resp = new List<WS_DEMO.RespuestaTimbradoTXT>();
 
             for (int j= 0; j<allfiles.Length; j++)
             {
@@ -612,7 +612,7 @@ namespace TEST
             for (int i = 0; i < Tareas.Count; i++)
             {
 
-                WS_Ecuador.RespuestaTimbradoTXT r = resp[i];
+                WS_DEMO.RespuestaTimbradoTXT r = resp[i];
 
                 
                 data.Add(r.UUID+": Mensaje Error: "+r.MensajeError +"Numero Error: "+r.NumeroError+"\n");

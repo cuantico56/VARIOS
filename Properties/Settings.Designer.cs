@@ -12,7 +12,7 @@ namespace TEST.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -46,10 +46,10 @@ namespace TEST.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://demoemision21.thefactoryhka.com.co/ws/v1.0/Service.svc")]
-        public string TEST_EMI_COL_Service {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://demoint.thefactoryhka.com.ec/Integracion.asmx")]
+        public string TEST_WS_DEMO_Integracion {
             get {
-                return ((string)(this["TEST_EMI_COL_Service"]));
+                return ((string)(this["TEST_WS_DEMO_Integracion"]));
             }
         }
     }
