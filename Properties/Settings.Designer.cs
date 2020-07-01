@@ -36,7 +36,7 @@ namespace TEST.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://testint.thefactoryhka.com.ec/UtilService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://demoint.thefactoryhka.com.ec/UtilService.asmx")]
         public string TEST_WS_CERT_UtilService {
             get {
                 return ((string)(this["TEST_WS_CERT_UtilService"]));

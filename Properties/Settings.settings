@@ -6,7 +6,7 @@
       <Value Profile="(Default)">http://testint.thefactoryhka.com.ec/Integracion.asmx</Value>
     </Setting>
     <Setting Name="TEST_WS_CERT_UtilService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://testint.thefactoryhka.com.ec/UtilService.asmx</Value>
+      <Value Profile="(Default)">http://demoint.thefactoryhka.com.ec/UtilService.asmx</Value>
     </Setting>
     <Setting Name="TEST_WS_DEMO_Integracion" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://demoint.thefactoryhka.com.ec/Integracion.asmx</Value>

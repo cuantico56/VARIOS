@@ -290,10 +290,10 @@
   </wsdl:binding>
   <wsdl:service name="UtilService">
     <wsdl:port name="UtilServiceSoap" binding="tns:UtilServiceSoap">
-      <soap:address location="http://testint.thefactoryhka.com.ec/UtilService.asmx" />
+      <soap:address location="http://demoint.thefactoryhka.com.ec/UtilService.asmx" />
     </wsdl:port>
     <wsdl:port name="UtilServiceSoap12" binding="tns:UtilServiceSoap12">
-      <soap12:address location="http://testint.thefactoryhka.com.ec/UtilService.asmx" />
+      <soap12:address location="http://demoint.thefactoryhka.com.ec/UtilService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

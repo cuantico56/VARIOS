@@ -260,10 +260,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>TEST_WS_Ecuador_Integracion</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://testint.thefactoryhka.com.ec/UtilService.asmx%3fwsdl">
+    <WebReferenceUrl Include="http://demoint.thefactoryhka.com.ec/UtilService.asmx%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WS_CERT\</RelPath>
-      <UpdateFromURL>http://testint.thefactoryhka.com.ec/UtilService.asmx%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://demoint.thefactoryhka.com.ec/UtilService.asmx%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
