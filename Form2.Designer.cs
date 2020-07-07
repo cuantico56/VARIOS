@@ -141,10 +141,9 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(298, 72);
             this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(132, 20);
             this.textBox2.TabIndex = 9;
-            this.textBox2.Text = "ecuagoch2015";
+            this.textBox2.Text = "ECUAGOCH2018";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
