@@ -438,7 +438,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PRUEBA_TEST";
+            this.Text = "PRUEBA_DEMO";
             this.ResumeLayout(false);
             this.PerformLayout();
 

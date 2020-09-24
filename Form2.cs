@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace TEST
 {
     public partial class Form2 : Form
@@ -28,6 +29,8 @@ namespace TEST
 
         private async void button2_Click(object sender, EventArgs e) //AQUI HACEMOS LLAMADO DEL HILO
         {
+
+            
             timer1.Start();
             timer1.Enabled = true;
             
