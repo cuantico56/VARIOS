@@ -127,7 +127,7 @@ namespace TEST
             timer5.Enabled = true;
             timer6.Enabled = true;
 
-            richTextBox1.Text = string.Empty;
+                richTextBox1.Text = string.Empty;
                 richTextBox2.Text = string.Empty;
                 richTextBox6.Text = string.Empty;
                 richTextBox8.Text = string.Empty;
