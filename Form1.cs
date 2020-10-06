@@ -444,6 +444,11 @@ namespace TEST
                 var envi = new WS_Ecuador.Integracion();
                 var resp = new List<WS_Ecuador.RespuestaTimbradoTXT>();
 
+                var envi2 = new WS_DEMO.Integracion();
+                var resp2 = new List<WS_DEMO.RespuestaTimbradoTXT>();
+
+
+
                 ruc = textBox1.Text;
                 usuario = textBox2.Text;
                 contraseña = textBox3.Text;
