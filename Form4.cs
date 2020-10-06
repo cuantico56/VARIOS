@@ -45,7 +45,7 @@ namespace TEST
                
                 folderBrowserDialog1.Dispose();
             }
-            allfiles = System.IO.Directory.GetFiles(dialog.SelectedPath, "*.txt*", System.IO.SearchOption.AllDirectories);
+            allfiles = System.IO.Directory.GetFiles(dialog.SelectedPath, "*.txt*", System.IO.SearchOption.AllDirectories);    //CAPTUREN EXCEPCION
 
 
 
@@ -220,7 +220,7 @@ namespace TEST
             }
             secuencias.Clear();
 
-            int max = numsecuencias.Max();
+            int max = numsecuencias.Max();        //try catch  hacer
             int min = numsecuencias.Min();
             label5.Text = Convert.ToString(max);
             label6.Text = Convert.ToString(min);
@@ -270,20 +270,30 @@ namespace TEST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            NuSec.Clear();
-            dataGridView2.Rows.Clear();
-            int min=Convert.ToInt32(textBox4.Text);
-            int max=Convert.ToInt32(textBox5.Text);
-            int tope = max-min;
-            for (int i = 0; i <tope+1 ; i++)
-            {
-                dataGridView2.Rows.Add();
-                dataGridView2.Rows[i].Cells[0].Value = min.ToString().PadLeft(9, '0');
-                NuSec.Add(min);
-                ++min;
 
+            try
+            {
+                NuSec.Clear();
+                dataGridView2.Rows.Clear();
+                int min = Convert.ToInt32(textBox4.Text);
+                int max = Convert.ToInt32(textBox5.Text);
+                int tope = max - min;
+                for (int i = 0; i < tope + 1; i++)
+                {
+                    dataGridView2.Rows.Add();
+                    dataGridView2.Rows[i].Cells[0].Value = min.ToString().PadLeft(9, '0');
+                    NuSec.Add(min);
+                    ++min;
+
+                }
+                button1.Enabled = true;
             }
-            button1.Enabled = true;
+
+            catch (Exception a)
+            {
+              
+                MessageBox.Show("NO puede dejar en blanco: " + a);
+            }
 
 
 

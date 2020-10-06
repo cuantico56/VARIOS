@@ -64,15 +64,24 @@ namespace TEST
             dialog.InitialDirectory = "C:\\SAMIR\\ECUADOR\\INTEGRACION_ECUADOR\\DOC_TXT_PROBADOS";
 
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
 
-                textBox1.Text = openFileDialog1.FileName;
-                openFileDialog1.Dispose();
+                    textBox1.Text = openFileDialog1.FileName;
+                    openFileDialog1.Dispose();
+                }
+
+                byte[] cert = File.ReadAllBytes(textBox1.Text);
+                richTextBox1.Text = Convert.ToBase64String(cert);
+
             }
-
-            byte[] cert = File.ReadAllBytes(textBox1.Text);
-            richTextBox1.Text = Convert.ToBase64String(cert);
+            catch (Exception a)
+            {
+               
+                MessageBox.Show("Debes escojer un certificado:  " + a);
+            }
         }
 
 

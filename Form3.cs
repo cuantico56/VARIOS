@@ -68,13 +68,22 @@ namespace TEST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var xml = XmlReader.Create(textBox1.Text);
-            
-            ValidateXmlDocument(xml,textBox2.Text);
 
-            TextoComp.Text = Texto;
-            MessageBox.Show("Finalizado!");
-                                                  
+            try
+            {
+                var xml = XmlReader.Create(textBox1.Text);
+
+                ValidateXmlDocument(xml, textBox2.Text);
+
+                TextoComp.Text = Texto;
+                MessageBox.Show("Finalizado!");
+            }
+            catch (Exception a)
+            {
+                
+                MessageBox.Show("NO puede dejar en blanco: ");
+            }
+
         }
 
 
