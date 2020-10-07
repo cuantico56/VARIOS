@@ -441,75 +441,162 @@ namespace TEST
                 //********************************* AQUI SE ENVIAN LA CANTIDAD DE ARCHIVOS****************************************     
 
 
-                var envi = new WS_Ecuador.Integracion();
-                var resp = new List<WS_Ecuador.RespuestaTimbradoTXT>();
+                
+                
 
-                var envi2 = new WS_DEMO.Integracion();
-                var resp2 = new List<WS_DEMO.RespuestaTimbradoTXT>();
-
-
-
-                ruc = textBox1.Text;
-                usuario = textBox2.Text;
-                contraseña = textBox3.Text;
-
-
-
-
-                timer7.Start();
-
-                List<Task> Tareas = new List<Task>();
-
-
-                for (int j = 0; j < allfiles.Length; j++)
+                if (comboBox1.SelectedIndex == 0)  // Si seleccionamos TEST
                 {
-                    byte[] d = File.ReadAllBytes(allfiles[j]);
-                    Tareas.Add(Task.Run(() => { resp.Add(envi.Factura(ruc, usuario, contraseña, d, "facturaTEST4")); }));
+                    MessageBox.Show("Usted escogió: " + Convert.ToString(comboBox1.SelectedIndex));
+
+
+                    var envi = new WS_Ecuador.Integracion();
+                    var resp = new List<WS_Ecuador.RespuestaTimbradoTXT>();
+
+
+
+                    ruc = textBox1.Text;
+                    usuario = textBox2.Text;
+                    contraseña = textBox3.Text;
+
+
+
+
+                    timer7.Start();
+
+                    List<Task> Tareas = new List<Task>();
+
+
+                    for (int j = 0; j < allfiles.Length; j++)
+                    {
+                        byte[] d = File.ReadAllBytes(allfiles[j]);
+                        Tareas.Add(Task.Run(() => { resp.Add(envi.Factura(ruc, usuario, contraseña, d, "facturaTEST4")); }));
+
+
+                    }
+
+
+                    progressBar5.Value = 0;
+                    timer7.Enabled = true;
+
+
+
+                    await Task.WhenAll(Tareas.ToArray());
+
+                    timer7.Enabled = false;
+                    progressBar5.Value = 100;
+
+
+
+                    for (int i = 0; i < Tareas.Count; i++)
+                    {
+
+                        var r = resp[i];
+
+
+                        data.Add(r.UUID + ": Mensaje Error: " + r.MensajeError + "Numero Error: " + r.NumeroError + "\n");
+
+
+                        StreamWriter doc = File.AppendText(@"C:\SALIDA\ArchivoSalidas.txt");
+                        doc.WriteLine(r.UUID + ": Mensaje Error: " + r.MensajeError + "Numero Error: " + r.NumeroError + " Fecha: " + r.FechaHora + " Procesado: " + r.Procesado + "\n");
+                        doc.Close();
+
+
+                    }
+
+                    rep = "";
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        rep += data[i] + "\n";
+
+
+                    }
+
+
+                    richTextBox5.Text = rep;
+                }
+
+                if (comboBox1.SelectedIndex==1)    //si seleccionamos DEMO
+
+                    {
+                    MessageBox.Show("Usted escogió: " + Convert.ToString(comboBox1.SelectedIndex));
+                    var envi = new WS_DEMO.Integracion();
+                        var resp = new List<WS_DEMO.RespuestaTimbradoTXT>();
+
+
+
+                        ruc = textBox1.Text;
+                        usuario = textBox2.Text;
+                        contraseña = textBox3.Text;
+
+
+
+
+                        timer7.Start();
+
+                        List<Task> Tareas = new List<Task>();
+
+
+                        for (int j = 0; j < allfiles.Length; j++)
+                        {
+                            byte[] d = File.ReadAllBytes(allfiles[j]);
+                            Tareas.Add(Task.Run(() => { resp.Add(envi.Factura(ruc, usuario, contraseña, d, "facturaTEST4")); }));
+
+
+                        }
+
+
+                        progressBar5.Value = 0;
+                        timer7.Enabled = true;
+
+
+
+                        await Task.WhenAll(Tareas.ToArray());
+
+                        timer7.Enabled = false;
+                        progressBar5.Value = 100;
+
+
+
+                        for (int i = 0; i < Tareas.Count; i++)
+                        {
+
+                            var r = resp[i];
+
+
+                            data.Add(r.UUID + ": Mensaje Error: " + r.MensajeError + "Numero Error: " + r.NumeroError + "\n");
+
+
+                            StreamWriter doc = File.AppendText(@"C:\SALIDA\ArchivoSalidas.txt");
+                            doc.WriteLine(r.UUID + ": Mensaje Error: " + r.MensajeError + "Numero Error: " + r.NumeroError + " Fecha: " + r.FechaHora + " Procesado: " + r.Procesado + "\n");
+                            doc.Close();
+
+
+                        }
+
+                        rep = "";
+                        for (int i = 0; i < data.Count; i++)
+                        {
+                            rep += data[i] + "\n";
+
+
+                        }
+
+
+                        richTextBox5.Text = rep;
+                    }
+
+
+                if (comboBox1.SelectedIndex == -1)
+                {
+
+                    MessageBox.Show("NO fue procesada la petición, escoja una plataforma TEST/DEMO");
+                
 
 
                 }
 
 
-                progressBar5.Value = 0;
-                timer7.Enabled = true;
-
-
-
-                await Task.WhenAll(Tareas.ToArray());
-
-                timer7.Enabled = false;
-                progressBar5.Value = 100;
-
-
-
-                for (int i = 0; i < Tareas.Count; i++)
-                {
-
-                    var r = resp[i];
-
-
-                    data.Add(r.UUID + ": Mensaje Error: " + r.MensajeError + "Numero Error: " + r.NumeroError + "\n");
-
-
-                    StreamWriter doc = File.AppendText(@"C:\SALIDA\ArchivoSalidas.txt");
-                    doc.WriteLine(r.UUID + ": Mensaje Error: " + r.MensajeError + "Numero Error: " + r.NumeroError + " Fecha: " + r.FechaHora + " Procesado: " + r.Procesado + "\n");
-                    doc.Close();
-
-
-                }
-
-                rep = "";
-                for (int i = 0; i < data.Count; i++)
-                {
-                    rep += data[i] + "\n";
-
-
-                }
-
-
-                richTextBox5.Text = rep;
-
-            }
+              }
 
             catch (Exception a)
             {
