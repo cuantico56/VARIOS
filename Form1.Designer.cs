@@ -201,7 +201,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(158, 20);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "IX2JIR.QQX45";
+            this.textBox3.Text = "X,44LJBB96,6";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.UseSystemPasswordChar = true;
             // 

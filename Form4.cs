@@ -33,70 +33,103 @@ namespace TEST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            
+
+            try
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
 
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    string direccion = folderBrowserDialog1.SelectedPath;
+
+
+                    folderBrowserDialog1.Dispose();
+                }
+                allfiles = System.IO.Directory.GetFiles(dialog.SelectedPath, "*.txt*", System.IO.SearchOption.AllDirectories);    //CAPTUREN EXCEPCION
+
+
+
+
+
+
+
+                //******************************************************CAMBIAR SECUENCIA Y FECHA DE CADA ARCHIVO*****************************
+
+
+                for (int j = 0; j < allfiles.Length; j++)
+                {
+
+                    
+                   /* string[] camb2 = File.ReadAllLines(allfiles[j]);  //leemos cada linea
+                    int line = camb2.Length; //cantidad de lineas
+
+                    camb2[1] = camb2[1].Remove(7, 3);
+                    camb2[1] = camb2[1].Insert(7, textBox7.Text); //inserto punto emision
+
+
+
+                    camb2[1] = camb2[1].Remove(7, 3);
+                    camb2[1] = camb2[1].Insert(7, textBox7.Text); //inserto punto emision
+                    
+
+
+
+                    MessageBox.Show(camb2[1]);
+
+
+                  */
+
+
+
+                    string camb = File.ReadAllText(allfiles[j]);
+                    string[] contenido = camb.Split('|');
+                    int secuencialviejo;
+                    int secuencialnuevo;
+                    string FechaVieja = "";
+                    string FechaNueva = "";
+
+                    textBox2.Text = contenido[16];
+                    FechaVieja = contenido[17];
+                    contenido[14] = textBox6.Text;
+                    contenido[15] = textBox7.Text;
+
+
+                    secuencialviejo = Convert.ToInt32(contenido[16]);
+
+                    secuencialnuevo = NuSec[j];
+
+                    //int decimalLength = secuencialnuevo.ToString("D").Length + 6; 
+                    contenido[16] = NuSec.ToString().PadLeft(9, '0');
+                    textBox1.Text = contenido[16];
+
+                    DateTime hoy = new DateTime();
+                    hoy = DateTime.Now;
+
+                    FechaNueva = hoy.Day.ToString().PadLeft(2, '0') + "-" + hoy.Month.ToString().PadLeft(2, '0') + "-" + hoy.Year.ToString().PadLeft(2, '0') + " " + hoy.Hour.ToString().PadLeft(2, '0') + ":" + hoy.Minute.ToString().PadLeft(2, '0') + ":" + hoy.Second.ToString().PadLeft(2, '0');
+                    textBox3.Text = FechaNueva;
+
+
+                    string cambiado = camb.Replace(Convert.ToString(secuencialviejo), Convert.ToString(secuencialnuevo));
+                    camb = cambiado;
+                    cambiado = camb.Replace(FechaVieja, FechaNueva);
+
+                    StreamWriter escribir = File.CreateText(allfiles[j]);
+                    escribir.Write(cambiado);
+                    escribir.Dispose();
+                    escribir.Close();
+
+
+                }
+
+            }
+            catch(Exception b)
             {
 
-                string direccion = folderBrowserDialog1.SelectedPath;
-                
-               
-                folderBrowserDialog1.Dispose();
+                MessageBox.Show("ERROR: " + b);
             }
-            allfiles = System.IO.Directory.GetFiles(dialog.SelectedPath, "*.txt*", System.IO.SearchOption.AllDirectories);    //CAPTUREN EXCEPCION
-
-
-
-
-
-
-
-            //******************************************************CAMBIAR SECUENCIA Y FECHA DE CADA ARCHIVO*****************************
-
-
-            for (int j=0; j < allfiles.Length; j++){ 
-
-
-            string camb = File.ReadAllText(allfiles[j]);
-            string[] contenido = camb.Split('|');
-            int secuencialviejo;
-            int secuencialnuevo;
-            string FechaVieja="";
-            string FechaNueva = "";
-
-            textBox2.Text = contenido[16];
-            FechaVieja = contenido[17];
-
-            secuencialviejo = Convert.ToInt32(contenido[16]);
-
-            secuencialnuevo =NuSec[j] ;
-            
-            //int decimalLength = secuencialnuevo.ToString("D").Length + 6; 
-            contenido[16]= NuSec.ToString().PadLeft(9,'0');            
-            textBox1.Text = contenido[16];
-
-            DateTime hoy = new DateTime();
-            hoy = DateTime.Now;
-
-            FechaNueva = hoy.Day.ToString().PadLeft(2, '0') + "-" + hoy.Month.ToString().PadLeft(2, '0') + "-" + hoy.Year.ToString().PadLeft(2, '0') + " " + hoy.Hour.ToString().PadLeft(2, '0') + ":" + hoy.Minute.ToString().PadLeft(2, '0') + ":" + hoy.Second.ToString().PadLeft(2, '0');
-                textBox3.Text = FechaNueva;
-
-
-            string cambiado = camb.Replace(Convert.ToString(secuencialviejo), Convert.ToString(secuencialnuevo));
-             camb = cambiado;
-            cambiado = camb.Replace(FechaVieja, FechaNueva);
-
-            StreamWriter escribir = File.CreateText(allfiles[j]);
-            escribir.Write(cambiado);
-            escribir.Dispose();
-            escribir.Close();
-            
-                
-             }
-
-            
 
 
 
