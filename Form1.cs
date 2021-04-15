@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,19 @@ namespace TEST
         public Form1()
         {
             InitializeComponent();
+            label5.Enabled = false;
+            label5.Visible = false;
+            label6.Enabled = false;
+            label6.Visible = false;
+            label7.Enabled = false;
+            label7.Visible = false;
+            textBox4.Enabled = false;
+            textBox4.Visible = false;
+            textBox5.Enabled = false;
+            textBox5.Visible = false;
+            textBox6.Enabled = false;
+            textBox6.Visible = false;
+
         }
 
 
@@ -29,6 +43,7 @@ namespace TEST
 
         public List<string> dir = new List<string>(); //aqui almacenamos los numero de los documentos
         public List<string> data = new List<string>(); //Aqui almacenamos los mensajes de los objetos factura
+        public List<string> numFact = new List<string>();
         public int codigo = 0;
         public int cod1 = 95;
         public int cod2 = 95;
@@ -43,13 +58,15 @@ namespace TEST
         public string ruc;
         public string usuario;
         public string contraseña;
-
-
-
-
-
-
-
+        public string Id_Max;
+        public byte[] blit;
+        public string punto_emision;
+        public string cod_establecimiento;
+        public string secuencial;
+        public int secuencia;
+        public string mensaje = "19";
+        public string facturaNueva;
+        public string fecha;
 
 
 
@@ -631,6 +648,276 @@ namespace TEST
             
             
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            //***************LEEMOS EN LA BDD EL ULTIMO SECUENCIAL ENVIADO e incrementamos*************
+
+            numFact = Bdd();
+            
+            numFact = Next(numFact);
+            
+
+            // ****************AQUI ENVIAMOS UNA FACTURA RAPIDA*******************
+            
+            mensaje = "19";
+
+
+            while (mensaje == "19")
+            {
+
+                if (checkBox1.Checked == false)
+                {
+                    
+                    fecha = Fechas();  
+                    facturaNueva = "01|SAMIR CASTILLO|04/1791282183001|scastillo@thefactoryhka.com|0011223344|CALLE PRINCIPAL|PICHINCHA|PICHINCHA2|PICHINCHA3|ECUADOR|12345|SI||\r\n02|" + numFact[0] + "|" + numFact[1] + "|" + numFact[2] + "|" + fecha + "|01|||||00||70000700|3||||||||||||0.00|10.00|00.00|00.00|10.00|0.00|0.00|10.00|77777.77|0.00|0.00|10.00|DOLAR|||||||||||||||||01/01/01|10.00/0/0|0/0/0|\r\n03|0000000000002|CEBOLLA|1.000|KGM|10.00|0.00|10.00||0|0.00|0.00|0|0.00|0.00|0.00||0.00|0.00|0.00|||||||||||||AGREGUE COMENT|AGREGUE COMENT|";
+                }
+                if (checkBox1.Checked==true)
+                {
+                    fecha = Fechas();
+                    numFact[0] = textBox4.Text;
+                    numFact[1] = textBox5.Text;
+                    numFact[2] = textBox6.Text;
+                    facturaNueva = "01|SAMIR CASTILLO|04/1791282183001|scastillo@thefactoryhka.com|0011223344|CALLE PRINCIPAL|PICHINCHA|PICHINCHA2|PICHINCHA3|ECUADOR|12345|SI||\r\n02|" + numFact[0] + "|" + numFact[1] + "|" + numFact[2] + "|"+fecha+"|01|||||00||70000700|3||||||||||||0.00|10.00|00.00|00.00|10.00|0.00|0.00|10.00|77777.77|0.00|0.00|10.00|DOLAR|||||||||||||||||01/01/01|10.00/0/0|0/0/0|\r\n03|0000000000002|CEBOLLA|1.000|KGM|10.00|0.00|10.00||0|0.00|0.00|0|0.00|0.00|0.00||0.00|0.00|0.00|||||||||||||AGREGUE COMENT|AGREGUE COMENT|";
+
+                }
+
+            
+
+                System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+                
+                
+            
+                blit = Encoding.ASCII.GetBytes(facturaNueva);  //Se lleva a bytes
+
+                try
+                {
+                    WS_DEMO.Integracion FactNu = new WS_DEMO.Integracion();
+                    var res = FactNu.Factura("1792433738001", "usuario1", "dfacture", blit, "FacturaRapida");
+                    MenEstatus = "codigo: " + Convert.ToString(res.MensajeError) + "\n" + "Mensaje: " + res.NumeroError + "\n" + "UUID: " + res.UUID;
+                    mensaje = res.NumeroError;
+                    richTextBox5.Text = MenEstatus;
+                    if (mensaje == "19")
+                    {
+
+                        numFact = Next(numFact);
+                        textBox4.Text = numFact[0];
+                        textBox5.Text = numFact[1];
+                        textBox6.Text = numFact[2];
+                        richTextBox5.Text= "Se enviara otra secuencia...";
+                                               
+                    }
+
+                    if (mensaje=="95") {
+
+                        MessageBox.Show("Finalizado");
+                        numFact.Clear();
+                        return;
+                    
+                    }
+                    
+                    FactNu.Dispose();
+
+                }
+                catch (Exception v)
+                {
+
+                    MessageBox.Show("Hubo un error: " + v);
+                }
+                
+
+            }
+
+            MessageBox.Show("Se envio Factura: "+ numFact[0]+"-"+numFact[1]+"-"+numFact[2]);
+            numFact.Clear();
+
+
+
+        }
+
+
+
+        private void richTextBox5_Click(object sender, EventArgs e)
+        {
+            richTextBox5.Clear();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+
+            if (checkBox1.Checked == true)
+            {
+                label5.Enabled = true;
+                label5.Visible = true;
+                label6.Enabled = true;
+                label6.Visible = true;
+                label7.Enabled = true;
+                label7.Visible = true;
+                textBox4.Enabled = true;
+                textBox4.Visible = true;
+                textBox5.Enabled = true;
+                textBox5.Visible = true;
+                textBox6.Enabled = true;
+                textBox6.Visible = true;
+
+            }
+            else
+            {
+                label5.Enabled = false;
+                label5.Visible = false;
+                label6.Enabled = false;
+                label6.Visible = false;
+                label7.Enabled = false;
+                label7.Visible = false;
+                textBox4.Enabled = false;
+                textBox4.Visible = false;
+                textBox5.Enabled = false;
+                textBox5.Visible = false;
+                textBox6.Enabled = false;
+                textBox6.Visible = false;
+
+            }
+
+        }
+
+//**************************FUNCION QUE ENTREGA STRING CON FECHA FORMATO *****************
+        public string Fechas()
+        {
+            string fecha;
+            DateTime fe = new DateTime();
+            fe = DateTime.Now;
+            fecha = fe.Day.ToString().PadLeft(2, '0') + "-" + fe.Month.ToString().PadLeft(2, '0') + "-" + fe.Year.ToString().PadLeft(2, '0') + " " + fe.Hour.ToString().PadLeft(2, '0') + ":" + fe.Minute.ToString().PadLeft(2, '0') + ":" + fe.Second.ToString().PadLeft(2, '0');
+
+            return fecha;
+        }
+
+
+
+        //****************************FUNCION LEER BDD Y ENTREGAR LISTA***************
+        //***** La funcion entrega una lista donde contiene sucursal,punto emision, secuencial
+
+
+        public List<string> Bdd()
+        {
+            List<string> next = new List<string>();
+            MySqlConnection con = new MySqlConnection("SERVER= 172.16.70.4" + ";" + "DATABASE=demoecfel" + ";" + "UID=scastillo" + ";" + "PASSWORD=Tfhka2019..@" + ";");
+            MySqlCommand comand = new MySqlCommand();
+            comand.CommandText = "SELECT cod_establecimiento,punto_emision,secuencial FROM demoecfel.invoices WHERE id=(SELECT MAX(id) FROM demoecfel.invoices WHERE activo =1 limit 1);";
+            comand.Connection = con;
+
+            try
+            {
+                con.Open();
+
+
+                MySqlDataReader resp = comand.ExecuteReader();
+
+                while (resp.Read())
+                {
+                    next.Add(resp.GetString(0));
+                    next.Add(resp.GetString(1));
+                    next.Add(resp.GetString(2));
+                    
+
+                }
+
+                resp.Dispose();
+
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Connection Error string '" + "' [" + ex.Number + "]: " + ex.Message);
+            }
+
+            con.Dispose();
+            con.Close();
+            return next;
+            
+
+        }
+
+
+//****************USAREMOS ESTA FUNCION PARA INCREMENTAR LOS SECUENCIALES DE LAS LISTAS*******
+        private List<string> Next(List<string> boo)
+        {
+            int secuencia = Convert.ToInt32(boo[2]);
+            secuencia = secuencia + 1;
+
+            boo[2] = secuencia.ToString().PadLeft(9, '0');
+
+
+            return boo;
+        }
+
+
+
+//**************BUSCAMOS EN LA BDD TODOS LOS ULTIMOS INDICES FACT,NC,ND,GUIA,RETE,LIQU *******************
+        private void button2_Click(object sender, EventArgs e)
+        {
+         
+                List<string> next = new List<string>();
+                MySqlConnection con = new MySqlConnection("SERVER= 172.16.70.4" + ";" + "DATABASE=demoecfel" + ";" + "UID=scastillo" + ";" + "PASSWORD=Tfhka2019..@" + ";");
+                MySqlCommand comand = new MySqlCommand();
+            comand.CommandText = "SELECT cod_establecimiento ,punto_emision ,secuencial FROM demoecfel.invoices WHERE id=(SELECT MAX(id) FROM demoecfel.invoices WHERE activo =1) UNION ALL SELECT cod_establecimiento, punto_emision, secuencial FROM demoecfel.credit_notes cn WHERE id = (SELECT MAX(id) FROM demoecfel.credit_notes WHERE activo = 1) UNION ALL SELECT cod_establecimiento, punto_emision, secuencial FROM demoecfel.debt_notes WHERE id = (SELECT MAX(id) FROM demoecfel.debt_notes WHERE activo = 1) UNION ALL SELECT cod_establecimiento, punto_emision, secuencial FROM demoecfel.reference_guides WHERE id = (SELECT MAX(id) FROM demoecfel.reference_guides WHERE activo = 1) UNION ALL SELECT cod_establecimiento, punto_emision, secuencial FROM demoecfel.retention_receipts WHERE id = (SELECT MAX(id) FROM demoecfel.retention_receipts WHERE activo = 1) UNION ALL SELECT cod_establecimiento, punto_emision, secuencial FROM demoecfel.psclearances WHERE id = (SELECT MAX(id) FROM demoecfel.psclearances WHERE activo = 1);";
+                comand.Connection = con;
+
+                try
+                {
+                    con.Open();
+
+
+                    MySqlDataReader resp = comand.ExecuteReader();
+               
+                MessageBox.Show("Llego mensaje");
+
+                    while (resp.Read())
+                    {
+                    
+                        next.Add(resp.GetString(0));
+                        next.Add(resp.GetString(1));
+                        next.Add(resp.GetString(2));           
+
+                }
+
+
+                    resp.Dispose();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Connection Error string '" + "' [" + ex.Number + "]: " + ex.Message);
+                }
+
+            int t = next.Count;
+            int i = 0;
+            for (i = 0; i < t; i+=3)
+            {
+                MessageBox.Show(next[i] + "-" + next[i + 1] + "-" + next[i + 2]);
+
+            }
+
+           
+                con.Dispose();
+                con.Close();
+           
+
+
+            
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form form5 = new Form5();
+            form5.Show();
+            this.Hide();
         }
     }
     }
