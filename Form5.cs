@@ -45,12 +45,7 @@ namespace TEST
 
 
             MessageBox.Show(resp.Mensaje + "--"+resp.Codigo + "--" + "\r\n" + resp.Archivo);
-            
-
-            
-
-            
-            
+           
 
         }
 
