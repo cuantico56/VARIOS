@@ -32,20 +32,109 @@ namespace TEST
         private void button2_Click(object sender, EventArgs e)
         {
 
-            OTEST.Service servicio = new OTEST.Service(); //CREAMOS SERVICIO
-            OTEST.PeticionFactura pet = new OTEST.PeticionFactura(); //Creamos una peticion
-            Factura fact = new OTEST.Factura(); // Creamos una factura
-            OTEST.infoFactura info = new OTEST.infoFactura(); //Creamos objeto infofactura            
-            pet.Documento = fact; //Agregamos la factura a la clase documento
-            pet.Documento.InfoFactura = info; // Se agrega info a la factura infofactura
-            pet.Clave = "12345";
-            pet.RUC = "17999888222";
-            pet.Usuario = "usuario1";
-            var resp = servicio.EnviarFactura(pet);
+            try
+            {
+                OTEST.Service servicio = new OTEST.Service(); //CREAMOS SERVICIO
+                OTEST.PeticionFactura pet = new OTEST.PeticionFactura(); //Creamos una peticion
+                Factura fact = new OTEST.Factura(); // Creamos una factura            
+                OTEST.InfoTributaria infotrib = new InfoTributaria();
+                fact.InfoTributaria = infotrib;
+                pet.Documento = fact;
+                fact.InfoTributaria.NombreComercial = "ECUAGOCH";
+                fact.InfoTributaria.AgenteRetencion = "SI";
+                fact.InfoTributaria.RazonSocial = "ECUAGOCH";
+                fact.InfoTributaria.Ruc = "1700000000001";
+                fact.InfoTributaria.CodigoNumerico = "01";
+                fact.InfoTributaria.Estab = "001";
+                fact.InfoTributaria.PtoEmi = "001";
+                fact.InfoTributaria.Secuencial = "000000222";
+                fact.InfoTributaria.DirMatriz = "En un lugar de la mancha...";
+
+                OTEST.InfoFactura infoFactura = new InfoFactura();
+                fact.InfoFactura = infoFactura;
+                infoFactura.FechaEmision = "01/01/2000";
+                infoFactura.DirEstablecimiento = "dirEstablecimiento0";
+                infoFactura.ContribuyenteEspecial = "Contribuyente especial";
+                infoFactura.ObligadoContabilidad = "SI";
 
 
-            MessageBox.Show(resp.Mensaje + "--"+resp.Codigo + "--" + "\r\n" + resp.Archivo);
-           
+//************************CREAMOS OTROS RUBREOS TERCEROS*****************************
+                Rubro rubro1 = new Rubro();   // se deben instanciar
+                Rubro rubro2 = new Rubro();
+                Rubro rubro3 = new Rubro();
+                fact.OtrosRubrosTerceros = new Rubro[3]; // se instancia un array tipo <rubro
+                fact.OtrosRubrosTerceros[0] = rubro1;  // se coloca  cada rubro en el array
+                fact.OtrosRubrosTerceros[1] = rubro2;  // se coloca  cada rubro en el array
+                fact.OtrosRubrosTerceros[2] = rubro3;  // se coloca  cada rubro en el array
+
+
+//**********************************INFOADICIONAL**************************************
+
+                infoAdicional info1 = new infoAdicional();
+                infoAdicional info2 = new infoAdicional();
+                info1.Nombre = "Inofrmacion";
+                info1.Valor = "1234567";
+                info2 = info1;
+
+                fact.CampoAdicional = new infoAdicional[2];
+                fact.CampoAdicional[0] = info1;
+                fact.CampoAdicional[1] = info2;
+
+
+                //*****************************DETALLES***********************************************
+                
+                Detalle detalle1 = new Detalle();
+                Detalle detalle2 = new Detalle();
+                detalle1.CodigoPrincipal = "Detalle detalle1 = new Detalle()";
+                detalle1.CodigoAuxiliar = "codigo auxiliar";
+                detalle1.Descripcion = "descriplkugyjf";
+                detalle1.UnidadMedida = "UND";
+                detalle1.Cantidad = "1";
+                detalle1.PrecioUnitario = "10.00";
+                detalle1.PrecioSinSubsidio = "0.00";
+                detalle1.Descuento = "0.00";
+                detalle1.PrecioTotalSinImpuesto = "10.00";
+                detalle1.DetAdicional = new DetAdicional[2];
+                var detAd1 = new DetAdicional();
+                var detAd2 = new DetAdicional();
+                
+
+
+
+                fact.Detalles = new Detalle[2];
+                fact.Detalles[0] = detalle1;
+                fact.Detalles[1] = detalle2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//**********************************ENVIO PETICION***************************
+                pet.Clave = "12345";
+                pet.RUC = "17999888222";
+                pet.Usuario = "usuario1";
+                var resp = servicio.EnviarFactura(pet);
+
+
+                MessageBox.Show(resp.Mensaje + "--" + resp.Codigo + "--" + "\r\n" + resp.Archivo);
+            }
+
+
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+
+            }
 
         }
 

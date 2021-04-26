@@ -29,6 +29,8 @@ namespace TEST.OTEST {
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService", Namespace="http://tempuri.org/")]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RespuestaBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Respuesta))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoDetalleBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PeticionBase))]
     public partial class Service : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
@@ -469,32 +471,44 @@ namespace TEST.OTEST {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject")]
     public partial class Factura {
         
-        private detalle[] detallesField;
-        
-        private infoFactura infoFacturaField;
-        
-        private infoTributaria infoTributariaField;
-        
-        private string versionField;
-        
         private infoAdicional[] campoAdicionalField;
         
-        private infoSustitutivaGuiaRemision infoSustitutivaGuiaRemisionField;
+        private Detalle[] detallesField;
+        
+        private InfoFactura infoFacturaField;
+        
+        private InfoSustitutivaGuiaRemision infoSustitutivaGuiaRemisionField;
+        
+        private InfoTributaria infoTributariaField;
         
         private maquinaFiscal maquinafiscalField;
         
-        private tipoNegociable negociableField;
+        private TipoNegociable negociableField;
         
-        private rubro[] otrosRubrosTercerosField;
+        private Rubro[] otrosRubrosTercerosField;
         
-        private reembolsoDetalle[] reembolsosField;
+        private ReembolsoDetalle[] reembolsosField;
         
-        private retencion[] retencionesField;
+        private Retencion[] retencionesField;
+        
+        private string versionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
+        public infoAdicional[] CampoAdicional {
+            get {
+                return this.campoAdicionalField;
+            }
+            set {
+                this.campoAdicionalField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public detalle[] Detalles {
+        public Detalle[] Detalles {
             get {
                 return this.detallesField;
             }
@@ -505,7 +519,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoFactura InfoFactura {
+        public InfoFactura InfoFactura {
             get {
                 return this.infoFacturaField;
             }
@@ -516,12 +530,81 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoSustitutivaGuiaRemision InfoSustitutivaGuiaRemision {
+            get {
+                return this.infoSustitutivaGuiaRemisionField;
+            }
+            set {
+                this.infoSustitutivaGuiaRemisionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
             set {
                 this.infoTributariaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public maquinaFiscal Maquinafiscal {
+            get {
+                return this.maquinafiscalField;
+            }
+            set {
+                this.maquinafiscalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public TipoNegociable Negociable {
+            get {
+                return this.negociableField;
+            }
+            set {
+                this.negociableField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+        public Rubro[] OtrosRubrosTerceros {
+            get {
+                return this.otrosRubrosTercerosField;
+            }
+            set {
+                this.otrosRubrosTercerosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+        public ReembolsoDetalle[] Reembolsos {
+            get {
+                return this.reembolsosField;
+            }
+            set {
+                this.reembolsosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+        public Retencion[] Retenciones {
+            get {
+                return this.retencionesField;
+            }
+            set {
+                this.retencionesField = value;
             }
         }
         
@@ -535,87 +618,6 @@ namespace TEST.OTEST {
                 this.versionField = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
-        public infoAdicional[] campoAdicional {
-            get {
-                return this.campoAdicionalField;
-            }
-            set {
-                this.campoAdicionalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoSustitutivaGuiaRemision infoSustitutivaGuiaRemision {
-            get {
-                return this.infoSustitutivaGuiaRemisionField;
-            }
-            set {
-                this.infoSustitutivaGuiaRemisionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public maquinaFiscal maquinafiscal {
-            get {
-                return this.maquinafiscalField;
-            }
-            set {
-                this.maquinafiscalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public tipoNegociable negociable {
-            get {
-                return this.negociableField;
-            }
-            set {
-                this.negociableField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-        public rubro[] otrosRubrosTerceros {
-            get {
-                return this.otrosRubrosTercerosField;
-            }
-            set {
-                this.otrosRubrosTercerosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-        public reembolsoDetalle[] reembolsos {
-            get {
-                return this.reembolsosField;
-            }
-            set {
-                this.reembolsosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-        public retencion[] retenciones {
-            get {
-                return this.retencionesField;
-            }
-            set {
-                this.retencionesField = value;
-            }
-        }
     }
     
     /// <remarks/>
@@ -623,151 +625,8 @@ namespace TEST.OTEST {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-    public partial class detalle {
-        
-        private string cantidadField;
-        
-        private string codigoAuxiliarField;
-        
-        private string codigoPrincipalField;
-        
-        private string descripcionField;
-        
-        private string descuentoField;
-        
-        private detAdicional[] detAdicionalField;
-        
-        private impuesto[] impuestosField;
-        
-        private string precioSinSubsidioField;
-        
-        private string precioTotalSinImpuestoField;
-        
-        private string precioUnitarioField;
-        
-        private string unidadMedidaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string cantidad {
-            get {
-                return this.cantidadField;
-            }
-            set {
-                this.cantidadField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigoAuxiliar {
-            get {
-                return this.codigoAuxiliarField;
-            }
-            set {
-                this.codigoAuxiliarField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigoPrincipal {
-            get {
-                return this.codigoPrincipalField;
-            }
-            set {
-                this.codigoPrincipalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string descripcion {
-            get {
-                return this.descripcionField;
-            }
-            set {
-                this.descripcionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string descuento {
-            get {
-                return this.descuentoField;
-            }
-            set {
-                this.descuentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public detAdicional[] detAdicional {
-            get {
-                return this.detAdicionalField;
-            }
-            set {
-                this.detAdicionalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public impuesto[] impuestos {
-            get {
-                return this.impuestosField;
-            }
-            set {
-                this.impuestosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string precioSinSubsidio {
-            get {
-                return this.precioSinSubsidioField;
-            }
-            set {
-                this.precioSinSubsidioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string precioTotalSinImpuesto {
-            get {
-                return this.precioTotalSinImpuestoField;
-            }
-            set {
-                this.precioTotalSinImpuestoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string precioUnitario {
-            get {
-                return this.precioUnitarioField;
-            }
-            set {
-                this.precioUnitarioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string unidadMedida {
-            get {
-                return this.unidadMedidaField;
-            }
-            set {
-                this.unidadMedidaField = value;
-            }
-        }
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
+    public partial class infoAdicional : DetAdicional {
     }
     
     /// <remarks/>
@@ -777,7 +636,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-    public partial class detAdicional {
+    public partial class DetAdicional {
         
         private string nombreField;
         
@@ -785,7 +644,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string nombre {
+        public string Nombre {
             get {
                 return this.nombreField;
             }
@@ -796,7 +655,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valor {
+        public string Valor {
             get {
                 return this.valorField;
             }
@@ -986,7 +845,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoCompRetencionATS {
+    public partial class InfoCompRetencionATS {
         
         private string contribuyenteEspecialField;
         
@@ -1010,7 +869,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string contribuyenteEspecial {
+        public string ContribuyenteEspecial {
             get {
                 return this.contribuyenteEspecialField;
             }
@@ -1021,7 +880,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirEstablecimiento {
+        public string DirEstablecimiento {
             get {
                 return this.dirEstablecimientoField;
             }
@@ -1032,7 +891,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmision {
+        public string FechaEmision {
             get {
                 return this.fechaEmisionField;
             }
@@ -1043,7 +902,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionSujetoRetenido {
+        public string IdentificacionSujetoRetenido {
             get {
                 return this.identificacionSujetoRetenidoField;
             }
@@ -1054,7 +913,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string obligadoContabilidad {
+        public string ObligadoContabilidad {
             get {
                 return this.obligadoContabilidadField;
             }
@@ -1065,7 +924,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string parteRel {
+        public string ParteRel {
             get {
                 return this.parteRelField;
             }
@@ -1076,7 +935,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string periodoFiscal {
+        public string PeriodoFiscal {
             get {
                 return this.periodoFiscalField;
             }
@@ -1087,7 +946,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialSujetoRetenido {
+        public string RazonSocialSujetoRetenido {
             get {
                 return this.razonSocialSujetoRetenidoField;
             }
@@ -1098,7 +957,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionSujetoRetenido {
+        public string TipoIdentificacionSujetoRetenido {
             get {
                 return this.tipoIdentificacionSujetoRetenidoField;
             }
@@ -1109,7 +968,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoSujetoRetenido {
+        public string TipoSujetoRetenido {
             get {
                 return this.tipoSujetoRetenidoField;
             }
@@ -1125,7 +984,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class pagoRetencionATS {
+    public partial class PagoRetencionATS {
         
         private string formaPagoField;
         
@@ -1133,7 +992,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string formaPago {
+        public string FormaPago {
             get {
                 return this.formaPagoField;
             }
@@ -1144,7 +1003,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string total {
+        public string Total {
             get {
                 return this.totalField;
             }
@@ -1159,291 +1018,8 @@ namespace TEST.OTEST {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class docSustento {
-        
-        private string aplicConvDobTribField;
-        
-        private string codDocSustentoField;
-        
-        private string codSupaisEfecPagostentoField;
-        
-        private string codSustentoField;
-        
-        private string fechaEmisionDocSustentoField;
-        
-        private string fechaRegistroContableField;
-        
-        private string importeTotalField;
-        
-        private impuesto[] impuestoDocSustentoField;
-        
-        private string numAutDocSustentoField;
-        
-        private string numDocSustentoField;
-        
-        private string pagExtSujRetNorLegField;
-        
-        private string pagoLocExtField;
-        
-        private string pagoRegFisField;
-        
-        private pagoRetencionATS[] pagosField;
-        
-        private reembolsoDetalle[] reembolsosField;
-        
-        private retencion[] retencionesField;
-        
-        private string tipoRegiField;
-        
-        private string totalBaseImponibleReembolsoField;
-        
-        private string totalComprobantesReembolsoField;
-        
-        private string totalImpuestoReembolsoField;
-        
-        private string totalSinImpuestosField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string aplicConvDobTrib {
-            get {
-                return this.aplicConvDobTribField;
-            }
-            set {
-                this.aplicConvDobTribField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDocSustento {
-            get {
-                return this.codDocSustentoField;
-            }
-            set {
-                this.codDocSustentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codSupaisEfecPagostento {
-            get {
-                return this.codSupaisEfecPagostentoField;
-            }
-            set {
-                this.codSupaisEfecPagostentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codSustento {
-            get {
-                return this.codSustentoField;
-            }
-            set {
-                this.codSustentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmisionDocSustento {
-            get {
-                return this.fechaEmisionDocSustentoField;
-            }
-            set {
-                this.fechaEmisionDocSustentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaRegistroContable {
-            get {
-                return this.fechaRegistroContableField;
-            }
-            set {
-                this.fechaRegistroContableField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string importeTotal {
-            get {
-                return this.importeTotalField;
-            }
-            set {
-                this.importeTotalField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public impuesto[] impuestoDocSustento {
-            get {
-                return this.impuestoDocSustentoField;
-            }
-            set {
-                this.impuestoDocSustentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string numAutDocSustento {
-            get {
-                return this.numAutDocSustentoField;
-            }
-            set {
-                this.numAutDocSustentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string numDocSustento {
-            get {
-                return this.numDocSustentoField;
-            }
-            set {
-                this.numDocSustentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string pagExtSujRetNorLeg {
-            get {
-                return this.pagExtSujRetNorLegField;
-            }
-            set {
-                this.pagExtSujRetNorLegField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string pagoLocExt {
-            get {
-                return this.pagoLocExtField;
-            }
-            set {
-                this.pagoLocExtField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string pagoRegFis {
-            get {
-                return this.pagoRegFisField;
-            }
-            set {
-                this.pagoRegFisField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public pagoRetencionATS[] pagos {
-            get {
-                return this.pagosField;
-            }
-            set {
-                this.pagosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public reembolsoDetalle[] reembolsos {
-            get {
-                return this.reembolsosField;
-            }
-            set {
-                this.reembolsosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public retencion[] retenciones {
-            get {
-                return this.retencionesField;
-            }
-            set {
-                this.retencionesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoRegi {
-            get {
-                return this.tipoRegiField;
-            }
-            set {
-                this.tipoRegiField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalBaseImponibleReembolso {
-            get {
-                return this.totalBaseImponibleReembolsoField;
-            }
-            set {
-                this.totalBaseImponibleReembolsoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalComprobantesReembolso {
-            get {
-                return this.totalComprobantesReembolsoField;
-            }
-            set {
-                this.totalComprobantesReembolsoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalImpuestoReembolso {
-            get {
-                return this.totalImpuestoReembolsoField;
-            }
-            set {
-                this.totalImpuestoReembolsoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalSinImpuestos {
-            get {
-                return this.totalSinImpuestosField;
-            }
-            set {
-                this.totalSinImpuestosField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-    public partial class impuesto {
+    public partial class Impuesto {
         
         private string baseImponibleField;
         
@@ -1457,7 +1033,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string baseImponible {
+        public string BaseImponible {
             get {
                 return this.baseImponibleField;
             }
@@ -1468,7 +1044,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigo {
+        public string Codigo {
             get {
                 return this.codigoField;
             }
@@ -1479,7 +1055,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigoPorcentaje {
+        public string CodigoPorcentaje {
             get {
                 return this.codigoPorcentajeField;
             }
@@ -1490,7 +1066,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tarifa {
+        public string Tarifa {
             get {
                 return this.tarifaField;
             }
@@ -1501,7 +1077,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valor {
+        public string Valor {
             get {
                 return this.valorField;
             }
@@ -1517,15 +1093,298 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class reembolsoDetalle {
+    public partial class DocSustento {
+        
+        private string aplicConvDobTribField;
+        
+        private string codDocSustentoField;
+        
+        private string codSupaisEfecPagostentoField;
+        
+        private string codSustentoField;
+        
+        private string fechaEmisionDocSustentoField;
+        
+        private string fechaRegistroContableField;
+        
+        private string importeTotalField;
+        
+        private Impuesto[] impuestoDocSustentoField;
+        
+        private string numAutDocSustentoField;
+        
+        private string numDocSustentoField;
+        
+        private string pagExtSujRetNorLegField;
+        
+        private string pagoLocExtField;
+        
+        private string pagoRegFisField;
+        
+        private PagoRetencionATS[] pagosField;
+        
+        private ReembolsoDetalle[] reembolsosField;
+        
+        private Retencion[] retencionesField;
+        
+        private string tipoRegiField;
+        
+        private string totalBaseImponibleReembolsoField;
+        
+        private string totalComprobantesReembolsoField;
+        
+        private string totalImpuestoReembolsoField;
+        
+        private string totalSinImpuestosField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string AplicConvDobTrib {
+            get {
+                return this.aplicConvDobTribField;
+            }
+            set {
+                this.aplicConvDobTribField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodDocSustento {
+            get {
+                return this.codDocSustentoField;
+            }
+            set {
+                this.codDocSustentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodSupaisEfecPagostento {
+            get {
+                return this.codSupaisEfecPagostentoField;
+            }
+            set {
+                this.codSupaisEfecPagostentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodSustento {
+            get {
+                return this.codSustentoField;
+            }
+            set {
+                this.codSustentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string FechaEmisionDocSustento {
+            get {
+                return this.fechaEmisionDocSustentoField;
+            }
+            set {
+                this.fechaEmisionDocSustentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string FechaRegistroContable {
+            get {
+                return this.fechaRegistroContableField;
+            }
+            set {
+                this.fechaRegistroContableField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string ImporteTotal {
+            get {
+                return this.importeTotalField;
+            }
+            set {
+                this.importeTotalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+        public Impuesto[] ImpuestoDocSustento {
+            get {
+                return this.impuestoDocSustentoField;
+            }
+            set {
+                this.impuestoDocSustentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NumAutDocSustento {
+            get {
+                return this.numAutDocSustentoField;
+            }
+            set {
+                this.numAutDocSustentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NumDocSustento {
+            get {
+                return this.numDocSustentoField;
+            }
+            set {
+                this.numDocSustentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PagExtSujRetNorLeg {
+            get {
+                return this.pagExtSujRetNorLegField;
+            }
+            set {
+                this.pagExtSujRetNorLegField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PagoLocExt {
+            get {
+                return this.pagoLocExtField;
+            }
+            set {
+                this.pagoLocExtField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PagoRegFis {
+            get {
+                return this.pagoRegFisField;
+            }
+            set {
+                this.pagoRegFisField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public PagoRetencionATS[] Pagos {
+            get {
+                return this.pagosField;
+            }
+            set {
+                this.pagosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public ReembolsoDetalle[] Reembolsos {
+            get {
+                return this.reembolsosField;
+            }
+            set {
+                this.reembolsosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Retencion[] Retenciones {
+            get {
+                return this.retencionesField;
+            }
+            set {
+                this.retencionesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TipoRegi {
+            get {
+                return this.tipoRegiField;
+            }
+            set {
+                this.tipoRegiField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TotalBaseImponibleReembolso {
+            get {
+                return this.totalBaseImponibleReembolsoField;
+            }
+            set {
+                this.totalBaseImponibleReembolsoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TotalComprobantesReembolso {
+            get {
+                return this.totalComprobantesReembolsoField;
+            }
+            set {
+                this.totalComprobantesReembolsoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TotalImpuestoReembolso {
+            get {
+                return this.totalImpuestoReembolsoField;
+            }
+            set {
+                this.totalImpuestoReembolsoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TotalSinImpuestos {
+            get {
+                return this.totalSinImpuestosField;
+            }
+            set {
+                this.totalSinImpuestosField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+    public partial class ReembolsoDetalle {
         
         private string codDocReembolsoField;
         
         private string codPaisPagoProveedorReembolsoField;
         
-        private compensacion[] compensacionReembolsoField;
+        private Compensacion[] compensacionesReembolsoField;
         
-        private impuesto[] detalleImpuestosField;
+        private ImpuestoDetalle[] detalleImpuestosField;
         
         private string estabDocReembolsoField;
         
@@ -1545,7 +1404,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDocReembolso {
+        public string CodDocReembolso {
             get {
                 return this.codDocReembolsoField;
             }
@@ -1556,7 +1415,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codPaisPagoProveedorReembolso {
+        public string CodPaisPagoProveedorReembolso {
             get {
                 return this.codPaisPagoProveedorReembolsoField;
             }
@@ -1568,19 +1427,19 @@ namespace TEST.OTEST {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-        public compensacion[] compensacionReembolso {
+        public Compensacion[] CompensacionesReembolso {
             get {
-                return this.compensacionReembolsoField;
+                return this.compensacionesReembolsoField;
             }
             set {
-                this.compensacionReembolsoField = value;
+                this.compensacionesReembolsoField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public impuesto[] detalleImpuestos {
+        public ImpuestoDetalle[] DetalleImpuestos {
             get {
                 return this.detalleImpuestosField;
             }
@@ -1591,7 +1450,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string estabDocReembolso {
+        public string EstabDocReembolso {
             get {
                 return this.estabDocReembolsoField;
             }
@@ -1602,7 +1461,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmisionDocReembolso {
+        public string FechaEmisionDocReembolso {
             get {
                 return this.fechaEmisionDocReembolsoField;
             }
@@ -1613,7 +1472,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionProveedorReembolso {
+        public string IdentificacionProveedorReembolso {
             get {
                 return this.identificacionProveedorReembolsoField;
             }
@@ -1624,7 +1483,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string numeroautorizacionDocReemb {
+        public string NumeroautorizacionDocReemb {
             get {
                 return this.numeroautorizacionDocReembField;
             }
@@ -1635,7 +1494,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string ptoEmiDocReembolso {
+        public string PtoEmiDocReembolso {
             get {
                 return this.ptoEmiDocReembolsoField;
             }
@@ -1646,7 +1505,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string secuencialDocReembolso {
+        public string SecuencialDocReembolso {
             get {
                 return this.secuencialDocReembolsoField;
             }
@@ -1657,7 +1516,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionProveedorReembolso {
+        public string TipoIdentificacionProveedorReembolso {
             get {
                 return this.tipoIdentificacionProveedorReembolsoField;
             }
@@ -1668,7 +1527,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoProveedorReembolso {
+        public string TipoProveedorReembolso {
             get {
                 return this.tipoProveedorReembolsoField;
             }
@@ -1684,7 +1543,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class compensacion {
+    public partial class Compensacion {
         
         private string codigoField;
         
@@ -1694,7 +1553,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigo {
+        public string Codigo {
             get {
                 return this.codigoField;
             }
@@ -1705,7 +1564,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tarifa {
+        public string Tarifa {
             get {
                 return this.tarifaField;
             }
@@ -1716,7 +1575,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valor {
+        public string Valor {
             get {
                 return this.valorField;
             }
@@ -1731,8 +1590,115 @@ namespace TEST.OTEST {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    public partial class ImpuestoDetalle : ImpuestoDetalleBase {
+        
+        private string tarifaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Tarifa {
+            get {
+                return this.tarifaField;
+            }
+            set {
+                this.tarifaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoDetalleRetencion))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoDetalle))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    public partial class ImpuestoDetalleBase {
+        
+        private string baseImponibleField;
+        
+        private string codigoField;
+        
+        private string codigoPorRetField;
+        
+        private string valorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string BaseImponible {
+            get {
+                return this.baseImponibleField;
+            }
+            set {
+                this.baseImponibleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Codigo {
+            get {
+                return this.codigoField;
+            }
+            set {
+                this.codigoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodigoPorRet {
+            get {
+                return this.codigoPorRetField;
+            }
+            set {
+                this.codigoPorRetField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    public partial class ImpuestoDetalleRetencion : ImpuestoDetalleBase {
+        
+        private string porcentajeRetenerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PorcentajeRetener {
+            get {
+                return this.porcentajeRetenerField;
+            }
+            set {
+                this.porcentajeRetenerField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class retencion {
+    public partial class Retencion {
         
         private string codigoField;
         
@@ -1744,7 +1710,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigo {
+        public string Codigo {
             get {
                 return this.codigoField;
             }
@@ -1755,7 +1721,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigoPorcentaje {
+        public string CodigoPorcentaje {
             get {
                 return this.codigoPorcentajeField;
             }
@@ -1766,7 +1732,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tarifa {
+        public string Tarifa {
             get {
                 return this.tarifaField;
             }
@@ -1777,7 +1743,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valor {
+        public string Valor {
             get {
                 return this.valorField;
             }
@@ -1795,21 +1761,21 @@ namespace TEST.OTEST {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject")]
     public partial class RetencionATS {
         
-        private infoTributaria infoTributariaField;
+        private InfoTributaria infoTributariaField;
         
         private string versionField;
         
         private infoAdicional[] campoAdicionalField;
         
-        private docSustento[] docsSustentoField;
+        private DocSustento[] docsSustentoField;
         
-        private infoCompRetencionATS infoRetencionATSField;
+        private InfoCompRetencionATS infoRetencionATSField;
         
         private maquinaFiscal maquinafiscalField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
@@ -1844,7 +1810,7 @@ namespace TEST.OTEST {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-        public docSustento[] docsSustento {
+        public DocSustento[] docsSustento {
             get {
                 return this.docsSustentoField;
             }
@@ -1855,7 +1821,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoCompRetencionATS infoRetencionATS {
+        public InfoCompRetencionATS infoRetencionATS {
             get {
                 return this.infoRetencionATSField;
             }
@@ -1882,11 +1848,11 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoTributaria {
+    public partial class InfoTributaria {
         
         private string agenteRetencionField;
         
-        private string codDocField;
+        private string codigoNumericoField;
         
         private string dirMatrizField;
         
@@ -1906,7 +1872,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string agenteRetencion {
+        public string AgenteRetencion {
             get {
                 return this.agenteRetencionField;
             }
@@ -1917,18 +1883,18 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDoc {
+        public string CodigoNumerico {
             get {
-                return this.codDocField;
+                return this.codigoNumericoField;
             }
             set {
-                this.codDocField = value;
+                this.codigoNumericoField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirMatriz {
+        public string DirMatriz {
             get {
                 return this.dirMatrizField;
             }
@@ -1939,7 +1905,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string estab {
+        public string Estab {
             get {
                 return this.estabField;
             }
@@ -1950,7 +1916,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string nombreComercial {
+        public string NombreComercial {
             get {
                 return this.nombreComercialField;
             }
@@ -1961,7 +1927,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string ptoEmi {
+        public string PtoEmi {
             get {
                 return this.ptoEmiField;
             }
@@ -1972,7 +1938,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocial {
+        public string RazonSocial {
             get {
                 return this.razonSocialField;
             }
@@ -1983,7 +1949,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string regimenMicroempresas {
+        public string RegimenMicroempresas {
             get {
                 return this.regimenMicroempresasField;
             }
@@ -1994,7 +1960,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string ruc {
+        public string Ruc {
             get {
                 return this.rucField;
             }
@@ -2005,7 +1971,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string secuencial {
+        public string Secuencial {
             get {
                 return this.secuencialField;
             }
@@ -2013,15 +1979,6 @@ namespace TEST.OTEST {
                 this.secuencialField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
-    public partial class infoAdicional : detAdicional {
     }
     
     /// <remarks/>
@@ -2078,7 +2035,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoCompRetencion {
+    public partial class InfoCompRetencion {
         
         private string fechaEmisionField;
         
@@ -2092,7 +2049,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmision {
+        public string FechaEmision {
             get {
                 return this.fechaEmisionField;
             }
@@ -2103,7 +2060,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionSujetoRetenido {
+        public string IdentificacionSujetoRetenido {
             get {
                 return this.identificacionSujetoRetenidoField;
             }
@@ -2114,7 +2071,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string periodoFiscal {
+        public string PeriodoFiscal {
             get {
                 return this.periodoFiscalField;
             }
@@ -2125,7 +2082,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialSujetoRetenido {
+        public string RazonSocialSujetoRetenido {
             get {
                 return this.razonSocialSujetoRetenidoField;
             }
@@ -2136,7 +2093,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionSujetoRetenido {
+        public string TipoIdentificacionSujetoRetenido {
             get {
                 return this.tipoIdentificacionSujetoRetenidoField;
             }
@@ -2154,18 +2111,18 @@ namespace TEST.OTEST {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject")]
     public partial class ComprobanteRetencion {
         
-        private impuesto[] impuestosField;
+        private ImpuestoDetalleRetencion[] impuestosField;
         
-        private infoCompRetencion infoRetencionField;
+        private InfoCompRetencion infoRetencionField;
         
-        private infoTributaria infoTributariaField;
+        private InfoTributaria infoTributariaField;
         
         private string versionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public impuesto[] Impuestos {
+        public ImpuestoDetalleRetencion[] Impuestos {
             get {
                 return this.impuestosField;
             }
@@ -2176,7 +2133,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoCompRetencion InfoRetencion {
+        public InfoCompRetencion InfoRetencion {
             get {
                 return this.infoRetencionField;
             }
@@ -2187,7 +2144,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
@@ -2214,7 +2171,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoGuiaRemision {
+    public partial class InfoGuiaRemision {
         
         private string dirPartidaField;
         
@@ -2232,7 +2189,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirPartida {
+        public string DirPartida {
             get {
                 return this.dirPartidaField;
             }
@@ -2243,7 +2200,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaFinTransporte {
+        public string FechaFinTransporte {
             get {
                 return this.fechaFinTransporteField;
             }
@@ -2254,7 +2211,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaIniTransporte {
+        public string FechaIniTransporte {
             get {
                 return this.fechaIniTransporteField;
             }
@@ -2265,7 +2222,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string placa {
+        public string Placa {
             get {
                 return this.placaField;
             }
@@ -2276,7 +2233,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialTransportista {
+        public string RazonSocialTransportista {
             get {
                 return this.razonSocialTransportistaField;
             }
@@ -2287,7 +2244,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string rucTransportista {
+        public string RucTransportista {
             get {
                 return this.rucTransportistaField;
             }
@@ -2298,7 +2255,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionTransportista {
+        public string TipoIdentificacionTransportista {
             get {
                 return this.tipoIdentificacionTransportistaField;
             }
@@ -2314,7 +2271,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-    public partial class detalleGuia {
+    public partial class DetalleGuia {
         
         private string cantidadField;
         
@@ -2322,7 +2279,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string cantidad {
+        public string Cantidad {
             get {
                 return this.cantidadField;
             }
@@ -2333,7 +2290,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string descripcion {
+        public string Descripcion {
             get {
                 return this.descripcionField;
             }
@@ -2349,9 +2306,9 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-    public partial class destinatario {
+    public partial class Destinatario {
         
-        private detalleGuia[] detallesField;
+        private DetalleGuia[] detallesField;
         
         private string dirDestinatarioField;
         
@@ -2363,7 +2320,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public detalleGuia[] detalles {
+        public DetalleGuia[] Detalles {
             get {
                 return this.detallesField;
             }
@@ -2374,7 +2331,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirDestinatario {
+        public string DirDestinatario {
             get {
                 return this.dirDestinatarioField;
             }
@@ -2385,7 +2342,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionDestinatario {
+        public string IdentificacionDestinatario {
             get {
                 return this.identificacionDestinatarioField;
             }
@@ -2396,7 +2353,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string motivoTraslado {
+        public string MotivoTraslado {
             get {
                 return this.motivoTrasladoField;
             }
@@ -2407,7 +2364,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialDestinatario {
+        public string RazonSocialDestinatario {
             get {
                 return this.razonSocialDestinatarioField;
             }
@@ -2425,18 +2382,18 @@ namespace TEST.OTEST {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject")]
     public partial class GuiaRemision {
         
-        private destinatario[] destinatariosField;
+        private Destinatario[] destinatariosField;
         
-        private infoGuiaRemision infoGuiaField;
+        private InfoGuiaRemision infoGuiaField;
         
-        private infoTributaria infoTributariaField;
+        private InfoTributaria infoTributariaField;
         
         private string versionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public destinatario[] Destinatarios {
+        public Destinatario[] Destinatarios {
             get {
                 return this.destinatariosField;
             }
@@ -2447,7 +2404,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoGuiaRemision InfoGuia {
+        public InfoGuiaRemision InfoGuia {
             get {
                 return this.infoGuiaField;
             }
@@ -2458,7 +2415,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
@@ -2485,7 +2442,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoLiquidacionCompra {
+    public partial class InfoLiquidacionCompra {
         
         private string codDocReembolsoField;
         
@@ -2505,7 +2462,7 @@ namespace TEST.OTEST {
         
         private string obligadoContabilidadField;
         
-        private pago[] pagosField;
+        private Pago[] pagosField;
         
         private string razonSocialProveedorField;
         
@@ -2515,7 +2472,7 @@ namespace TEST.OTEST {
         
         private string totalComprobantesReembolsoField;
         
-        private totalConImpuesto[] totalConImpuestosField;
+        private ImpuestoTotalLiquidacion[] totalConImpuestosField;
         
         private string totalDescuentoField;
         
@@ -2525,7 +2482,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDocReembolso {
+        public string CodDocReembolso {
             get {
                 return this.codDocReembolsoField;
             }
@@ -2536,7 +2493,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string contribuyenteEspecial {
+        public string ContribuyenteEspecial {
             get {
                 return this.contribuyenteEspecialField;
             }
@@ -2547,7 +2504,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirEstablecimiento {
+        public string DirEstablecimiento {
             get {
                 return this.dirEstablecimientoField;
             }
@@ -2558,7 +2515,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string direccionProveedor {
+        public string DireccionProveedor {
             get {
                 return this.direccionProveedorField;
             }
@@ -2569,7 +2526,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmision {
+        public string FechaEmision {
             get {
                 return this.fechaEmisionField;
             }
@@ -2580,7 +2537,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionProveedor {
+        public string IdentificacionProveedor {
             get {
                 return this.identificacionProveedorField;
             }
@@ -2591,7 +2548,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string importeTotal {
+        public string ImporteTotal {
             get {
                 return this.importeTotalField;
             }
@@ -2602,7 +2559,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string moneda {
+        public string Moneda {
             get {
                 return this.monedaField;
             }
@@ -2613,7 +2570,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string obligadoContabilidad {
+        public string ObligadoContabilidad {
             get {
                 return this.obligadoContabilidadField;
             }
@@ -2624,7 +2581,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public pago[] pagos {
+        public Pago[] Pagos {
             get {
                 return this.pagosField;
             }
@@ -2635,7 +2592,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialProveedor {
+        public string RazonSocialProveedor {
             get {
                 return this.razonSocialProveedorField;
             }
@@ -2646,7 +2603,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionProveedor {
+        public string TipoIdentificacionProveedor {
             get {
                 return this.tipoIdentificacionProveedorField;
             }
@@ -2657,7 +2614,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalBaseImponibleReembolso {
+        public string TotalBaseImponibleReembolso {
             get {
                 return this.totalBaseImponibleReembolsoField;
             }
@@ -2668,7 +2625,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalComprobantesReembolso {
+        public string TotalComprobantesReembolso {
             get {
                 return this.totalComprobantesReembolsoField;
             }
@@ -2679,7 +2636,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public totalConImpuesto[] totalConImpuestos {
+        public ImpuestoTotalLiquidacion[] TotalConImpuestos {
             get {
                 return this.totalConImpuestosField;
             }
@@ -2690,7 +2647,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalDescuento {
+        public string TotalDescuento {
             get {
                 return this.totalDescuentoField;
             }
@@ -2701,7 +2658,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalImpuestoReembolso {
+        public string TotalImpuestoReembolso {
             get {
                 return this.totalImpuestoReembolsoField;
             }
@@ -2712,7 +2669,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalSinImpuestos {
+        public string TotalSinImpuestos {
             get {
                 return this.totalSinImpuestosField;
             }
@@ -2728,7 +2685,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class pago {
+    public partial class Pago {
         
         private string formaPagoField;
         
@@ -2740,7 +2697,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string formaPago {
+        public string FormaPago {
             get {
                 return this.formaPagoField;
             }
@@ -2751,7 +2708,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string plazo {
+        public string Plazo {
             get {
                 return this.plazoField;
             }
@@ -2762,7 +2719,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string total {
+        public string Total {
             get {
                 return this.totalField;
             }
@@ -2773,7 +2730,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string unidadTiempo {
+        public string UnidadTiempo {
             get {
                 return this.unidadTiempoField;
             }
@@ -2789,58 +2746,15 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class totalConImpuesto {
-        
-        private string baseImponibleField;
-        
-        private string codigoField;
-        
-        private string codigoPorcentajeField;
+    public partial class ImpuestoTotalLiquidacion : ImpuestoBase {
         
         private string descuentoAdicionalField;
         
         private string tarifaField;
         
-        private string valorField;
-        
-        private string valorDevolucionIvaField;
-        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string baseImponible {
-            get {
-                return this.baseImponibleField;
-            }
-            set {
-                this.baseImponibleField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigo {
-            get {
-                return this.codigoField;
-            }
-            set {
-                this.codigoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codigoPorcentaje {
-            get {
-                return this.codigoPorcentajeField;
-            }
-            set {
-                this.codigoPorcentajeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string descuentoAdicional {
+        public string DescuentoAdicional {
             get {
                 return this.descuentoAdicionalField;
             }
@@ -2851,7 +2765,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tarifa {
+        public string Tarifa {
             get {
                 return this.tarifaField;
             }
@@ -2859,10 +2773,63 @@ namespace TEST.OTEST {
                 this.tarifaField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoTotalLiquidacion))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoTotalNotaCredito))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoTotalNotaDebito))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
+    public partial class ImpuestoBase {
+        
+        private string baseImponibleField;
+        
+        private string codigoField;
+        
+        private string codigoPorcentajeField;
+        
+        private string valorField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valor {
+        public string BaseImponible {
+            get {
+                return this.baseImponibleField;
+            }
+            set {
+                this.baseImponibleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Codigo {
+            get {
+                return this.codigoField;
+            }
+            set {
+                this.codigoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodigoPorcentaje {
+            get {
+                return this.codigoPorcentajeField;
+            }
+            set {
+                this.codigoPorcentajeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Valor {
             get {
                 return this.valorField;
             }
@@ -2870,10 +2837,22 @@ namespace TEST.OTEST {
                 this.valorField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImpuestoTotalNotaDebito))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
+    public partial class ImpuestoTotalNotaCredito : ImpuestoBase {
+        
+        private string valorDevolucionIvaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valorDevolucionIva {
+        public string ValorDevolucionIva {
             get {
                 return this.valorDevolucionIvaField;
             }
@@ -2888,22 +2867,44 @@ namespace TEST.OTEST {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
+    public partial class ImpuestoTotalNotaDebito : ImpuestoTotalNotaCredito {
+        
+        private string tarifaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Tarifa {
+            get {
+                return this.tarifaField;
+            }
+            set {
+                this.tarifaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject")]
     public partial class Liquidacion {
         
         private infoAdicional[] campoAdicionalField;
         
-        private detalle[] detallesField;
+        private Detalle[] detallesField;
         
-        private infoLiquidacionCompra infoLiquidacionField;
+        private InfoLiquidacionCompra infoLiquidacionField;
         
-        private infoTributaria infoTributariaField;
+        private InfoTributaria infoTributariaField;
         
         private maquinaFiscal maquinafiscalField;
         
-        private tipoNegociable negociableField;
+        private TipoNegociable negociableField;
         
-        private reembolsoDetalle[] reembolsosField;
+        private ReembolsoDetalle[] reembolsosField;
         
         private string versionField;
         
@@ -2922,7 +2923,7 @@ namespace TEST.OTEST {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public detalle[] Detalles {
+        public Detalle[] Detalles {
             get {
                 return this.detallesField;
             }
@@ -2933,7 +2934,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoLiquidacionCompra InfoLiquidacion {
+        public InfoLiquidacionCompra InfoLiquidacion {
             get {
                 return this.infoLiquidacionField;
             }
@@ -2944,7 +2945,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
@@ -2966,7 +2967,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public tipoNegociable Negociable {
+        public TipoNegociable Negociable {
             get {
                 return this.negociableField;
             }
@@ -2978,7 +2979,7 @@ namespace TEST.OTEST {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-        public reembolsoDetalle[] Reembolsos {
+        public ReembolsoDetalle[] Reembolsos {
             get {
                 return this.reembolsosField;
             }
@@ -3004,14 +3005,166 @@ namespace TEST.OTEST {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    public partial class Detalle {
+        
+        private string cantidadField;
+        
+        private string codigoAuxiliarField;
+        
+        private string codigoPrincipalField;
+        
+        private string descripcionField;
+        
+        private string descuentoField;
+        
+        private DetAdicional[] detAdicionalField;
+        
+        private ImpuestoDetalle[] impuestosField;
+        
+        private string precioSinSubsidioField;
+        
+        private string precioTotalSinImpuestoField;
+        
+        private string precioUnitarioField;
+        
+        private string unidadMedidaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                this.cantidadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodigoAuxiliar {
+            get {
+                return this.codigoAuxiliarField;
+            }
+            set {
+                this.codigoAuxiliarField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodigoPrincipal {
+            get {
+                return this.codigoPrincipalField;
+            }
+            set {
+                this.codigoPrincipalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Descuento {
+            get {
+                return this.descuentoField;
+            }
+            set {
+                this.descuentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public DetAdicional[] DetAdicional {
+            get {
+                return this.detAdicionalField;
+            }
+            set {
+                this.detAdicionalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public ImpuestoDetalle[] Impuestos {
+            get {
+                return this.impuestosField;
+            }
+            set {
+                this.impuestosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PrecioSinSubsidio {
+            get {
+                return this.precioSinSubsidioField;
+            }
+            set {
+                this.precioSinSubsidioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PrecioTotalSinImpuesto {
+            get {
+                return this.precioTotalSinImpuestoField;
+            }
+            set {
+                this.precioTotalSinImpuestoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string PrecioUnitario {
+            get {
+                return this.precioUnitarioField;
+            }
+            set {
+                this.precioUnitarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string UnidadMedida {
+            get {
+                return this.unidadMedidaField;
+            }
+            set {
+                this.unidadMedidaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
-    public partial class tipoNegociable {
+    public partial class TipoNegociable {
         
         private string correoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string correo {
+        public string Correo {
             get {
                 return this.correoField;
             }
@@ -3027,7 +3180,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class motivo {
+    public partial class Motivo {
         
         private string razonField;
         
@@ -3035,7 +3188,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razon {
+        public string Razon {
             get {
                 return this.razonField;
             }
@@ -3046,7 +3199,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valor {
+        public string Valor {
             get {
                 return this.valorField;
             }
@@ -3062,11 +3215,11 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoNotaDebito {
+    public partial class InfoNotaDebito {
         
         private string codDocModificadoField;
         
-        private compensacion[] compensacionesField;
+        private Compensacion[] compensacionesField;
         
         private string contribuyenteEspecialField;
         
@@ -3078,11 +3231,13 @@ namespace TEST.OTEST {
         
         private string identificacionCompradorField;
         
+        private ImpuestoTotalNotaDebito[] impuestosField;
+        
         private string numDocModificadoField;
         
         private string obligadoContabilidadField;
         
-        private pago[] pagosField;
+        private Pago[] pagosField;
         
         private string razonSocialCompradorField;
         
@@ -3096,7 +3251,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDocModificado {
+        public string CodDocModificado {
             get {
                 return this.codDocModificadoField;
             }
@@ -3107,7 +3262,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public compensacion[] compensaciones {
+        public Compensacion[] Compensaciones {
             get {
                 return this.compensacionesField;
             }
@@ -3118,7 +3273,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string contribuyenteEspecial {
+        public string ContribuyenteEspecial {
             get {
                 return this.contribuyenteEspecialField;
             }
@@ -3129,7 +3284,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirEstablecimiento {
+        public string DirEstablecimiento {
             get {
                 return this.dirEstablecimientoField;
             }
@@ -3140,7 +3295,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmision {
+        public string FechaEmision {
             get {
                 return this.fechaEmisionField;
             }
@@ -3151,7 +3306,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmisionDocSustento {
+        public string FechaEmisionDocSustento {
             get {
                 return this.fechaEmisionDocSustentoField;
             }
@@ -3162,7 +3317,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionComprador {
+        public string IdentificacionComprador {
             get {
                 return this.identificacionCompradorField;
             }
@@ -3172,8 +3327,19 @@ namespace TEST.OTEST {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public ImpuestoTotalNotaDebito[] Impuestos {
+            get {
+                return this.impuestosField;
+            }
+            set {
+                this.impuestosField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string numDocModificado {
+        public string NumDocModificado {
             get {
                 return this.numDocModificadoField;
             }
@@ -3184,7 +3350,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string obligadoContabilidad {
+        public string ObligadoContabilidad {
             get {
                 return this.obligadoContabilidadField;
             }
@@ -3195,7 +3361,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public pago[] pagos {
+        public Pago[] Pagos {
             get {
                 return this.pagosField;
             }
@@ -3206,7 +3372,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialComprador {
+        public string RazonSocialComprador {
             get {
                 return this.razonSocialCompradorField;
             }
@@ -3217,7 +3383,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string rise {
+        public string Rise {
             get {
                 return this.riseField;
             }
@@ -3228,7 +3394,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionComprador {
+        public string TipoIdentificacionComprador {
             get {
                 return this.tipoIdentificacionCompradorField;
             }
@@ -3239,7 +3405,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalSinImpuestos {
+        public string TotalSinImpuestos {
             get {
                 return this.totalSinImpuestosField;
             }
@@ -3250,7 +3416,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valorTotal {
+        public string ValorTotal {
             get {
                 return this.valorTotalField;
             }
@@ -3270,13 +3436,13 @@ namespace TEST.OTEST {
         
         private infoAdicional[] campoAdicionalField;
         
-        private infoNotaDebito infoNotaDebitoField;
+        private InfoNotaDebito infoNotaDebitoField;
         
-        private infoTributaria infoTributariaField;
+        private InfoTributaria infoTributariaField;
         
         private maquinaFiscal maquinafiscalField;
         
-        private motivo[] motivosField;
+        private Motivo[] motivosField;
         
         private string versionField;
         
@@ -3294,7 +3460,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoNotaDebito InfoNotaDebito {
+        public InfoNotaDebito InfoNotaDebito {
             get {
                 return this.infoNotaDebitoField;
             }
@@ -3305,7 +3471,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
@@ -3328,7 +3494,7 @@ namespace TEST.OTEST {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-        public motivo[] Motivos {
+        public Motivo[] Motivos {
             get {
                 return this.motivosField;
             }
@@ -3355,13 +3521,11 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoNotaCredito {
-        
-        private compensacion[] compensacionesField;
-        
-        private totalConImpuesto[] totalConImpuestosField;
+    public partial class InfoNotaCredito {
         
         private string codDocModificadoField;
+        
+        private Compensacion[] compensacionesField;
         
         private string contribuyenteEspecialField;
         
@@ -3387,35 +3551,15 @@ namespace TEST.OTEST {
         
         private string tipoIdentificacionCompradorField;
         
+        private ImpuestoTotalNotaCredito[] totalConImpuestosField;
+        
         private string totalSinImpuestosField;
         
         private string valorModificacionField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public compensacion[] Compensaciones {
-            get {
-                return this.compensacionesField;
-            }
-            set {
-                this.compensacionesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public totalConImpuesto[] TotalConImpuestos {
-            get {
-                return this.totalConImpuestosField;
-            }
-            set {
-                this.totalConImpuestosField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDocModificado {
+        public string CodDocModificado {
             get {
                 return this.codDocModificadoField;
             }
@@ -3425,8 +3569,19 @@ namespace TEST.OTEST {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Compensacion[] Compensaciones {
+            get {
+                return this.compensacionesField;
+            }
+            set {
+                this.compensacionesField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string contribuyenteEspecial {
+        public string ContribuyenteEspecial {
             get {
                 return this.contribuyenteEspecialField;
             }
@@ -3437,7 +3592,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirEstablecimiento {
+        public string DirEstablecimiento {
             get {
                 return this.dirEstablecimientoField;
             }
@@ -3448,7 +3603,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmision {
+        public string FechaEmision {
             get {
                 return this.fechaEmisionField;
             }
@@ -3459,7 +3614,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmisionDocSustento {
+        public string FechaEmisionDocSustento {
             get {
                 return this.fechaEmisionDocSustentoField;
             }
@@ -3470,7 +3625,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionComprador {
+        public string IdentificacionComprador {
             get {
                 return this.identificacionCompradorField;
             }
@@ -3481,7 +3636,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string moneda {
+        public string Moneda {
             get {
                 return this.monedaField;
             }
@@ -3492,7 +3647,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string motivo {
+        public string Motivo {
             get {
                 return this.motivoField;
             }
@@ -3503,7 +3658,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string numDocModificado {
+        public string NumDocModificado {
             get {
                 return this.numDocModificadoField;
             }
@@ -3514,7 +3669,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string obligadoContabilidad {
+        public string ObligadoContabilidad {
             get {
                 return this.obligadoContabilidadField;
             }
@@ -3525,7 +3680,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialComprador {
+        public string RazonSocialComprador {
             get {
                 return this.razonSocialCompradorField;
             }
@@ -3536,7 +3691,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string rise {
+        public string Rise {
             get {
                 return this.riseField;
             }
@@ -3547,7 +3702,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionComprador {
+        public string TipoIdentificacionComprador {
             get {
                 return this.tipoIdentificacionCompradorField;
             }
@@ -3557,8 +3712,19 @@ namespace TEST.OTEST {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public ImpuestoTotalNotaCredito[] TotalConImpuestos {
+            get {
+                return this.totalConImpuestosField;
+            }
+            set {
+                this.totalConImpuestosField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalSinImpuestos {
+        public string TotalSinImpuestos {
             get {
                 return this.totalSinImpuestosField;
             }
@@ -3569,7 +3735,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string valorModificacion {
+        public string ValorModificacion {
             get {
                 return this.valorModificacionField;
             }
@@ -3589,11 +3755,11 @@ namespace TEST.OTEST {
         
         private infoAdicional[] campoAdicionalField;
         
-        private detalle[] detallesField;
+        private Detalle[] detallesField;
         
-        private infoNotaCredito infoNotaCreditoField;
+        private InfoNotaCredito infoNotaCreditoField;
         
-        private infoTributaria infoTributariaField;
+        private InfoTributaria infoTributariaField;
         
         private maquinaFiscal maquinafiscalField;
         
@@ -3614,7 +3780,7 @@ namespace TEST.OTEST {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-        public detalle[] Detalles {
+        public Detalle[] Detalles {
             get {
                 return this.detallesField;
             }
@@ -3625,7 +3791,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoNotaCredito InfoNotaCredito {
+        public InfoNotaCredito InfoNotaCredito {
             get {
                 return this.infoNotaCreditoField;
             }
@@ -3636,7 +3802,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public infoTributaria InfoTributaria {
+        public InfoTributaria InfoTributaria {
             get {
                 return this.infoTributariaField;
             }
@@ -3674,7 +3840,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class rubro {
+    public partial class Rubro {
         
         private string conceptoField;
         
@@ -3682,7 +3848,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string concepto {
+        public string Concepto {
             get {
                 return this.conceptoField;
             }
@@ -3693,7 +3859,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string total {
+        public string Total {
             get {
                 return this.totalField;
             }
@@ -3709,7 +3875,7 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class destino {
+    public partial class Destino {
         
         private string codEstabDestinoField;
         
@@ -3721,7 +3887,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codEstabDestino {
+        public string CodEstabDestino {
             get {
                 return this.codEstabDestinoField;
             }
@@ -3732,7 +3898,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string docAduaneroUnico {
+        public string DocAduaneroUnico {
             get {
                 return this.docAduaneroUnicoField;
             }
@@ -3743,7 +3909,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string motivoTraslado {
+        public string MotivoTraslado {
             get {
                 return this.motivoTrasladoField;
             }
@@ -3754,7 +3920,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string ruta {
+        public string Ruta {
             get {
                 return this.rutaField;
             }
@@ -3770,9 +3936,9 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
-    public partial class infoSustitutivaGuiaRemision {
+    public partial class InfoSustitutivaGuiaRemision {
         
-        private destino[] destinosField;
+        private Destino[] destinosField;
         
         private string dirDestinatarioField;
         
@@ -3792,7 +3958,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public destino[] destinos {
+        public Destino[] Destinos {
             get {
                 return this.destinosField;
             }
@@ -3803,7 +3969,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirDestinatario {
+        public string DirDestinatario {
             get {
                 return this.dirDestinatarioField;
             }
@@ -3814,7 +3980,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirPartida {
+        public string DirPartida {
             get {
                 return this.dirPartidaField;
             }
@@ -3825,7 +3991,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaFinTransporte {
+        public string FechaFinTransporte {
             get {
                 return this.fechaFinTransporteField;
             }
@@ -3836,7 +4002,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaIniTransporte {
+        public string FechaIniTransporte {
             get {
                 return this.fechaIniTransporteField;
             }
@@ -3847,7 +4013,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string placa {
+        public string Placa {
             get {
                 return this.placaField;
             }
@@ -3858,7 +4024,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialTransportista {
+        public string RazonSocialTransportista {
             get {
                 return this.razonSocialTransportistaField;
             }
@@ -3869,7 +4035,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string rucTransportista {
+        public string RucTransportista {
             get {
                 return this.rucTransportistaField;
             }
@@ -3880,7 +4046,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionTransportista {
+        public string TipoIdentificacionTransportista {
             get {
                 return this.tipoIdentificacionTransportistaField;
             }
@@ -3896,17 +4062,113 @@ namespace TEST.OTEST {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
-    public partial class infoFactura {
+    public partial class TotalConImpuesto {
         
-        private compensacion[] compensacionesField;
+        private string baseImponibleField;
         
-        private pago[] pagosField;
+        private string codigoField;
         
-        private totalConImpuesto[] totalConImpuestosField;
+        private string codigoPorcentajeField;
+        
+        private string descuentoAdicionalField;
+        
+        private string tarifaField;
+        
+        private string valorField;
+        
+        private string valorDevolucionIvaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string BaseImponible {
+            get {
+                return this.baseImponibleField;
+            }
+            set {
+                this.baseImponibleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Codigo {
+            get {
+                return this.codigoField;
+            }
+            set {
+                this.codigoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string CodigoPorcentaje {
+            get {
+                return this.codigoPorcentajeField;
+            }
+            set {
+                this.codigoPorcentajeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DescuentoAdicional {
+            get {
+                return this.descuentoAdicionalField;
+            }
+            set {
+                this.descuentoAdicionalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Tarifa {
+            get {
+                return this.tarifaField;
+            }
+            set {
+                this.tarifaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string ValorDevolucionIva {
+            get {
+                return this.valorDevolucionIvaField;
+            }
+            set {
+                this.valorDevolucionIvaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body")]
+    public partial class InfoFactura {
         
         private string codDocReembolsoField;
         
         private string comercioExteriorField;
+        
+        private Compensacion[] compensacionesField;
         
         private string contribuyenteEspecialField;
         
@@ -3938,6 +4200,8 @@ namespace TEST.OTEST {
         
         private string obligadoContabilidadField;
         
+        private Pago[] pagosField;
+        
         private string paisAdquisicionField;
         
         private string paisDestinoField;
@@ -3962,6 +4226,8 @@ namespace TEST.OTEST {
         
         private string totalComprobantesReembolsoField;
         
+        private TotalConImpuesto[] totalConImpuestosField;
+        
         private string totalDescuentoField;
         
         private string totalImpuestoReembolsoField;
@@ -3970,42 +4236,13 @@ namespace TEST.OTEST {
         
         private string totalSubsidioField;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public compensacion[] Compensaciones {
-            get {
-                return this.compensacionesField;
-            }
-            set {
-                this.compensacionesField = value;
-            }
-        }
+        private string valorRetIvaField;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public pago[] Pagos {
-            get {
-                return this.pagosField;
-            }
-            set {
-                this.pagosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public totalConImpuesto[] TotalConImpuestos {
-            get {
-                return this.totalConImpuestosField;
-            }
-            set {
-                this.totalConImpuestosField = value;
-            }
-        }
+        private string valorRetRentaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string codDocReembolso {
+        public string CodDocReembolso {
             get {
                 return this.codDocReembolsoField;
             }
@@ -4016,7 +4253,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string comercioExterior {
+        public string ComercioExterior {
             get {
                 return this.comercioExteriorField;
             }
@@ -4026,8 +4263,19 @@ namespace TEST.OTEST {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Compensacion[] Compensaciones {
+            get {
+                return this.compensacionesField;
+            }
+            set {
+                this.compensacionesField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string contribuyenteEspecial {
+        public string ContribuyenteEspecial {
             get {
                 return this.contribuyenteEspecialField;
             }
@@ -4038,7 +4286,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string dirEstablecimiento {
+        public string DirEstablecimiento {
             get {
                 return this.dirEstablecimientoField;
             }
@@ -4049,7 +4297,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string direccionComprador {
+        public string DireccionComprador {
             get {
                 return this.direccionCompradorField;
             }
@@ -4060,7 +4308,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fechaEmision {
+        public string FechaEmision {
             get {
                 return this.fechaEmisionField;
             }
@@ -4071,7 +4319,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string fleteInternacional {
+        public string FleteInternacional {
             get {
                 return this.fleteInternacionalField;
             }
@@ -4082,7 +4330,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string gastosAduaneros {
+        public string GastosAduaneros {
             get {
                 return this.gastosAduanerosField;
             }
@@ -4093,7 +4341,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string gastosTransporteOtros {
+        public string GastosTransporteOtros {
             get {
                 return this.gastosTransporteOtrosField;
             }
@@ -4104,7 +4352,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string guiaRemision {
+        public string GuiaRemision {
             get {
                 return this.guiaRemisionField;
             }
@@ -4115,7 +4363,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string identificacionComprador {
+        public string IdentificacionComprador {
             get {
                 return this.identificacionCompradorField;
             }
@@ -4126,7 +4374,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string importeTotal {
+        public string ImporteTotal {
             get {
                 return this.importeTotalField;
             }
@@ -4137,7 +4385,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string incoTermFactura {
+        public string IncoTermFactura {
             get {
                 return this.incoTermFacturaField;
             }
@@ -4148,7 +4396,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string incoTermTotalSinImpuestos {
+        public string IncoTermTotalSinImpuestos {
             get {
                 return this.incoTermTotalSinImpuestosField;
             }
@@ -4159,7 +4407,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string lugarIncoTerm {
+        public string LugarIncoTerm {
             get {
                 return this.lugarIncoTermField;
             }
@@ -4170,7 +4418,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string moneda {
+        public string Moneda {
             get {
                 return this.monedaField;
             }
@@ -4181,7 +4429,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string obligadoContabilidad {
+        public string ObligadoContabilidad {
             get {
                 return this.obligadoContabilidadField;
             }
@@ -4191,8 +4439,19 @@ namespace TEST.OTEST {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Pago[] Pagos {
+            get {
+                return this.pagosField;
+            }
+            set {
+                this.pagosField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string paisAdquisicion {
+        public string PaisAdquisicion {
             get {
                 return this.paisAdquisicionField;
             }
@@ -4203,7 +4462,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string paisDestino {
+        public string PaisDestino {
             get {
                 return this.paisDestinoField;
             }
@@ -4214,7 +4473,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string paisOrigen {
+        public string PaisOrigen {
             get {
                 return this.paisOrigenField;
             }
@@ -4225,7 +4484,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string placa {
+        public string Placa {
             get {
                 return this.placaField;
             }
@@ -4236,7 +4495,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string propina {
+        public string Propina {
             get {
                 return this.propinaField;
             }
@@ -4247,7 +4506,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string puertoDestino {
+        public string PuertoDestino {
             get {
                 return this.puertoDestinoField;
             }
@@ -4258,7 +4517,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string puertoEmbarque {
+        public string PuertoEmbarque {
             get {
                 return this.puertoEmbarqueField;
             }
@@ -4269,7 +4528,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string razonSocialComprador {
+        public string RazonSocialComprador {
             get {
                 return this.razonSocialCompradorField;
             }
@@ -4280,7 +4539,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string seguroInternacional {
+        public string SeguroInternacional {
             get {
                 return this.seguroInternacionalField;
             }
@@ -4291,7 +4550,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string tipoIdentificacionComprador {
+        public string TipoIdentificacionComprador {
             get {
                 return this.tipoIdentificacionCompradorField;
             }
@@ -4302,7 +4561,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalBaseImponibleReembolso {
+        public string TotalBaseImponibleReembolso {
             get {
                 return this.totalBaseImponibleReembolsoField;
             }
@@ -4313,7 +4572,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalComprobantesReembolso {
+        public string TotalComprobantesReembolso {
             get {
                 return this.totalComprobantesReembolsoField;
             }
@@ -4323,8 +4582,19 @@ namespace TEST.OTEST {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public TotalConImpuesto[] TotalConImpuestos {
+            get {
+                return this.totalConImpuestosField;
+            }
+            set {
+                this.totalConImpuestosField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalDescuento {
+        public string TotalDescuento {
             get {
                 return this.totalDescuentoField;
             }
@@ -4335,7 +4605,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalImpuestoReembolso {
+        public string TotalImpuestoReembolso {
             get {
                 return this.totalImpuestoReembolsoField;
             }
@@ -4346,7 +4616,7 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalSinImpuestos {
+        public string TotalSinImpuestos {
             get {
                 return this.totalSinImpuestosField;
             }
@@ -4357,12 +4627,34 @@ namespace TEST.OTEST {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string totalSubsidio {
+        public string TotalSubsidio {
             get {
                 return this.totalSubsidioField;
             }
             set {
                 this.totalSubsidioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string ValorRetIva {
+            get {
+                return this.valorRetIvaField;
+            }
+            set {
+                this.valorRetIvaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string ValorRetRenta {
+            get {
+                return this.valorRetRentaField;
+            }
+            set {
+                this.valorRetRentaField = value;
             }
         }
     }
