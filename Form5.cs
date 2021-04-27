@@ -104,20 +104,49 @@ namespace TEST
                 detalle1.DetAdicional = new List<DetAdicional>();
                 var detAd1 = new DetAdicional();
                 var detAd2 = new DetAdicional();
-               
-
-                // aflta cuadrar los detalles adicionales samir!!
-
-                
-
-
-
                 fact.Detalles = new List<Detalle>();
                 fact.Detalles.Add(detalle1);
                 fact.Detalles.Add(detalle2);
 
 
+//***********************************PAGOS*********************************
+                Pago pago = new Pago();
+                pago.FormaPago = "01";
+                pago.Total = "50.00";
+                pago.Plazo = "3";
+                pago.UnidadTiempo = "Dias";
 
+                fact.InfoFactura.Pagos = new List<Pago>();
+                fact.InfoFactura.Pagos.Add(pago);
+                fact.InfoFactura.Pagos.Add(pago);
+
+
+
+//*****************************TOTAL CON IMPUESTOS**********************
+
+
+                TotalConImpuesto totalConImpuesto = new TotalConImpuesto();
+                totalConImpuesto.BaseImponible = "100.00";
+                totalConImpuesto.Codigo = "01";
+                totalConImpuesto.CodigoPorcentaje = "02";
+                totalConImpuesto.DescuentoAdicional = "0.00";
+                totalConImpuesto.Tarifa = "0.00";
+                totalConImpuesto.Valor = "100.00";
+
+                fact.InfoFactura.TotalConImpuestos = new List<TotalConImpuesto>();
+                fact.InfoFactura.TotalConImpuestos.Add(totalConImpuesto);
+
+
+
+                //**********************************MAQUINAL FSICAL*******************
+                maquinaFiscal maquina = new maquinaFiscal();
+
+                maquina.marca = "marcaaaaaa";
+                maquina.modelo = "modelazo";
+                maquina.serie = "ASDFGHJ1234";
+
+                fact.Maquinafiscal = new maquinaFiscal();
+                fact.Maquinafiscal = maquina;
 
 
 
