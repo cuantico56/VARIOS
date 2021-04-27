@@ -34,7 +34,7 @@ namespace TEST
 
             try
             {
-                OTEST.Service servicio = new OTEST.Service(); //CREAMOS SERVICIO
+                OTEST.ServiceClient servicio = new OTEST.ServiceClient(); //CREAMOS SERVICIO
                 OTEST.PeticionFactura pet = new OTEST.PeticionFactura(); //Creamos una peticion
                 Factura fact = new OTEST.Factura(); // Creamos una factura            
                 OTEST.InfoTributaria infotrib = new InfoTributaria();
@@ -59,13 +59,19 @@ namespace TEST
 
 
 //************************CREAMOS OTROS RUBREOS TERCEROS*****************************
-                Rubro rubro1 = new Rubro();   // se deben instanciar
-                Rubro rubro2 = new Rubro();
-                Rubro rubro3 = new Rubro();
-                fact.OtrosRubrosTerceros = new Rubro[3]; // se instancia un array tipo <rubro
-                fact.OtrosRubrosTerceros[0] = rubro1;  // se coloca  cada rubro en el array
-                fact.OtrosRubrosTerceros[1] = rubro2;  // se coloca  cada rubro en el array
-                fact.OtrosRubrosTerceros[2] = rubro3;  // se coloca  cada rubro en el array
+                Rubro rubro = new Rubro();   // se deben instanciar
+                fact.OtrosRubrosTerceros = new List<Rubro>();
+                rubro.Total = "total1";
+
+                for(int i = 0; i <3; i++)
+                {
+                    rubro.Concepto = "concepto"+i.ToString();
+                    fact.OtrosRubrosTerceros.Add(rubro);
+
+                }
+
+                
+
 
 
 //**********************************INFOADICIONAL**************************************
@@ -76,9 +82,9 @@ namespace TEST
                 info1.Valor = "1234567";
                 info2 = info1;
 
-                fact.CampoAdicional = new infoAdicional[2];
-                fact.CampoAdicional[0] = info1;
-                fact.CampoAdicional[1] = info2;
+                fact.CampoAdicional = new List<infoAdicional>();
+                fact.CampoAdicional.Add(info1);
+                fact.CampoAdicional.Add(info2);
 
 
                 //*****************************DETALLES***********************************************
@@ -94,16 +100,21 @@ namespace TEST
                 detalle1.PrecioSinSubsidio = "0.00";
                 detalle1.Descuento = "0.00";
                 detalle1.PrecioTotalSinImpuesto = "10.00";
-                detalle1.DetAdicional = new DetAdicional[2];
+                detalle2 = detalle1;
+                detalle1.DetAdicional = new List<DetAdicional>();
                 var detAd1 = new DetAdicional();
                 var detAd2 = new DetAdicional();
+               
+
+                // aflta cuadrar los detalles adicionales samir!!
+
                 
 
 
 
-                fact.Detalles = new Detalle[2];
-                fact.Detalles[0] = detalle1;
-                fact.Detalles[1] = detalle2;
+                fact.Detalles = new List<Detalle>();
+                fact.Detalles.Add(detalle1);
+                fact.Detalles.Add(detalle2);
 
 
 
@@ -140,7 +151,7 @@ namespace TEST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Service servicio1 = new Service();
+            ServiceClient servicio1 = new ServiceClient();
             //****servicio1.DescargaArchivo();
             
             PeticionDescargaArchivo peticionDesc = new PeticionDescargaArchivo();
@@ -148,7 +159,7 @@ namespace TEST
             peticionDesc.Usuario = "usuario1";
             peticionDesc.Clave = "dfacture";
             peticionDesc.Documento = "01-001-002-000000222";
-            peticionDesc.Extension = "Pdf";
+            peticionDesc.Extension = "Xml";
 
             var resp = servicio1.DescargaArchivo(peticionDesc);
 
@@ -162,7 +173,7 @@ namespace TEST
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Service servicio1 = new Service();
+            ServiceClient servicio1 = new ServiceClient();
             PeticionFolios folios = new PeticionFolios();
             folios.Usuario = "usuario1";
             folios.RUC = "1792433738001";
@@ -178,7 +189,7 @@ namespace TEST
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Service service = new Service()
+            ServiceClient service = new ServiceClient()
 ;           PeticionEstatusDocumento peticion = new PeticionEstatusDocumento();
             peticion.Usuario = "usuario1";
             peticion.RUC = "1792433738001";
