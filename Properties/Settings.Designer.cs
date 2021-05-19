@@ -52,5 +52,15 @@ namespace TEST.Properties {
                 return ((string)(this["TEST_WS_DEMO_Integracion"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://testintws.thefactoryhka.com.ec/Service.svc")]
+        public string TEST_serviceobj_Service {
+            get {
+                return ((string)(this["TEST_serviceobj_Service"]));
+            }
+        }
     }
 }

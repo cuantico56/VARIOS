@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,19 +7,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Services.Description;
 using System.Windows.Forms;
-using TEST.OTEST;
+using TEST.serviceobj;
 
 namespace TEST
 {
     public partial class Form5 : Form
     {
+        string ambiente;
 
-        
         public Form5()
         {
             InitializeComponent();
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,13 +33,37 @@ namespace TEST
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int amb = comboBox1.SelectedIndex;
+            
+            
+
+            
+
+            switch (amb)
+            {
+                case 0:
+                ambiente = "https://demointws.thefactoryhka.com.ec/Service.svc";
+                    break;
+                case 1:
+                    ambiente = "http://testintws.thefactoryhka.com.ec/Service.svc";
+                    break;
+
+            }
+
+
+
+            
 
             try
             {
-                OTEST.ServiceClient servicio = new OTEST.ServiceClient(); //CREAMOS SERVICIO
-                OTEST.PeticionFactura pet = new OTEST.PeticionFactura(); //Creamos una peticion
-                Factura fact = new OTEST.Factura(); // Creamos una factura            
-                OTEST.InfoTributaria infotrib = new InfoTributaria();
+
+
+                serviceobj.Service servicio = new serviceobj.Service(); //CREAMOS SERVICIO
+                servicio.Url = ambiente;
+                PeticionFactura pet = new PeticionFactura(); //Creamos una peticion
+                Factura fact = new Factura();
+                InfoTributaria infotrib = new InfoTributaria();
+               
                 fact.InfoTributaria = infotrib;
                 pet.Documento = fact;
                 fact.InfoTributaria.NombreComercial = "ECUAGOCH";
@@ -50,7 +76,7 @@ namespace TEST
                 fact.InfoTributaria.Secuencial = "000000222";
                 fact.InfoTributaria.DirMatriz = "En un lugar de la mancha...";
 
-                OTEST.InfoFactura infoFactura = new InfoFactura();
+                InfoFactura infoFactura = new InfoFactura();
                 fact.InfoFactura = infoFactura;
                 infoFactura.FechaEmision = "01/01/2000";
                 infoFactura.DirEstablecimiento = "dirEstablecimiento0";
@@ -60,21 +86,21 @@ namespace TEST
 
 //************************CREAMOS OTROS RUBREOS TERCEROS*****************************
                 Rubro rubro = new Rubro();   // se deben instanciar
-                fact.OtrosRubrosTerceros = new List<Rubro>();
+                fact.OtrosRubrosTerceros = new List<Rubro>().ToArray();
                 rubro.Total = "total1";
 
                 for(int i = 0; i <3; i++)
                 {
                     rubro.Concepto = "concepto"+i.ToString();
-                    fact.OtrosRubrosTerceros.Add(rubro);
+                    fact.OtrosRubrosTerceros.ToList().Add(rubro);
 
                 }
 
-                
 
+                InfoCompRetencion inforet = new InfoCompRetencion();
+                ImpuestoDetalleRetencion imp = new ImpuestoDetalleRetencion();
 
-
-//**********************************INFOADICIONAL**************************************
+                //**********************************INFOADICIONAL**************************************
 
                 infoAdicional info1 = new infoAdicional();
                 infoAdicional info2 = new infoAdicional();
@@ -82,13 +108,13 @@ namespace TEST
                 info1.Valor = "1234567";
                 info2 = info1;
 
-                fact.CampoAdicional = new List<infoAdicional>();
-                fact.CampoAdicional.Add(info1);
-                fact.CampoAdicional.Add(info2);
+                fact.CampoAdicional = new List<infoAdicional>().ToArray();
+                fact.CampoAdicional.ToList().Add(info1);
+                fact.CampoAdicional.ToList().Add(info2);
 
 
                 //*****************************DETALLES***********************************************
-                
+
                 Detalle detalle1 = new Detalle();
                 Detalle detalle2 = new Detalle();
                 detalle1.CodigoPrincipal = "Detalle detalle1 = new Detalle()";
@@ -101,12 +127,12 @@ namespace TEST
                 detalle1.Descuento = "0.00";
                 detalle1.PrecioTotalSinImpuesto = "10.00";
                 detalle2 = detalle1;
-                detalle1.DetAdicional = new List<DetAdicional>();
+                detalle1.DetAdicional = new List<DetAdicional>().ToArray();
                 var detAd1 = new DetAdicional();
                 var detAd2 = new DetAdicional();
-                fact.Detalles = new List<Detalle>();
-                fact.Detalles.Add(detalle1);
-                fact.Detalles.Add(detalle2);
+                fact.Detalles = new List<Detalle>().ToArray();
+                fact.Detalles.ToList().Add(detalle1);
+                fact.Detalles.ToList().Add(detalle2);
 
 
 //***********************************PAGOS*********************************
@@ -116,9 +142,9 @@ namespace TEST
                 pago.Plazo = "3";
                 pago.UnidadTiempo = "Dias";
 
-                fact.InfoFactura.Pagos = new List<Pago>();
-                fact.InfoFactura.Pagos.Add(pago);
-                fact.InfoFactura.Pagos.Add(pago);
+                fact.InfoFactura.Pagos = new List<Pago>().ToArray();
+                fact.InfoFactura.Pagos.ToList().Add(pago);
+                fact.InfoFactura.Pagos.ToList().Add(pago);
 
 
 
@@ -133,8 +159,8 @@ namespace TEST
                 totalConImpuesto.Tarifa = "0.00";
                 totalConImpuesto.Valor = "100.00";
 
-                fact.InfoFactura.TotalConImpuestos = new List<TotalConImpuesto>();
-                fact.InfoFactura.TotalConImpuestos.Add(totalConImpuesto);
+                fact.InfoFactura.TotalConImpuestos = new List<TotalConImpuesto>().ToArray();
+                fact.InfoFactura.TotalConImpuestos.ToList().Add(totalConImpuesto);
 
 
 
@@ -147,14 +173,6 @@ namespace TEST
 
                 fact.Maquinafiscal = new maquinaFiscal();
                 fact.Maquinafiscal = maquina;
-
-
-
-
-
-
-
-
 
 
 
@@ -176,57 +194,38 @@ namespace TEST
 
             }
 
+                
+
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
-            ServiceClient servicio1 = new ServiceClient();
-            //****servicio1.DescargaArchivo();
-            
-            PeticionDescargaArchivo peticionDesc = new PeticionDescargaArchivo();
-            peticionDesc.RUC = "1792433738001";
-            peticionDesc.Usuario = "usuario1";
-            peticionDesc.Clave = "dfacture";
-            peticionDesc.Documento = "01-001-002-000000222";
-            peticionDesc.Extension = "Xml";
-
-            var resp = servicio1.DescargaArchivo(peticionDesc);
-
+        {         
+            serviceobj.Service servicio = new serviceobj.Service();
+            servicio.Url = "https://demointws.thefactoryhka.com.ec/Service.svc";
+            PeticionDescargaArchivo pet = new PeticionDescargaArchivo();
+            pet.Clave = "CLAVE123456";
+            pet.Documento = "01-001-002-000444222";
+            pet.RUC = "1345623808765";
+            pet.Extension = "Pdf";
+            pet.Usuario = "ususario1";
+            RepuestaDescargaArchivo resp = new RepuestaDescargaArchivo();
+            resp = servicio.DescargaArchivo(pet); 
             richTextBox1.Text = "La respuesta es: \r\n" + "procesado: " + resp.Procesado.ToString()+"\r\n"+ "Mensaje: " + resp.Mensaje + "\r\n" +"UUID: "+"falta"+"\r\n" + "Codigo" + resp.Codigo + "\r\n" + "archivo: "+"\r\n" + resp.Archivo;
-
-            
-
-
-
+          
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ServiceClient servicio1 = new ServiceClient();
-            PeticionFolios folios = new PeticionFolios();
-            folios.Usuario = "usuario1";
-            folios.RUC = "1792433738001";
-            folios.Clave = "dfacture";
-
-            var resp = servicio1.FoliosRestantes(folios);
-
-            richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje + "\r\n" + "Folios Restantes: " + resp.FoliosRestantes+"\r\n"+ "Fecha Vencimiento"+resp.FechaVencimiento;
-
+            
 
 
         }
 
         private void button5_Click(object sender, EventArgs e)
+
         {
-            ServiceClient service = new ServiceClient()
-;           PeticionEstatusDocumento peticion = new PeticionEstatusDocumento();
-            peticion.Usuario = "usuario1";
-            peticion.RUC = "1792433738001";
-            peticion.Clave = "dfacture";
-            peticion.Documento = "01-001-002-000000333";
-            peticion.Extension = "xml";
-            var resp = service.EstatusDocumento(peticion);
-            richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje;
+
+           
 
         }
     }

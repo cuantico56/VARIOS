@@ -212,7 +212,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(158, 20);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "NCN40KM,VXOY";
+            this.textBox3.Text = "GA,UI95PW5G9";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.UseSystemPasswordChar = true;
             // 
