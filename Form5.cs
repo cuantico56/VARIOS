@@ -36,26 +36,36 @@ namespace TEST
             {
                 OTEST.ServiceClient servicio = new OTEST.ServiceClient(); //CREAMOS SERVICIO
                 OTEST.PeticionFactura pet = new OTEST.PeticionFactura(); //Creamos una peticion
-                Factura fact = new OTEST.Factura(); // Creamos una factura            
+                Factura fact = new OTEST.Factura(); // Creamos una factura
+                                                  
                 OTEST.InfoTributaria infotrib = new InfoTributaria();
+
                 fact.InfoTributaria = infotrib;
                 pet.Documento = fact;
-                fact.InfoTributaria.NombreComercial = "ECUAGOCH";
-                fact.InfoTributaria.AgenteRetencion = "SI";
-                fact.InfoTributaria.RazonSocial = "ECUAGOCH";
-                fact.InfoTributaria.Ruc = "1700000000001";
-                fact.InfoTributaria.CodigoNumerico = "01";
-                fact.InfoTributaria.Estab = "001";
-                fact.InfoTributaria.PtoEmi = "001";
-                fact.InfoTributaria.Secuencial = "000000222";
-                fact.InfoTributaria.DirMatriz = "En un lugar de la mancha...";
+                fact.InfoTributaria.NombreComercial = textBox11.Text;
+                fact.InfoTributaria.AgenteRetencion = textBox12.Text;
+                fact.InfoTributaria.RazonSocial = textBox13.Text;
+                fact.InfoTributaria.Ruc = textBox14.Text;
+                fact.InfoTributaria.CodigoNumerico = textBox15.Text;
+                fact.InfoTributaria.Estab = textBox16.Text;
+                fact.InfoTributaria.PtoEmi = textBox17.Text;
+                fact.InfoTributaria.Secuencial = textBox18.Text;
+                fact.InfoTributaria.DirMatriz = textBox19.Text;
+                fact.Version = textBox20.Text;
 
                 OTEST.InfoFactura infoFactura = new InfoFactura();
                 fact.InfoFactura = infoFactura;
-                infoFactura.FechaEmision = "01/01/2000";
-                infoFactura.DirEstablecimiento = "dirEstablecimiento0";
-                infoFactura.ContribuyenteEspecial = "Contribuyente especial";
-                infoFactura.ObligadoContabilidad = "SI";
+                infoFactura.FechaEmision = textBox1.Text;
+                infoFactura.DirEstablecimiento = textBox2.Text;
+                infoFactura.ContribuyenteEspecial = textBox3.Text;
+                infoFactura.ObligadoContabilidad = textBox4.Text;
+                infoFactura.TipoIdentificacionComprador = textBox5.Text;
+                infoFactura.RazonSocialComprador = textBox6.Text;
+                infoFactura.IdentificacionComprador = textBox7.Text;
+                infoFactura.DireccionComprador = textBox8.Text;
+                infoFactura.TotalSinImpuestos = textBox9.Text;
+                infoFactura.ImporteTotal = textBox10.Text;
+             
 
 
 //************************CREAMOS OTROS RUBREOS TERCEROS*****************************
@@ -165,7 +175,7 @@ namespace TEST
                 var resp = servicio.EnviarFactura(pet);
 
 
-                MessageBox.Show(resp.Mensaje + "--" + resp.Codigo + "--" + "\r\n" + resp.Archivo);
+                richTextBox1.Text=resp.Mensaje + "--" + resp.Codigo + "--" + "\r\n" + resp.Archivo;
             }
 
 
@@ -229,5 +239,7 @@ namespace TEST
             richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje;
 
         }
+
+
     }
 }
