@@ -328,7 +328,10 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TEST.OTEST.Detalle> DetallesField;
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.DetalleFactura> DetallesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoFactura InfoFacturaField;
@@ -340,10 +343,13 @@ namespace TEST.OTEST {
         private TEST.OTEST.InfoTributaria InfoTributariaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TEST.OTEST.maquinaFiscal MaquinafiscalField;
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.TipoNegociable NegociableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.Rubro> OtrosRubrosTercerosField;
@@ -381,7 +387,20 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<TEST.OTEST.Detalle> Detalles {
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.DetalleFactura> Detalles {
             get {
                 return this.DetallesField;
             }
@@ -433,14 +452,14 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TEST.OTEST.maquinaFiscal Maquinafiscal {
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
             get {
-                return this.MaquinafiscalField;
+                return this.MaquinaFiscalField;
             }
             set {
-                if ((object.ReferenceEquals(this.MaquinafiscalField, value) != true)) {
-                    this.MaquinafiscalField = value;
-                    this.RaisePropertyChanged("Maquinafiscal");
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
                 }
             }
         }
@@ -454,6 +473,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NegociableField, value) != true)) {
                     this.NegociableField = value;
                     this.RaisePropertyChanged("Negociable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
                 }
             }
         }
@@ -533,7 +565,10 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TEST.OTEST.Detalle> DetallesField;
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.DetalleNotaCredito> DetallesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoNotaCredito InfoNotaCreditoField;
@@ -542,7 +577,10 @@ namespace TEST.OTEST {
         private TEST.OTEST.InfoTributaria InfoTributariaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TEST.OTEST.maquinaFiscal MaquinafiscalField;
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -571,7 +609,20 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<TEST.OTEST.Detalle> Detalles {
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.DetalleNotaCredito> Detalles {
             get {
                 return this.DetallesField;
             }
@@ -610,14 +661,27 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TEST.OTEST.maquinaFiscal Maquinafiscal {
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
             get {
-                return this.MaquinafiscalField;
+                return this.MaquinaFiscalField;
             }
             set {
-                if ((object.ReferenceEquals(this.MaquinafiscalField, value) != true)) {
-                    this.MaquinafiscalField = value;
-                    this.RaisePropertyChanged("Maquinafiscal");
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
                 }
             }
         }
@@ -980,9 +1044,6 @@ namespace TEST.OTEST {
         private string RegimenMicroempresasField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RucField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SecuencialField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1100,19 +1161,6 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ruc {
-            get {
-                return this.RucField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RucField, value) != true)) {
-                    this.RucField = value;
-                    this.RaisePropertyChanged("Ruc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Secuencial {
             get {
                 return this.SecuencialField;
@@ -1137,9 +1185,9 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="maquinaFiscal", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaquinaFiscal", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other")]
     [System.SerializableAttribute()]
-    public partial class maquinaFiscal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class MaquinaFiscal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -1221,117 +1269,41 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Detalle", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleNotaCredito", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
     [System.SerializableAttribute()]
-    public partial class Detalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class DetalleNotaCredito : TEST.OTEST.DetalleBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CantidadField;
+        private string CodigoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoAuxiliarField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoPrincipalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescripcionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescuentoField;
+        private string CodigoInternoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetAdicionalField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> ImpuestosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrecioSinSubsidioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrecioTotalSinImpuestoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrecioUnitarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UnidadMedidaField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cantidad {
+        public string CodigoAdicional {
             get {
-                return this.CantidadField;
+                return this.CodigoAdicionalField;
             }
             set {
-                if ((object.ReferenceEquals(this.CantidadField, value) != true)) {
-                    this.CantidadField = value;
-                    this.RaisePropertyChanged("Cantidad");
+                if ((object.ReferenceEquals(this.CodigoAdicionalField, value) != true)) {
+                    this.CodigoAdicionalField = value;
+                    this.RaisePropertyChanged("CodigoAdicional");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodigoAuxiliar {
+        public string CodigoInterno {
             get {
-                return this.CodigoAuxiliarField;
+                return this.CodigoInternoField;
             }
             set {
-                if ((object.ReferenceEquals(this.CodigoAuxiliarField, value) != true)) {
-                    this.CodigoAuxiliarField = value;
-                    this.RaisePropertyChanged("CodigoAuxiliar");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodigoPrincipal {
-            get {
-                return this.CodigoPrincipalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoPrincipalField, value) != true)) {
-                    this.CodigoPrincipalField = value;
-                    this.RaisePropertyChanged("CodigoPrincipal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descuento {
-            get {
-                return this.DescuentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescuentoField, value) != true)) {
-                    this.DescuentoField = value;
-                    this.RaisePropertyChanged("Descuento");
+                if ((object.ReferenceEquals(this.CodigoInternoField, value) != true)) {
+                    this.CodigoInternoField = value;
+                    this.RaisePropertyChanged("CodigoInterno");
                 }
             }
         }
@@ -1346,80 +1318,6 @@ namespace TEST.OTEST {
                     this.DetAdicionalField = value;
                     this.RaisePropertyChanged("DetAdicional");
                 }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> Impuestos {
-            get {
-                return this.ImpuestosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImpuestosField, value) != true)) {
-                    this.ImpuestosField = value;
-                    this.RaisePropertyChanged("Impuestos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PrecioSinSubsidio {
-            get {
-                return this.PrecioSinSubsidioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrecioSinSubsidioField, value) != true)) {
-                    this.PrecioSinSubsidioField = value;
-                    this.RaisePropertyChanged("PrecioSinSubsidio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PrecioTotalSinImpuesto {
-            get {
-                return this.PrecioTotalSinImpuestoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrecioTotalSinImpuestoField, value) != true)) {
-                    this.PrecioTotalSinImpuestoField = value;
-                    this.RaisePropertyChanged("PrecioTotalSinImpuesto");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PrecioUnitario {
-            get {
-                return this.PrecioUnitarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrecioUnitarioField, value) != true)) {
-                    this.PrecioUnitarioField = value;
-                    this.RaisePropertyChanged("PrecioUnitario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UnidadMedida {
-            get {
-                return this.UnidadMedidaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnidadMedidaField, value) != true)) {
-                    this.UnidadMedidaField = value;
-                    this.RaisePropertyChanged("UnidadMedida");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -1482,6 +1380,220 @@ namespace TEST.OTEST {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleBase", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.DetalleFactura))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.DetalleNotaCredito))]
+    public partial class DetalleBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescuentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> ImpuestosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecioTotalSinImpuestoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecioUnitarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cantidad {
+            get {
+                return this.CantidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CantidadField, value) != true)) {
+                    this.CantidadField = value;
+                    this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descuento {
+            get {
+                return this.DescuentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescuentoField, value) != true)) {
+                    this.DescuentoField = value;
+                    this.RaisePropertyChanged("Descuento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> Impuestos {
+            get {
+                return this.ImpuestosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpuestosField, value) != true)) {
+                    this.ImpuestosField = value;
+                    this.RaisePropertyChanged("Impuestos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecioTotalSinImpuesto {
+            get {
+                return this.PrecioTotalSinImpuestoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecioTotalSinImpuestoField, value) != true)) {
+                    this.PrecioTotalSinImpuestoField = value;
+                    this.RaisePropertyChanged("PrecioTotalSinImpuesto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecioUnitario {
+            get {
+                return this.PrecioUnitarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecioUnitarioField, value) != true)) {
+                    this.PrecioUnitarioField = value;
+                    this.RaisePropertyChanged("PrecioUnitario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleFactura", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    [System.SerializableAttribute()]
+    public partial class DetalleFactura : TEST.OTEST.DetalleBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoAuxiliarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoPrincipalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecioSinSubsidioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnidadMedidaField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoAuxiliar {
+            get {
+                return this.CodigoAuxiliarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoAuxiliarField, value) != true)) {
+                    this.CodigoAuxiliarField = value;
+                    this.RaisePropertyChanged("CodigoAuxiliar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoPrincipal {
+            get {
+                return this.CodigoPrincipalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoPrincipalField, value) != true)) {
+                    this.CodigoPrincipalField = value;
+                    this.RaisePropertyChanged("CodigoPrincipal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetAdicional {
+            get {
+                return this.DetAdicionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetAdicionalField, value) != true)) {
+                    this.DetAdicionalField = value;
+                    this.RaisePropertyChanged("DetAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecioSinSubsidio {
+            get {
+                return this.PrecioSinSubsidioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecioSinSubsidioField, value) != true)) {
+                    this.PrecioSinSubsidioField = value;
+                    this.RaisePropertyChanged("PrecioSinSubsidio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UnidadMedida {
+            get {
+                return this.UnidadMedidaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnidadMedidaField, value) != true)) {
+                    this.UnidadMedidaField = value;
+                    this.RaisePropertyChanged("UnidadMedida");
+                }
             }
         }
     }
@@ -1611,7 +1723,55 @@ namespace TEST.OTEST {
     public partial class ImpuestoDetalleRetencion : TEST.OTEST.ImpuestoDetalleBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodDocSustentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaEmisionDocSustentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumDocSustentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PorcentajeRetenerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodDocSustento {
+            get {
+                return this.CodDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodDocSustentoField, value) != true)) {
+                    this.CodDocSustentoField = value;
+                    this.RaisePropertyChanged("CodDocSustento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaEmisionDocSustento {
+            get {
+                return this.FechaEmisionDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaEmisionDocSustentoField, value) != true)) {
+                    this.FechaEmisionDocSustentoField = value;
+                    this.RaisePropertyChanged("FechaEmisionDocSustento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumDocSustento {
+            get {
+                return this.NumDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumDocSustentoField, value) != true)) {
+                    this.NumDocSustentoField = value;
+                    this.RaisePropertyChanged("NumDocSustento");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string PorcentajeRetener {
@@ -1899,16 +2059,22 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoNotaDebito InfoNotaDebitoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoTributaria InfoTributariaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TEST.OTEST.maquinaFiscal MaquinafiscalField;
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.Motivo> MotivosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -1932,6 +2098,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
                     this.CampoAdicionalField = value;
                     this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
                 }
             }
         }
@@ -1963,14 +2142,14 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TEST.OTEST.maquinaFiscal Maquinafiscal {
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
             get {
-                return this.MaquinafiscalField;
+                return this.MaquinaFiscalField;
             }
             set {
-                if ((object.ReferenceEquals(this.MaquinafiscalField, value) != true)) {
-                    this.MaquinafiscalField = value;
-                    this.RaisePropertyChanged("Maquinafiscal");
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
                 }
             }
         }
@@ -1984,6 +2163,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.MotivosField, value) != true)) {
                     this.MotivosField = value;
                     this.RaisePropertyChanged("Motivos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
                 }
             }
         }
@@ -2463,6 +2655,9 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.Detalle> DetallesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2472,10 +2667,13 @@ namespace TEST.OTEST {
         private TEST.OTEST.InfoTributaria InfoTributariaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TEST.OTEST.maquinaFiscal MaquinafiscalField;
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.TipoNegociable NegociableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.ReembolsoDetalle> ReembolsosField;
@@ -2502,6 +2700,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
                     this.CampoAdicionalField = value;
                     this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
                 }
             }
         }
@@ -2546,14 +2757,14 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TEST.OTEST.maquinaFiscal Maquinafiscal {
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
             get {
-                return this.MaquinafiscalField;
+                return this.MaquinaFiscalField;
             }
             set {
-                if ((object.ReferenceEquals(this.MaquinafiscalField, value) != true)) {
-                    this.MaquinafiscalField = value;
-                    this.RaisePropertyChanged("Maquinafiscal");
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
                 }
             }
         }
@@ -2567,6 +2778,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NegociableField, value) != true)) {
                     this.NegociableField = value;
                     this.RaisePropertyChanged("Negociable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
                 }
             }
         }
@@ -2971,6 +3195,211 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Detalle", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
+    [System.SerializableAttribute()]
+    public partial class Detalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoAuxiliarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoPrincipalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescuentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> ImpuestosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecioSinSubsidioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecioTotalSinImpuestoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecioUnitarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnidadMedidaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cantidad {
+            get {
+                return this.CantidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CantidadField, value) != true)) {
+                    this.CantidadField = value;
+                    this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoAuxiliar {
+            get {
+                return this.CodigoAuxiliarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoAuxiliarField, value) != true)) {
+                    this.CodigoAuxiliarField = value;
+                    this.RaisePropertyChanged("CodigoAuxiliar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoPrincipal {
+            get {
+                return this.CodigoPrincipalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoPrincipalField, value) != true)) {
+                    this.CodigoPrincipalField = value;
+                    this.RaisePropertyChanged("CodigoPrincipal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descuento {
+            get {
+                return this.DescuentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescuentoField, value) != true)) {
+                    this.DescuentoField = value;
+                    this.RaisePropertyChanged("Descuento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetAdicional {
+            get {
+                return this.DetAdicionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetAdicionalField, value) != true)) {
+                    this.DetAdicionalField = value;
+                    this.RaisePropertyChanged("DetAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> Impuestos {
+            get {
+                return this.ImpuestosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpuestosField, value) != true)) {
+                    this.ImpuestosField = value;
+                    this.RaisePropertyChanged("Impuestos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecioSinSubsidio {
+            get {
+                return this.PrecioSinSubsidioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecioSinSubsidioField, value) != true)) {
+                    this.PrecioSinSubsidioField = value;
+                    this.RaisePropertyChanged("PrecioSinSubsidio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecioTotalSinImpuesto {
+            get {
+                return this.PrecioTotalSinImpuestoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecioTotalSinImpuestoField, value) != true)) {
+                    this.PrecioTotalSinImpuestoField = value;
+                    this.RaisePropertyChanged("PrecioTotalSinImpuesto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecioUnitario {
+            get {
+                return this.PrecioUnitarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecioUnitarioField, value) != true)) {
+                    this.PrecioUnitarioField = value;
+                    this.RaisePropertyChanged("PrecioUnitario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UnidadMedida {
+            get {
+                return this.UnidadMedidaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnidadMedidaField, value) != true)) {
+                    this.UnidadMedidaField = value;
+                    this.RaisePropertyChanged("UnidadMedida");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReembolsoDetalle", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
     [System.SerializableAttribute()]
     public partial class ReembolsoDetalle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3200,6 +3629,9 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.Destinatario> DestinatariosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3207,6 +3639,9 @@ namespace TEST.OTEST {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoTributaria InfoTributariaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -3218,6 +3653,19 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
+                }
             }
         }
         
@@ -3261,6 +3709,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Version {
             get {
                 return this.VersionField;
@@ -3293,6 +3754,12 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContribuyenteEspecialField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirEstablecimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DirPartidaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3302,10 +3769,16 @@ namespace TEST.OTEST {
         private string FechaIniTransporteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObligadoContabilidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PlacaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RazonSocialTransportistaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RiseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RucTransportistaField;
@@ -3320,6 +3793,32 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ContribuyenteEspecial {
+            get {
+                return this.ContribuyenteEspecialField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContribuyenteEspecialField, value) != true)) {
+                    this.ContribuyenteEspecialField = value;
+                    this.RaisePropertyChanged("ContribuyenteEspecial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirEstablecimiento {
+            get {
+                return this.DirEstablecimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirEstablecimientoField, value) != true)) {
+                    this.DirEstablecimientoField = value;
+                    this.RaisePropertyChanged("DirEstablecimiento");
+                }
             }
         }
         
@@ -3363,6 +3862,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ObligadoContabilidad {
+            get {
+                return this.ObligadoContabilidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObligadoContabilidadField, value) != true)) {
+                    this.ObligadoContabilidadField = value;
+                    this.RaisePropertyChanged("ObligadoContabilidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Placa {
             get {
                 return this.PlacaField;
@@ -3384,6 +3896,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.RazonSocialTransportistaField, value) != true)) {
                     this.RazonSocialTransportistaField = value;
                     this.RaisePropertyChanged("RazonSocialTransportista");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Rise {
+            get {
+                return this.RiseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiseField, value) != true)) {
+                    this.RiseField = value;
+                    this.RaisePropertyChanged("Rise");
                 }
             }
         }
@@ -3434,10 +3959,22 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodDocSustentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodEstabDestinoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.DetalleGuia> DetallesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DirDestinatarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocAduaneroUnicoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaEmisionDocSustentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IdentificacionDestinatarioField;
@@ -3446,7 +3983,16 @@ namespace TEST.OTEST {
         private string MotivoTrasladoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumAutDocSustentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumDocSustentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RazonSocialDestinatarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RutaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3455,6 +4001,32 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodDocSustento {
+            get {
+                return this.CodDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodDocSustentoField, value) != true)) {
+                    this.CodDocSustentoField = value;
+                    this.RaisePropertyChanged("CodDocSustento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodEstabDestino {
+            get {
+                return this.CodEstabDestinoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodEstabDestinoField, value) != true)) {
+                    this.CodEstabDestinoField = value;
+                    this.RaisePropertyChanged("CodEstabDestino");
+                }
             }
         }
         
@@ -3480,6 +4052,32 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.DirDestinatarioField, value) != true)) {
                     this.DirDestinatarioField = value;
                     this.RaisePropertyChanged("DirDestinatario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocAduaneroUnico {
+            get {
+                return this.DocAduaneroUnicoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocAduaneroUnicoField, value) != true)) {
+                    this.DocAduaneroUnicoField = value;
+                    this.RaisePropertyChanged("DocAduaneroUnico");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaEmisionDocSustento {
+            get {
+                return this.FechaEmisionDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaEmisionDocSustentoField, value) != true)) {
+                    this.FechaEmisionDocSustentoField = value;
+                    this.RaisePropertyChanged("FechaEmisionDocSustento");
                 }
             }
         }
@@ -3511,6 +4109,32 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumAutDocSustento {
+            get {
+                return this.NumAutDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumAutDocSustentoField, value) != true)) {
+                    this.NumAutDocSustentoField = value;
+                    this.RaisePropertyChanged("NumAutDocSustento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumDocSustento {
+            get {
+                return this.NumDocSustentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumDocSustentoField, value) != true)) {
+                    this.NumDocSustentoField = value;
+                    this.RaisePropertyChanged("NumDocSustento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string RazonSocialDestinatario {
             get {
                 return this.RazonSocialDestinatarioField;
@@ -3519,6 +4143,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.RazonSocialDestinatarioField, value) != true)) {
                     this.RazonSocialDestinatarioField = value;
                     this.RaisePropertyChanged("RazonSocialDestinatario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ruta {
+            get {
+                return this.RutaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RutaField, value) != true)) {
+                    this.RutaField = value;
+                    this.RaisePropertyChanged("Ruta");
                 }
             }
         }
@@ -3546,7 +4183,16 @@ namespace TEST.OTEST {
         private string CantidadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoInternoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetallesAdicionalesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3572,6 +4218,32 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoAdicional {
+            get {
+                return this.CodigoAdicionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoAdicionalField, value) != true)) {
+                    this.CodigoAdicionalField = value;
+                    this.RaisePropertyChanged("CodigoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CodigoInterno {
+            get {
+                return this.CodigoInternoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoInternoField, value) != true)) {
+                    this.CodigoInternoField = value;
+                    this.RaisePropertyChanged("CodigoInterno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Descripcion {
             get {
                 return this.DescripcionField;
@@ -3580,6 +4252,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
                     this.DescripcionField = value;
                     this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.DetAdicional> DetallesAdicionales {
+            get {
+                return this.DetallesAdicionalesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetallesAdicionalesField, value) != true)) {
+                    this.DetallesAdicionalesField = value;
+                    this.RaisePropertyChanged("DetallesAdicionales");
                 }
             }
         }
@@ -3604,6 +4289,12 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalleRetencion> ImpuestosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3611,6 +4302,12 @@ namespace TEST.OTEST {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoTributaria InfoTributariaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TEST.OTEST.MaquinaFiscal MaquinafiscalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -3622,6 +4319,32 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
+            get {
+                return this.CampoAdicionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
+                    this.CampoAdicionalField = value;
+                    this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
+                }
             }
         }
         
@@ -3665,6 +4388,32 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public TEST.OTEST.MaquinaFiscal Maquinafiscal {
+            get {
+                return this.MaquinafiscalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaquinafiscalField, value) != true)) {
+                    this.MaquinafiscalField = value;
+                    this.RaisePropertyChanged("Maquinafiscal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Version {
             get {
                 return this.VersionField;
@@ -3697,10 +4446,19 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContribuyenteEspecialField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirEstablecimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FechaEmisionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IdentificacionSujetoRetenidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObligadoContabilidadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PeriodoFiscalField;
@@ -3718,6 +4476,32 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ContribuyenteEspecial {
+            get {
+                return this.ContribuyenteEspecialField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContribuyenteEspecialField, value) != true)) {
+                    this.ContribuyenteEspecialField = value;
+                    this.RaisePropertyChanged("ContribuyenteEspecial");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirEstablecimiento {
+            get {
+                return this.DirEstablecimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirEstablecimientoField, value) != true)) {
+                    this.DirEstablecimientoField = value;
+                    this.RaisePropertyChanged("DirEstablecimiento");
+                }
             }
         }
         
@@ -3743,6 +4527,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.IdentificacionSujetoRetenidoField, value) != true)) {
                     this.IdentificacionSujetoRetenidoField = value;
                     this.RaisePropertyChanged("IdentificacionSujetoRetenido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ObligadoContabilidad {
+            get {
+                return this.ObligadoContabilidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObligadoContabilidadField, value) != true)) {
+                    this.ObligadoContabilidadField = value;
+                    this.RaisePropertyChanged("ObligadoContabilidad");
                 }
             }
         }
@@ -3806,7 +4603,16 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoTributaria InfoTributariaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -3820,9 +4626,6 @@ namespace TEST.OTEST {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoCompRetencionATS infoRetencionATSField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TEST.OTEST.maquinaFiscal maquinafiscalField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -3830,6 +4633,19 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNotificar {
+            get {
+                return this.CorreoNotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
+                    this.CorreoNotificarField = value;
+                    this.RaisePropertyChanged("CorreoNotificar");
+                }
             }
         }
         
@@ -3842,6 +4658,32 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.InfoTributariaField, value) != true)) {
                     this.InfoTributariaField = value;
                     this.RaisePropertyChanged("InfoTributaria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
+            get {
+                return this.MaquinaFiscalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notificar {
+            get {
+                return this.NotificarField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
+                    this.NotificarField = value;
+                    this.RaisePropertyChanged("Notificar");
                 }
             }
         }
@@ -3894,19 +4736,6 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.infoRetencionATSField, value) != true)) {
                     this.infoRetencionATSField = value;
                     this.RaisePropertyChanged("infoRetencionATS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public TEST.OTEST.maquinaFiscal maquinafiscal {
-            get {
-                return this.maquinafiscalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.maquinafiscalField, value) != true)) {
-                    this.maquinafiscalField = value;
-                    this.RaisePropertyChanged("maquinafiscal");
                 }
             }
         }
@@ -4126,9 +4955,6 @@ namespace TEST.OTEST {
         private string CodDocSustentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodSupaisEfecPagostentoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodSustentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4162,10 +4988,13 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.PagoRetencionATS> PagosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaisEfecPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.ReembolsoDetalle> ReembolsosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TEST.OTEST.Retencion> RetencionesField;
+        private System.Collections.Generic.List<TEST.OTEST.RetencionesATS> RetencionesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TipoRegiField;
@@ -4214,19 +5043,6 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CodDocSustentoField, value) != true)) {
                     this.CodDocSustentoField = value;
                     this.RaisePropertyChanged("CodDocSustento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodSupaisEfecPagostento {
-            get {
-                return this.CodSupaisEfecPagostentoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodSupaisEfecPagostentoField, value) != true)) {
-                    this.CodSupaisEfecPagostentoField = value;
-                    this.RaisePropertyChanged("CodSupaisEfecPagostento");
                 }
             }
         }
@@ -4375,6 +5191,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PaisEfecPago {
+            get {
+                return this.PaisEfecPagoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaisEfecPagoField, value) != true)) {
+                    this.PaisEfecPagoField = value;
+                    this.RaisePropertyChanged("PaisEfecPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.List<TEST.OTEST.ReembolsoDetalle> Reembolsos {
             get {
                 return this.ReembolsosField;
@@ -4388,7 +5217,7 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<TEST.OTEST.Retencion> Retenciones {
+        public System.Collections.Generic.List<TEST.OTEST.RetencionesATS> Retenciones {
             get {
                 return this.RetencionesField;
             }
@@ -4647,8 +5476,80 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RetencionesATS", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+    [System.SerializableAttribute()]
+    public partial class RetencionesATS : TEST.OTEST.Retencion {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BaseImponibleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TEST.OTEST.CompraCajBanano CompraCajBanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TEST.OTEST.Dividendo DividendosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PorcentajeRetenerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BaseImponible {
+            get {
+                return this.BaseImponibleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BaseImponibleField, value) != true)) {
+                    this.BaseImponibleField = value;
+                    this.RaisePropertyChanged("BaseImponible");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TEST.OTEST.CompraCajBanano CompraCajBan {
+            get {
+                return this.CompraCajBanField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompraCajBanField, value) != true)) {
+                    this.CompraCajBanField = value;
+                    this.RaisePropertyChanged("CompraCajBan");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TEST.OTEST.Dividendo Dividendos {
+            get {
+                return this.DividendosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DividendosField, value) != true)) {
+                    this.DividendosField = value;
+                    this.RaisePropertyChanged("Dividendos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PorcentajeRetener {
+            get {
+                return this.PorcentajeRetenerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PorcentajeRetenerField, value) != true)) {
+                    this.PorcentajeRetenerField = value;
+                    this.RaisePropertyChanged("PorcentajeRetener");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Retencion", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RetencionesATS))]
     public partial class Retencion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -4724,6 +5625,144 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.ValorField, value) != true)) {
                     this.ValorField = value;
                     this.RaisePropertyChanged("Valor");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompraCajBanano", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+    [System.SerializableAttribute()]
+    public partial class CompraCajBanano : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumCajBanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrecCajBanField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumCajBan {
+            get {
+                return this.NumCajBanField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumCajBanField, value) != true)) {
+                    this.NumCajBanField = value;
+                    this.RaisePropertyChanged("NumCajBan");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PrecCajBan {
+            get {
+                return this.PrecCajBanField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrecCajBanField, value) != true)) {
+                    this.PrecCajBanField = value;
+                    this.RaisePropertyChanged("PrecCajBan");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Dividendo", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other")]
+    [System.SerializableAttribute()]
+    public partial class Dividendo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EjerFisUtDivField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaPagoDivField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImRentaSocField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EjerFisUtDiv {
+            get {
+                return this.EjerFisUtDivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EjerFisUtDivField, value) != true)) {
+                    this.EjerFisUtDivField = value;
+                    this.RaisePropertyChanged("EjerFisUtDiv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaPagoDiv {
+            get {
+                return this.FechaPagoDivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaPagoDivField, value) != true)) {
+                    this.FechaPagoDivField = value;
+                    this.RaisePropertyChanged("FechaPagoDiv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImRentaSoc {
+            get {
+                return this.ImRentaSocField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImRentaSocField, value) != true)) {
+                    this.ImRentaSocField = value;
+                    this.RaisePropertyChanged("ImRentaSoc");
                 }
             }
         }

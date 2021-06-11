@@ -302,12 +302,14 @@
       <xs:complexType name="Factura">
         <xs:sequence>
           <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q1:ArrayOfinfoAdicional" />
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q2:ArrayOfDetalle" />
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q2:ArrayOfDetalleFactura" />
           <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoFactura" nillable="true" type="q3:InfoFactura" />
           <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="InfoSustitutivaGuiaRemision" nillable="true" type="q4:InfoSustitutivaGuiaRemision" />
           <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q5:InfoTributaria" />
-          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Maquinafiscal" nillable="true" type="q6:maquinaFiscal" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q6:MaquinaFiscal" />
           <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Negociable" nillable="true" type="q7:TipoNegociable" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="OtrosRubrosTerceros" nillable="true" type="q8:ArrayOfRubro" />
           <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Reembolsos" nillable="true" type="q9:ArrayOfReembolsoDetalle" />
           <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Retenciones" nillable="true" type="q10:ArrayOfRetencion" />
@@ -327,10 +329,12 @@
       <xs:complexType name="NotaCredito">
         <xs:sequence>
           <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q11:ArrayOfinfoAdicional" />
-          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q12:ArrayOfDetalle" />
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q12:ArrayOfDetalleNotaCredito" />
           <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoNotaCredito" nillable="true" type="q13:InfoNotaCredito" />
           <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q14:InfoTributaria" />
-          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Maquinafiscal" nillable="true" type="q15:maquinaFiscal" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q15:MaquinaFiscal" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -338,10 +342,12 @@
       <xs:complexType name="NotaDebito">
         <xs:sequence>
           <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q16:ArrayOfinfoAdicional" />
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
           <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoNotaDebito" nillable="true" type="q17:InfoNotaDebito" />
           <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q18:InfoTributaria" />
-          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Maquinafiscal" nillable="true" type="q19:maquinaFiscal" />
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q19:MaquinaFiscal" />
           <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Motivos" nillable="true" type="q20:ArrayOfMotivo" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -349,11 +355,13 @@
       <xs:complexType name="Liquidacion">
         <xs:sequence>
           <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q21:ArrayOfinfoAdicional" />
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
           <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q22:ArrayOfDetalle" />
           <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoLiquidacion" nillable="true" type="q23:InfoLiquidacionCompra" />
           <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q24:InfoTributaria" />
-          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Maquinafiscal" nillable="true" type="q25:maquinaFiscal" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q25:MaquinaFiscal" />
           <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Negociable" nillable="true" type="q26:TipoNegociable" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Reembolsos" nillable="true" type="q27:ArrayOfReembolsoDetalle" />
           <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -361,30 +369,38 @@
       <xs:element name="Liquidacion" nillable="true" type="tns:Liquidacion" />
       <xs:complexType name="GuiaRemision">
         <xs:sequence>
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
           <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Destinatarios" nillable="true" type="q28:ArrayOfDestinatario" />
           <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoGuia" nillable="true" type="q29:InfoGuiaRemision" />
           <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q30:InfoTributaria" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="GuiaRemision" nillable="true" type="tns:GuiaRemision" />
       <xs:complexType name="ComprobanteRetencion">
         <xs:sequence>
-          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Impuestos" nillable="true" type="q31:ArrayOfImpuestoDetalleRetencion" />
-          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoRetencion" nillable="true" type="q32:InfoCompRetencion" />
-          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q33:InfoTributaria" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q31:ArrayOfinfoAdicional" />
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Impuestos" nillable="true" type="q32:ArrayOfImpuestoDetalleRetencion" />
+          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoRetencion" nillable="true" type="q33:InfoCompRetencion" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q34:InfoTributaria" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Maquinafiscal" nillable="true" type="q35:MaquinaFiscal" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ComprobanteRetencion" nillable="true" type="tns:ComprobanteRetencion" />
       <xs:complexType name="RetencionATS">
         <xs:sequence>
-          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q34:InfoTributaria" />
+          <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q36:InfoTributaria" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q37:MaquinaFiscal" />
+          <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
-          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="campoAdicional" nillable="true" type="q35:ArrayOfinfoAdicional" />
-          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="docsSustento" nillable="true" type="q36:ArrayOfDocSustento" />
-          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="infoRetencionATS" nillable="true" type="q37:InfoCompRetencionATS" />
-          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="maquinafiscal" nillable="true" type="q38:maquinaFiscal" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="campoAdicional" nillable="true" type="q38:ArrayOfinfoAdicional" />
+          <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="docsSustento" nillable="true" type="q39:ArrayOfDocSustento" />
+          <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="infoRetencionATS" nillable="true" type="q40:InfoCompRetencionATS" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="RetencionATS" nillable="true" type="tns:RetencionATS" />
@@ -405,14 +421,14 @@
         </xs:complexContent>
       </xs:complexType>
       <xs:element name="infoAdicional" nillable="true" type="tns:infoAdicional" />
-      <xs:complexType name="maquinaFiscal">
+      <xs:complexType name="MaquinaFiscal">
         <xs:sequence>
           <xs:element minOccurs="0" name="marca" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="modelo" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="maquinaFiscal" nillable="true" type="tns:maquinaFiscal" />
+      <xs:element name="MaquinaFiscal" nillable="true" type="tns:MaquinaFiscal" />
       <xs:complexType name="TipoNegociable">
         <xs:sequence>
           <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
@@ -428,34 +444,37 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="DetAdicional" nillable="true" type="tns:DetAdicional" />
-      <xs:complexType name="ArrayOfDetalle">
+      <xs:complexType name="ArrayOfDetalleFactura">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="Detalle" nillable="true" type="tns:Detalle" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleFactura" nillable="true" type="tns:DetalleFactura" />
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="ArrayOfDetalle" nillable="true" type="tns:ArrayOfDetalle" />
-      <xs:complexType name="Detalle">
+      <xs:element name="ArrayOfDetalleFactura" nillable="true" type="tns:ArrayOfDetalleFactura" />
+      <xs:complexType name="DetalleFactura">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DetalleBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="CodigoAuxiliar" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CodigoPrincipal" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+              <xs:element minOccurs="0" name="PrecioSinSubsidio" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="UnidadMedida" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DetalleFactura" nillable="true" type="tns:DetalleFactura" />
+      <xs:complexType name="DetalleBase">
         <xs:sequence>
           <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CodigoAuxiliar" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CodigoPrincipal" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Descuento" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
           <xs:element minOccurs="0" name="Impuestos" nillable="true" type="tns:ArrayOfImpuestoDetalle" />
-          <xs:element minOccurs="0" name="PrecioSinSubsidio" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PrecioTotalSinImpuesto" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PrecioUnitario" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="UnidadMedida" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="Detalle" nillable="true" type="tns:Detalle" />
-      <xs:complexType name="ArrayOfDetAdicional">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="DetAdicional" nillable="true" type="tns:DetAdicional" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:element name="ArrayOfDetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+      <xs:element name="DetalleBase" nillable="true" type="tns:DetalleBase" />
       <xs:complexType name="ArrayOfImpuestoDetalle">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="ImpuestoDetalle" nillable="true" type="tns:ImpuestoDetalle" />
@@ -481,6 +500,52 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ImpuestoDetalleBase" nillable="true" type="tns:ImpuestoDetalleBase" />
+      <xs:complexType name="ArrayOfDetAdicional">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DetAdicional" nillable="true" type="tns:DetAdicional" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+      <xs:complexType name="ArrayOfDetalleNotaCredito">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleNotaCredito" nillable="true" type="tns:DetalleNotaCredito" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDetalleNotaCredito" nillable="true" type="tns:ArrayOfDetalleNotaCredito" />
+      <xs:complexType name="DetalleNotaCredito">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:DetalleBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="CodigoAdicional" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CodigoInterno" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DetalleNotaCredito" nillable="true" type="tns:DetalleNotaCredito" />
+      <xs:complexType name="ArrayOfDetalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Detalle" nillable="true" type="tns:Detalle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDetalle" nillable="true" type="tns:ArrayOfDetalle" />
+      <xs:complexType name="Detalle">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoAuxiliar" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoPrincipal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Descuento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+          <xs:element minOccurs="0" name="Impuestos" nillable="true" type="tns:ArrayOfImpuestoDetalle" />
+          <xs:element minOccurs="0" name="PrecioSinSubsidio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrecioTotalSinImpuesto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrecioUnitario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UnidadMedida" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Detalle" nillable="true" type="tns:Detalle" />
       <xs:complexType name="ArrayOfDestinatario">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="Destinatario" nillable="true" type="tns:Destinatario" />
@@ -489,11 +554,18 @@
       <xs:element name="ArrayOfDestinatario" nillable="true" type="tns:ArrayOfDestinatario" />
       <xs:complexType name="Destinatario">
         <xs:sequence>
+          <xs:element minOccurs="0" name="CodDocSustento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodEstabDestino" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Detalles" nillable="true" type="tns:ArrayOfDetalleGuia" />
           <xs:element minOccurs="0" name="DirDestinatario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocAduaneroUnico" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaEmisionDocSustento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IdentificacionDestinatario" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="MotivoTraslado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumAutDocSustento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumDocSustento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RazonSocialDestinatario" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ruta" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="Destinatario" nillable="true" type="tns:Destinatario" />
@@ -506,7 +578,10 @@
       <xs:complexType name="DetalleGuia">
         <xs:sequence>
           <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoAdicional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoInterno" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DetallesAdicionales" nillable="true" type="tns:ArrayOfDetAdicional" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="DetalleGuia" nillable="true" type="tns:DetalleGuia" />
@@ -520,6 +595,9 @@
         <xs:complexContent mixed="false">
           <xs:extension base="tns:ImpuestoDetalleBase">
             <xs:sequence>
+              <xs:element minOccurs="0" name="CodDocSustento" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="FechaEmisionDocSustento" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="NumDocSustento" nillable="true" type="xs:string" />
               <xs:element minOccurs="0" name="PorcentajeRetener" nillable="true" type="xs:string" />
             </xs:sequence>
           </xs:extension>
@@ -644,7 +722,6 @@
           <xs:element minOccurs="0" name="PtoEmi" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RegimenMicroempresas" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Ruc" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Secuencial" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -775,11 +852,15 @@
       <xs:element name="ImpuestoTotalLiquidacion" nillable="true" type="tns:ImpuestoTotalLiquidacion" />
       <xs:complexType name="InfoGuiaRemision">
         <xs:sequence>
+          <xs:element minOccurs="0" name="ContribuyenteEspecial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirEstablecimiento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DirPartida" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FechaFinTransporte" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FechaIniTransporte" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ObligadoContabilidad" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Placa" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RazonSocialTransportista" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Rise" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RucTransportista" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TipoIdentificacionTransportista" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -787,8 +868,11 @@
       <xs:element name="InfoGuiaRemision" nillable="true" type="tns:InfoGuiaRemision" />
       <xs:complexType name="InfoCompRetencion">
         <xs:sequence>
+          <xs:element minOccurs="0" name="ContribuyenteEspecial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirEstablecimiento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FechaEmision" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IdentificacionSujetoRetenido" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ObligadoContabilidad" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PeriodoFiscal" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="RazonSocialSujetoRetenido" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TipoIdentificacionSujetoRetenido" nillable="true" type="xs:string" />
@@ -917,7 +1001,6 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="AplicConvDobTrib" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CodDocSustento" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CodSupaisEfecPagostento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CodSustento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FechaEmisionDocSustento" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FechaRegistroContable" nillable="true" type="xs:string" />
@@ -929,8 +1012,9 @@
           <xs:element minOccurs="0" name="PagoLocExt" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PagoRegFis" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Pagos" nillable="true" type="tns:ArrayOfPagoRetencionATS" />
+          <xs:element minOccurs="0" name="PaisEfecPago" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Reembolsos" nillable="true" type="tns:ArrayOfReembolsoDetalle" />
-          <xs:element minOccurs="0" name="Retenciones" nillable="true" type="tns:ArrayOfRetencion" />
+          <xs:element minOccurs="0" name="Retenciones" nillable="true" type="tns:ArrayOfRetencionesATS" />
           <xs:element minOccurs="0" name="TipoRegi" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TotalBaseImponibleReembolso" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="TotalComprobantesReembolso" nillable="true" type="xs:string" />
@@ -952,6 +1036,40 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="PagoRetencionATS" nillable="true" type="tns:PagoRetencionATS" />
+      <xs:complexType name="ArrayOfRetencionesATS">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RetencionesATS" nillable="true" type="tns:RetencionesATS" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRetencionesATS" nillable="true" type="tns:ArrayOfRetencionesATS" />
+      <xs:complexType name="RetencionesATS">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Retencion">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="BaseImponible" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CompraCajBan" nillable="true" type="tns:CompraCajBanano" />
+              <xs:element minOccurs="0" name="Dividendos" nillable="true" type="tns:Dividendo" />
+              <xs:element minOccurs="0" name="PorcentajeRetener" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="RetencionesATS" nillable="true" type="tns:RetencionesATS" />
+      <xs:complexType name="CompraCajBanano">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NumCajBan" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrecCajBan" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CompraCajBanano" nillable="true" type="tns:CompraCajBanano" />
+      <xs:complexType name="Dividendo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EjerFisUtDiv" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaPagoDiv" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImRentaSoc" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Dividendo" nillable="true" type="tns:Dividendo" />
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject" />
