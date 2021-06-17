@@ -67,17 +67,39 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -101,28 +123,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.button11 = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -554,6 +555,150 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "INFOFACTURA";
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(20, 793);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(123, 14);
+            this.label34.TabIndex = 47;
+            this.label34.Text = "totalImpuestoReembolso";
+            // 
+            // textBox34
+            // 
+            this.textBox34.Location = new System.Drawing.Point(158, 790);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(124, 20);
+            this.textBox34.TabIndex = 46;
+            this.textBox34.Text = "50.00";
+            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(3, 754);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(149, 14);
+            this.label33.TabIndex = 45;
+            this.label33.Text = "totalBaseImponibleReembolso";
+            // 
+            // textBox33
+            // 
+            this.textBox33.Location = new System.Drawing.Point(158, 751);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(124, 20);
+            this.textBox33.TabIndex = 44;
+            this.textBox33.Text = "50.00";
+            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(6, 715);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(97, 14);
+            this.label32.TabIndex = 43;
+            this.label32.Text = "codDocReembolso";
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new System.Drawing.Point(115, 712);
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(167, 20);
+            this.textBox32.TabIndex = 42;
+            this.textBox32.Text = "00";
+            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(20, 676);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(79, 14);
+            this.label31.TabIndex = 41;
+            this.label31.Text = "totalDescuento";
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(115, 673);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(167, 20);
+            this.textBox31.TabIndex = 40;
+            this.textBox31.Text = "0.00";
+            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(-27, 639);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(136, 14);
+            this.label30.TabIndex = 39;
+            this.label30.Text = "incoTermTotalSinImpuestos";
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(115, 636);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(167, 20);
+            this.textBox30.TabIndex = 38;
+            this.textBox30.Text = "A";
+            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(19, 603);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(68, 14);
+            this.label29.TabIndex = 37;
+            this.label29.Text = "totalSubsidio";
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(114, 600);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(167, 20);
+            this.textBox29.TabIndex = 36;
+            this.textBox29.Text = "50.00";
+            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(19, 567);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(70, 14);
+            this.label25.TabIndex = 35;
+            this.label25.Text = "guiaRemision";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(15, 434);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(86, 14);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "puertoEmbarque";
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(114, 428);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(167, 20);
+            this.textBox24.TabIndex = 26;
+            this.textBox24.Text = "puertoEmbarque0";
+            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox25
+            // 
+            this.textBox25.Location = new System.Drawing.Point(114, 564);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new System.Drawing.Size(167, 20);
+            this.textBox25.TabIndex = 34;
+            this.textBox25.Text = "000-000-000000000";
+            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -571,6 +716,15 @@
             this.label22.Size = new System.Drawing.Size(80, 14);
             this.label22.TabIndex = 23;
             this.label22.Text = "lugarIncoTerm0";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 535);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(83, 14);
+            this.label26.TabIndex = 33;
+            this.label26.Text = "paisAdquisicion";
             // 
             // textBox22
             // 
@@ -590,6 +744,15 @@
             this.textBox23.Text = "000";
             this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(15, 499);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(63, 14);
+            this.label27.TabIndex = 31;
+            this.label27.Text = "paisDestino";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -607,6 +770,15 @@
             this.textBox21.TabIndex = 20;
             this.textBox21.Text = "SI";
             this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(114, 493);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(167, 20);
+            this.textBox26.TabIndex = 30;
+            this.textBox26.Text = "000";
+            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox9
             // 
@@ -626,6 +798,15 @@
             this.textBox10.Text = "100.00";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(114, 529);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(167, 20);
+            this.textBox27.TabIndex = 32;
+            this.textBox27.Text = "000";
+            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(114, 174);
@@ -644,6 +825,15 @@
             this.textBox7.Text = "1726534567";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(16, 468);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(74, 14);
+            this.label28.TabIndex = 29;
+            this.label28.Text = "puertoDestino";
+            // 
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(114, 230);
@@ -652,6 +842,15 @@
             this.textBox8.TabIndex = 11;
             this.textBox8.Text = "CUALQUIER DIRECCION";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(115, 462);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(167, 20);
+            this.textBox28.TabIndex = 28;
+            this.textBox28.Text = "puertoDestino0";
+            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
@@ -834,6 +1033,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button2);
@@ -843,7 +1043,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(25, 435);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(341, 107);
+            this.groupBox1.Size = new System.Drawing.Size(341, 150);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Enviar_ Documentos";
@@ -883,203 +1083,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Metodos";
             // 
-            // label24
+            // button11
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(15, 434);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(86, 14);
-            this.label24.TabIndex = 27;
-            this.label24.Text = "puertoEmbarque";
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(114, 428);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(167, 20);
-            this.textBox24.TabIndex = 26;
-            this.textBox24.Text = "puertoEmbarque0";
-            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(19, 567);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(70, 14);
-            this.label25.TabIndex = 35;
-            this.label25.Text = "guiaRemision";
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(114, 564);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(167, 20);
-            this.textBox25.TabIndex = 34;
-            this.textBox25.Text = "000-000-000000000";
-            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(6, 535);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 14);
-            this.label26.TabIndex = 33;
-            this.label26.Text = "paisAdquisicion";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(15, 499);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(63, 14);
-            this.label27.TabIndex = 31;
-            this.label27.Text = "paisDestino";
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(114, 493);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(167, 20);
-            this.textBox26.TabIndex = 30;
-            this.textBox26.Text = "000";
-            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(114, 529);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(167, 20);
-            this.textBox27.TabIndex = 32;
-            this.textBox27.Text = "000";
-            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(16, 468);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(74, 14);
-            this.label28.TabIndex = 29;
-            this.label28.Text = "puertoDestino";
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(115, 462);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(167, 20);
-            this.textBox28.TabIndex = 28;
-            this.textBox28.Text = "puertoDestino0";
-            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(19, 603);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(68, 14);
-            this.label29.TabIndex = 37;
-            this.label29.Text = "totalSubsidio";
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(114, 600);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(167, 20);
-            this.textBox29.TabIndex = 36;
-            this.textBox29.Text = "50.00";
-            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(-27, 639);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(136, 14);
-            this.label30.TabIndex = 39;
-            this.label30.Text = "incoTermTotalSinImpuestos";
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(115, 636);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(167, 20);
-            this.textBox30.TabIndex = 38;
-            this.textBox30.Text = "A";
-            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(20, 676);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(79, 14);
-            this.label31.TabIndex = 41;
-            this.label31.Text = "totalDescuento";
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(115, 673);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(167, 20);
-            this.textBox31.TabIndex = 40;
-            this.textBox31.Text = "0.00";
-            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 715);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(97, 14);
-            this.label32.TabIndex = 43;
-            this.label32.Text = "codDocReembolso";
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(115, 712);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(167, 20);
-            this.textBox32.TabIndex = 42;
-            this.textBox32.Text = "00";
-            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 754);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(149, 14);
-            this.label33.TabIndex = 45;
-            this.label33.Text = "totalBaseImponibleReembolso";
-            // 
-            // textBox33
-            // 
-            this.textBox33.Location = new System.Drawing.Point(158, 751);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(124, 20);
-            this.textBox33.TabIndex = 44;
-            this.textBox33.Text = "50.00";
-            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(20, 793);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(123, 14);
-            this.label34.TabIndex = 47;
-            this.label34.Text = "totalImpuestoReembolso";
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(158, 790);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(124, 20);
-            this.textBox34.TabIndex = 46;
-            this.textBox34.Text = "50.00";
-            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button11.Location = new System.Drawing.Point(119, 101);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(97, 23);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "ATS";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Form5
             // 
@@ -1209,5 +1221,6 @@
         private System.Windows.Forms.TextBox textBox32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.Button button11;
     }
 }

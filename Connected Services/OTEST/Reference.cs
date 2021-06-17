@@ -4603,6 +4603,9 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4618,9 +4621,6 @@ namespace TEST.OTEST {
         private string VersionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TEST.OTEST.infoAdicional> campoAdicionalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.DocSustento> docsSustentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4633,6 +4633,19 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
+            get {
+                return this.CampoAdicionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
+                    this.CampoAdicionalField = value;
+                    this.RaisePropertyChanged("CampoAdicional");
+                }
             }
         }
         
@@ -4697,19 +4710,6 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.VersionField, value) != true)) {
                     this.VersionField = value;
                     this.RaisePropertyChanged("Version");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<TEST.OTEST.infoAdicional> campoAdicional {
-            get {
-                return this.campoAdicionalField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.campoAdicionalField, value) != true)) {
-                    this.campoAdicionalField = value;
-                    this.RaisePropertyChanged("campoAdicional");
                 }
             }
         }
@@ -4967,7 +4967,7 @@ namespace TEST.OTEST {
         private string ImporteTotalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<TEST.OTEST.Impuesto> ImpuestoDocSustentoField;
+        private System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> ImpuestoDocSustentoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NumAutDocSustentoField;
@@ -5100,7 +5100,7 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<TEST.OTEST.Impuesto> ImpuestoDocSustento {
+        public System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle> ImpuestoDocSustento {
             get {
                 return this.ImpuestoDocSustentoField;
             }
@@ -5290,115 +5290,6 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.TotalSinImpuestosField, value) != true)) {
                     this.TotalSinImpuestosField = value;
                     this.RaisePropertyChanged("TotalSinImpuestos");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Impuesto", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail")]
-    [System.SerializableAttribute()]
-    public partial class Impuesto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BaseImponibleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoPorcentajeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TarifaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValorField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BaseImponible {
-            get {
-                return this.BaseImponibleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BaseImponibleField, value) != true)) {
-                    this.BaseImponibleField = value;
-                    this.RaisePropertyChanged("BaseImponible");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Codigo {
-            get {
-                return this.CodigoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
-                    this.CodigoField = value;
-                    this.RaisePropertyChanged("Codigo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodigoPorcentaje {
-            get {
-                return this.CodigoPorcentajeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoPorcentajeField, value) != true)) {
-                    this.CodigoPorcentajeField = value;
-                    this.RaisePropertyChanged("CodigoPorcentaje");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tarifa {
-            get {
-                return this.TarifaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TarifaField, value) != true)) {
-                    this.TarifaField = value;
-                    this.RaisePropertyChanged("Tarifa");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Valor {
-            get {
-                return this.ValorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValorField, value) != true)) {
-                    this.ValorField = value;
-                    this.RaisePropertyChanged("Valor");
                 }
             }
         }
