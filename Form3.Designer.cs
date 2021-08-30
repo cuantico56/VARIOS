@@ -101,21 +101,21 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.CadetBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(30, 12);
+            this.groupBox1.Location = new System.Drawing.Point(58, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(721, 144);
+            this.groupBox1.Size = new System.Drawing.Size(693, 144);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Archivos XML/XSD";
             // 
             // TextoComp
             // 
-            this.TextoComp.Location = new System.Drawing.Point(58, 201);
+            this.TextoComp.Location = new System.Drawing.Point(58, 221);
             this.TextoComp.Name = "TextoComp";
             this.TextoComp.Size = new System.Drawing.Size(693, 146);
             this.TextoComp.TabIndex = 7;
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TextoComp);
             this.Controls.Add(this.groupBox1);

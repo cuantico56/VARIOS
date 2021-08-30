@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" />
-  <xs:import schemaLocation="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" />
-  <xs:import schemaLocation="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" />
-  <xs:import schemaLocation="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" />
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" />
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" />
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" />
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" />
   <xs:complexType name="Factura">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q1:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q2:ArrayOfDetalleFactura" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoFactura" nillable="true" type="q3:InfoFactura" />
       <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="InfoSustitutivaGuiaRemision" nillable="true" type="q4:InfoSustitutivaGuiaRemision" />
       <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q5:InfoTributaria" />
@@ -18,6 +21,7 @@
       <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="OtrosRubrosTerceros" nillable="true" type="q8:ArrayOfRubro" />
       <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Reembolsos" nillable="true" type="q9:ArrayOfReembolsoDetalle" />
       <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Retenciones" nillable="true" type="q10:ArrayOfRetencion" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -33,79 +37,105 @@
   <xs:element name="Respuesta" nillable="true" type="tns:Respuesta" />
   <xs:complexType name="NotaCredito">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q11:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
       <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q12:ArrayOfDetalleNotaCredito" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoNotaCredito" nillable="true" type="q13:InfoNotaCredito" />
       <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q14:InfoTributaria" />
       <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q15:MaquinaFiscal" />
       <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="NotaCredito" nillable="true" type="tns:NotaCredito" />
   <xs:complexType name="NotaDebito">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q16:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoNotaDebito" nillable="true" type="q17:InfoNotaDebito" />
       <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q18:InfoTributaria" />
       <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q19:MaquinaFiscal" />
       <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Motivos" nillable="true" type="q20:ArrayOfMotivo" />
       <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="NotaDebito" nillable="true" type="tns:NotaDebito" />
   <xs:complexType name="Liquidacion">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q21:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
       <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Detalles" nillable="true" type="q22:ArrayOfDetalle" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
       <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoLiquidacion" nillable="true" type="q23:InfoLiquidacionCompra" />
       <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q24:InfoTributaria" />
       <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q25:MaquinaFiscal" />
       <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Negociable" nillable="true" type="q26:TipoNegociable" />
       <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
       <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="Reembolsos" nillable="true" type="q27:ArrayOfReembolsoDetalle" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Liquidacion" nillable="true" type="tns:Liquidacion" />
   <xs:complexType name="GuiaRemision">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q28:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
-      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Destinatarios" nillable="true" type="q28:ArrayOfDestinatario" />
-      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoGuia" nillable="true" type="q29:InfoGuiaRemision" />
-      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q30:InfoTributaria" />
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Destinatarios" nillable="true" type="q29:ArrayOfDestinatario" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoGuia" nillable="true" type="q30:InfoGuiaRemision" />
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q31:InfoTributaria" />
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q32:MaquinaFiscal" />
       <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GuiaRemision" nillable="true" type="tns:GuiaRemision" />
   <xs:complexType name="ComprobanteRetencion">
     <xs:sequence>
-      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q31:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q33:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
-      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Impuestos" nillable="true" type="q32:ArrayOfImpuestoDetalleRetencion" />
-      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoRetencion" nillable="true" type="q33:InfoCompRetencion" />
-      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q34:InfoTributaria" />
-      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="Maquinafiscal" nillable="true" type="q35:MaquinaFiscal" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" minOccurs="0" name="Impuestos" nillable="true" type="q34:ArrayOfImpuestoDetalleRetencion" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoRetencion" nillable="true" type="q35:InfoCompRetencion" />
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q36:InfoTributaria" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q37:MaquinaFiscal" />
       <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ComprobanteRetencion" nillable="true" type="tns:ComprobanteRetencion" />
   <xs:complexType name="RetencionATS">
     <xs:sequence>
-      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q36:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CPCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="CampoAdicional" nillable="true" type="q38:ArrayOfinfoAdicional" />
+      <xs:element minOccurs="0" name="CorreoNegociable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CorreoNotificar" nillable="true" type="xs:string" />
-      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q37:InfoTributaria" />
-      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q38:MaquinaFiscal" />
+      <xs:element minOccurs="0" name="DirCliente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="InfoTributaria" nillable="true" type="q39:InfoTributaria" />
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" minOccurs="0" name="MaquinaFiscal" nillable="true" type="q40:MaquinaFiscal" />
       <xs:element minOccurs="0" name="Notificar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefonoCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
-      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="docsSustento" nillable="true" type="q39:ArrayOfDocSustento" />
-      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="infoRetencionATS" nillable="true" type="q40:InfoCompRetencionATS" />
+      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Other" minOccurs="0" name="docsSustento" nillable="true" type="q41:ArrayOfDocSustento" />
+      <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Body" minOccurs="0" name="infoRetencionATS" nillable="true" type="q42:InfoCompRetencionATS" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RetencionATS" nillable="true" type="tns:RetencionATS" />
