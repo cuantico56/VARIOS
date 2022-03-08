@@ -130,8 +130,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-    <Compile Include="Web References\DEMO\Reference.cs">
+
 =======
     <Compile Include="Web References\serviceobj\Reference.cs">
 >>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
@@ -179,7 +178,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-<<<<<<< HEAD
+
     <None Include="Connected Services\OTEST\Service1.wsdl" />
     <None Include="Connected Services\OTEST\Service9.xsd">
       <SubType>Designer</SubType>
@@ -235,7 +234,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-<<<<<<< HEAD
+
     <None Include="Web References\DEMO\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
