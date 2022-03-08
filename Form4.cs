@@ -201,13 +201,16 @@ namespace TEST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MySqlConnection con =new MySqlConnection("SERVER= 172.16.70.10" +";" + "DATABASE=testecfel"+";" + "UID=scastillo" + ";" + "PASSWORD=Tfhka2019..@" + ";");
-            MySqlCommand comand = new MySqlCommand();
-            comand.CommandText= "SELECT secuencial FROM testecfel.invoices x WHERE emisor_ruc = 1792433738001 and cod_establecimiento = 001 and punto_emision = 300 ORDER by secuencial ASC;";
-            comand.Connection = con;
+            
            
             try
             {
+                MySqlConnection con = new MySqlConnection("SERVER= 172.16.70.4" + ";" + "DATABASE=demoecfel" + ";" + "UID=scastillo" + ";" + "PASSWORD=Tfhka2019..@" + ";");
+                MySqlCommand comand = new MySqlCommand();
+                comand.CommandText = "SELECT COUNT(*) FROM ecuador_produccion.invoices WHERE emisor_ruc='0993264032001' AND fecha_emision >='2021-03-01' AND fecha_emision <='2021-03-31' AND activo='1' AND numero_autorizacion is NOT NULL AND numero_autorizacion!='';";
+                comand.Connection = con;
+
+
                 con.Open();
                 
 
@@ -222,7 +225,8 @@ namespace TEST
                 }
                 
                 resp.Dispose();
-                
+                con.Dispose();
+                con.Close();
 
             }
             catch (MySqlException ex)
@@ -230,8 +234,7 @@ namespace TEST
                 MessageBox.Show("Connection Error string '" + "' [" + ex.Number + "]: " + ex.Message);
             }
 
-            con.Dispose();
-            con.Close();
+            
 
             label7.Text = secuencias.Count.ToString();
 
@@ -332,7 +335,14 @@ namespace TEST
 
         }
 
-     
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            ListViewItem lista = new ListViewItem("1712345678909");
+            lista.SubItems.Add("ECUAGOCH");
+            lista.SubItems.Add("77");
+            listView1.Items.Add(lista);
+
+        }
     }
 }
     

@@ -37,7 +37,7 @@ namespace TEST
         {
             OpenFileDialog xml = new OpenFileDialog();
 
-            xml.InitialDirectory = "C:\\SAMIR\\ECUADOR\\INTEGRACION_ECUADOR\\XSD_ECUADOR";
+            xml.InitialDirectory = "C:\\XML";
 
 
 
@@ -54,7 +54,7 @@ namespace TEST
         {
             OpenFileDialog xml2 = new OpenFileDialog();
 
-            xml2.InitialDirectory = "C:\\SAMIR\\ECUADOR\\INTEGRACION_ECUADOR\\XSD_ECUADOR";
+            xml2.InitialDirectory = "C:\\XSD\\XSDMODIF";
 
 
 
@@ -76,12 +76,12 @@ namespace TEST
                 ValidateXmlDocument(xml, textBox2.Text);
 
                 TextoComp.Text = Texto;
-                MessageBox.Show("Finalizado!");
+                MessageBox.Show("¡Exitoso!");
             }
             catch (Exception a)
             {
                 
-                MessageBox.Show("NO puede dejar en blanco: ");
+                MessageBox.Show("NO puede dejar en blanco: "+a);
             }
 
         }
@@ -147,6 +147,11 @@ namespace TEST
 
              }
          }
+
+
+
+
+
 
 
 

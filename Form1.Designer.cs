@@ -148,6 +148,7 @@
             // 
             // progressBar5
             // 
+            this.progressBar5.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.progressBar5.Location = new System.Drawing.Point(383, 294);
             this.progressBar5.Name = "progressBar5";
             this.progressBar5.Size = new System.Drawing.Size(558, 16);
@@ -188,13 +189,16 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "demo",
+            "test"});
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "TEST",
             "DEMO"});
-            this.comboBox1.Location = new System.Drawing.Point(111, 142);
+            this.comboBox1.Location = new System.Drawing.Point(106, 142);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
+            this.comboBox1.Size = new System.Drawing.Size(157, 21);
             this.comboBox1.TabIndex = 6;
             // 
             // label3
@@ -212,7 +216,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(158, 20);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "GA,UI95PW5G9";
+            this.textBox3.Text = "dfacture";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.UseSystemPasswordChar = true;
             // 
@@ -231,7 +235,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(158, 20);
             this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "1791282183001_INT";
+            this.textBox2.Text = "usuario1";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -286,17 +290,19 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(114, 322);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(83, 20);
             this.textBox4.TabIndex = 38;
             this.textBox4.Text = "001";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(114, 354);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(83, 20);
             this.textBox5.TabIndex = 40;
             this.textBox5.Text = "001";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -311,9 +317,10 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(114, 392);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(83, 20);
             this.textBox6.TabIndex = 42;
             this.textBox6.Text = "000000001";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -348,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(955, 459);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -371,7 +378,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " PRINCIPAL";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
