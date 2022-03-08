@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" />
+  <xs:complexType name="ArrayOfinfoAdicional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="infoAdicional" nillable="true" type="tns:infoAdicional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinfoAdicional" nillable="true" type="tns:ArrayOfinfoAdicional" />
+  <xs:complexType name="infoAdicional">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" base="q1:DetAdicional">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="infoAdicional" nillable="true" type="tns:infoAdicional" />
+  <xs:complexType name="MaquinaFiscal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="marca" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="modelo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaquinaFiscal" nillable="true" type="tns:MaquinaFiscal" />
+  <xs:complexType name="TipoNegociable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoNegociable" nillable="true" type="tns:TipoNegociable" />
+</xs:schema>

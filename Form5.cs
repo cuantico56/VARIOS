@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using TEST.OTEST;
+
 
 namespace TEST
 {
@@ -20,6 +15,50 @@ namespace TEST
         {
             InitializeComponent();
 
+
+
+            string subPath = "C:\\XML\\"; // Esta es la ruta de CARPETA donde guardamos los xml 
+            string subPath1 = "C:\\XML\\FACTURA\\"; 
+            string subPath2 = "C:\\XML\\CREDITO\\";
+            string subPath3 = "C:\\XML\\DEBITO\\";
+            string subPath4 = "C:\\XML\\RETENCION\\";
+            string subPath5 = "C:\\XML\\GUIA\\";
+            string subPath6 = "C:\\XML\\LIQUIDACION\\";
+            string subPath7 = "C:\\XML\\ATS\\";
+
+            bool exists = System.IO.Directory.Exists(subPath);
+
+            DateTime tiempo = DateTime.Now;
+            textBox1.Text = tiempo.Day.ToString().PadLeft(2,'0') + "/" + tiempo.Month.ToString().PadLeft(2, '0') + "/" + tiempo.Year.ToString();
+            textBox50.Text= tiempo.Day.ToString().PadLeft(2, '0') + "/" + tiempo.Month.ToString().PadLeft(2, '0') + "/" + tiempo.Year.ToString();
+            try
+            {
+
+                if (!exists)  //Si la carpeta NO exite la creamos
+                {
+                    System.IO.Directory.CreateDirectory(subPath);                   
+                    System.IO.Directory.CreateDirectory(subPath1);
+                    System.IO.Directory.CreateDirectory(subPath2);
+                    System.IO.Directory.CreateDirectory(subPath3);
+                    System.IO.Directory.CreateDirectory(subPath4);
+                    System.IO.Directory.CreateDirectory(subPath5);
+                    System.IO.Directory.CreateDirectory(subPath6);
+                    System.IO.Directory.CreateDirectory(subPath7);
+                    MessageBox.Show("Se ha creado la carpeta C:\\XML y subcarpetas","********CREACION CARPETAS*******",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+
+
+                }
+            }
+            catch(Exception m){
+
+                MessageBox.Show("Borre la carpeta XML y todo su contenido, vaya a inicio y vuelva a entrar a WS_OBJ \r\n"+m);
+
+
+            }
+
+            
+      
 
 
 
@@ -39,29 +78,34 @@ namespace TEST
 
             try
             {
-                ServiceClient servicio = new ServiceClient(); //CREAMOS SERVICIO
+                ServiceClient servicio = new ServiceClient(); //CREAMOS SERVICIO             
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
 
-               servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://demointws.thefactoryhka.com.ec/Service.svc"); 
-                
-                    
+               
+
+
 
                 PeticionFactura pet = new PeticionFactura(); //Creamos una peticion
+
+                
                 Factura fact = new Factura(); // Creamos una factura
 
 
-
+               
 
 
                 //******************************INFOTRIBUTARIA*******************************************                                                 
                 InfoTributaria infotrib = new InfoTributaria();
                 fact.InfoTributaria = InformacionTrib();
                 pet.Documento = fact;
+               
                 fact.Version = textBox20.Text;
-                fact.CorreoNotificar = "scastillo@gmail.com";
+                fact.CorreoNotificar = textBox76.Text;
+                fact.Notificar = "SI";
 
+                fact.DirCliente = "Direccion del cliente";
 
-
-
+                
 
 
                 //**********************************INFOFACTURA*********************************************
@@ -82,7 +126,7 @@ namespace TEST
                 infoFactura.LugarIncoTerm = textBox22.Text;
                 infoFactura.PaisOrigen = textBox23.Text;
                 infoFactura.PuertoEmbarque = textBox24.Text;
-                infoFactura.PuertoDestino = textBox25.Text;
+                infoFactura.PuertoDestino = textBox28.Text;
                 infoFactura.PaisDestino = textBox26.Text;
                 infoFactura.PaisAdquisicion = textBox27.Text;
                 infoFactura.GuiaRemision = textBox25.Text;
@@ -102,7 +146,7 @@ namespace TEST
 
 
                 infoFactura.TotalConImpuestos = new List<TotalConImpuesto>();
-        
+
 
 
 
@@ -149,32 +193,25 @@ namespace TEST
 
 
                 fact.Detalles = new List<DetalleFactura>();
-                DetalleFactura det = new DetalleFactura();
-                /* det.CodigoPrincipal = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                det.CodigoAuxiliar= dataGridView2.Rows[i].Cells[1].Value.ToString();
-                det.Descripcion= dataGridView2.Rows[i].Cells[2].Value.ToString();
-                det.Cantidad= dataGridView2.Rows[i].Cells[3].Value.ToString();
-                det.PrecioUnitario= dataGridView2.Rows[i].Cells[4].Value.ToString();
-                det.UnidadMedida= dataGridView2.Rows[i].Cells[5].Value.ToString();
-                det.Descuento= dataGridView2.Rows[i].Cells[6].Value.ToString();
-                det.PrecioSinSubsidio = dataGridView2.Rows[i].Cells[7].Value.ToString();
-                det.PrecioTotalSinImpuesto= dataGridView2.Rows[i].Cells[8].Value.ToString(); */
+                DetalleFactura det = new DetalleFactura()
+                {
+
+                CodigoPrincipal = textBox67.Text,
+                CodigoAuxiliar = textBox68.Text,
+                Descripcion = textBox69.Text,
+                Cantidad = textBox70.Text,
+                PrecioUnitario = textBox71.Text,
+                UnidadMedida = textBox72.Text,
+                Descuento = textBox73.Text,
+                PrecioSinSubsidio = textBox74.Text,
+                PrecioTotalSinImpuesto = textBox75.Text
+
+
+                };
 
 
 
 
-
-
-
-                det.CodigoPrincipal = "001";
-                det.CodigoAuxiliar = "002";
-                det.Descripcion = "Descrip";
-                det.Cantidad = "1";
-                det.PrecioUnitario = "100.00";
-                det.UnidadMedida = "UND";
-                det.Descuento = "0.00";
-                det.PrecioSinSubsidio = "0.00";
-                det.PrecioTotalSinImpuesto = "100.00";
 
 
 
@@ -182,6 +219,7 @@ namespace TEST
               
 
                 det.Impuestos.Add(ImpuestDet());
+                
 
 
 
@@ -195,29 +233,41 @@ namespace TEST
                 det.DetAdicional.Add(detAd);
 
                 fact.Detalles.Add(det);
-
+                fact.Detalles.Add(det);
 
 
 
 
 
                 //***********************************PAGOS*********************************
-                Pago pago = new Pago();
-                pago.FormaPago = "01";
-                pago.Total = "50.00";
-                pago.Plazo = "3";
-                pago.UnidadTiempo = "Dias";
+                Pago pago = new Pago
+                {
+                    FormaPago = textBox63.Text,
+                    Total = textBox64.Text,
+                    Plazo = textBox65.Text,
+                    UnidadTiempo = textBox66.Text
+
+                };
 
                 fact.InfoFactura.Pagos = new List<Pago>();
                 fact.InfoFactura.Pagos.Add(pago);
                 fact.InfoFactura.Pagos.Add(pago);
+                
 
 
+
+                //*********************TIPO NEGOCIABLE*********************************
+
+                fact.Negociable = new TipoNegociable
+                {
+                    Correo = textBox76.Text
+                };
+                                                                                                                   
 
                 //*****************************TOTAL CON IMPUESTOS**********************
 
 
- 
+
 
                 fact.InfoFactura.TotalConImpuestos = new List<TotalConImpuesto>();
                 fact.InfoFactura.TotalConImpuestos.Add(TotImp());
@@ -225,24 +275,27 @@ namespace TEST
 
 
                 //**********************************MAQUINAL FSICAL*******************
-                MaquinaFiscal maquina = new MaquinaFiscal();
+                //MaquinaFiscal maquina = new MaquinaFiscal
+                //{
+                //    marca =textBox77.Text,
+                //    modelo = textBox78.Text,
+                //    serie = textBox79.Text
+                //};
 
-                maquina.marca = "marcaaaaaa";
-                maquina.modelo = "modelazo";
-                maquina.serie = "ASDFGHJ1234";
-
-                fact.MaquinaFiscal = new MaquinaFiscal();
-                fact.MaquinaFiscal = maquina;
+                //fact.MaquinaFiscal = new MaquinaFiscal();
+                //fact.MaquinaFiscal = maquina;
 
 
 
 
                 //**********************************ENVIO PETICION***************************
-                pet.Clave = "12345";
+                pet.Clave = "LE7,S4GW3KSN";
                 pet.RUC = "1792433738001";
-                pet.Usuario = "usuario1";
+                pet.Usuario = "1792433738001_INT";
                 var resp = servicio.EnviarFactura(pet);
                 servicio.Close();
+
+                
 
                 richTextBox1.Text = resp.Mensaje + "--" + resp.Codigo + "--" + "\r\n" + resp.Archivo;
 
@@ -251,10 +304,13 @@ namespace TEST
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\Factura_1.xml");
+                    xmlDoc.Save("C:\\XML\\FACTURA\\Factura_"+ FormatoFecha()+".xml");
                 }
 
                 servicio.Close();
+
+                textBox82.Text = textBox18.Text;
+                comboBox1.Text = "01";
 
             }
 
@@ -270,23 +326,42 @@ namespace TEST
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ServiceClient servicio1 = new ServiceClient();
-            //****servicio1.DescargaArchivo();
 
-            PeticionDescargaArchivo peticionDesc = new PeticionDescargaArchivo();
-            peticionDesc.RUC = "1792433738001";
-            peticionDesc.Usuario = "usuario1";
-            peticionDesc.Clave = "dfacture";
-            peticionDesc.Documento = "01-001-002-000000222";
-            peticionDesc.Extension = "Xml";
 
-            var resp = servicio1.DescargaArchivo(peticionDesc);
-
-            richTextBox1.Text = "La respuesta es: \r\n" + "procesado: " + resp.Procesado.ToString() + "\r\n" + "Mensaje: " + resp.Mensaje + "\r\n" + "UUID: " + "falta" + "\r\n" + "Codigo" + resp.Codigo + "\r\n" + "archivo: " + "\r\n" + resp.Archivo;
+     
+            try { 
+            ServiceClient servicio = new ServiceClient();
+            servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
 
 
 
+                PeticionDescargaArchivo petarch = new PeticionDescargaArchivo
+            {
+                RUC = "1792433738001",
+                Clave = "dfacture",
+                Usuario = "usuario1",
+                //Documento = comboBox1.GetItemText(comboBox1.SelectedItem) +"-" + textBox80.Text + "-" + textBox81.Text + "-" + textBox82.Text,
+                Documento="01-001-001-000000105",
+                Extension="pdf",
+                
 
+            };
+
+            var  resp2 = servicio.DescargaArchivo(petarch);
+
+
+            var base64EncodedBytes = System.Convert.FromBase64String(resp2.Archivo);
+
+            richTextBox1.Text = "Codigo: "+Convert.ToByte(resp2.Codigo) + "\r\n" + "Archivo: " + System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+            }
+            catch(Exception d)
+            {
+                MessageBox.Show("Mensaje: " + d);
+                    
+
+            }
+
+           
 
         }
 
@@ -308,15 +383,23 @@ namespace TEST
 
         private void button5_Click(object sender, EventArgs e)
         {
-            ServiceClient service = new ServiceClient()
-; PeticionEstatusDocumento peticion = new PeticionEstatusDocumento();
-            peticion.Usuario = "usuario1";
-            peticion.RUC = "1792433738001";
-            peticion.Clave = "dfacture";
-            peticion.Documento = "01-001-002-000000333";
-            peticion.Extension = "xml";
-            var resp = service.EstatusDocumento(peticion);
-            richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje;
+            try
+            {
+                ServiceClient service = new ServiceClient();
+                service.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
+                PeticionEstatusDocumento peticion = new PeticionEstatusDocumento();
+                peticion.Usuario = "usuario1";
+                peticion.RUC = "1792433738001";
+                peticion.Clave = "dfacture";
+                peticion.Documento = comboBox1.GetItemText(comboBox1.SelectedItem) + "-" + textBox80.Text + "-" + textBox81.Text + "-" + textBox82.Text;
+                var resp = service.EstatusDocumento(peticion);
+                richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Mensaje error: " + ex);
+            }
 
         }
 
@@ -326,12 +409,16 @@ namespace TEST
 
             try {
 
+                
                 ServiceClient servicio = new ServiceClient();
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
                 PeticionNotaCredito pet = new PeticionNotaCredito();
 
-                pet.Clave = "iuytrew";
+                
+
+                pet.Clave = "dfacture";
                 pet.RUC = "1792433738001";
-                pet.Usuario = "ususario1";
+                pet.Usuario = "usuario1";
                 pet.Documento = new NotaCredito();
                 NotaCredito not = new NotaCredito();
 
@@ -339,9 +426,9 @@ namespace TEST
                 //******************************INFOTRIBUTARIA*********************************
                 not.InfoTributaria = new InfoTributaria();
                 not.InfoTributaria = InformacionTrib();
-                not.CorreoNotificar = "scastillo@gmail.com";
+                not.CorreoNotificar = textBox76.Text;
 
-
+                not.DirCliente = "Direccopn del clinete";
 
 
 
@@ -349,21 +436,23 @@ namespace TEST
                 not.InfoNotaCredito = new InfoNotaCredito();
                 InfoNotaCredito infonot = new InfoNotaCredito
                 {
-                    CodDocModificado = "04",
-                    ContribuyenteEspecial = "Contrubuyente",
-                    DirEstablecimiento = "Direstablecicmiento lejos..",
-                    FechaEmision = "03/05/2021",
-                    IdentificacionComprador = "14979665",
-                    Motivo = "Cambio zapatos",
-                    Moneda = "USD",
-                    ObligadoContabilidad = "SI",
-                    Rise = "rise",
-                    ValorModificacion = "10.00",
-                    FechaEmisionDocSustento = "04/05/2021",
-                    NumDocModificado = "001-002-000888113",
-                    RazonSocialComprador = "samcastle c.a",
-                    TotalSinImpuestos = "100.00",
-                    TipoIdentificacionComprador = "04",
+                    CodDocModificado = textBox47.Text,
+                    ContribuyenteEspecial = textBox48.Text,
+                    DirEstablecimiento = textBox49.Text,
+                    FechaEmision = textBox50.Text,
+                    IdentificacionComprador = textBox51.Text,
+                    ObligadoContabilidad = textBox52.Text,
+                    Rise = textBox53.Text,
+                    FechaEmisionDocSustento = textBox54.Text,
+                    NumDocModificado = textBox55.Text,
+                    RazonSocialComprador = textBox56.Text,
+                    TotalSinImpuestos = textBox57.Text,
+                    TipoIdentificacionComprador = textBox58.Text,
+                    Motivo = textBox59.Text,
+                    Moneda = textBox60.Text,
+                    ValorModificacion = textBox61.Text,
+                    
+                    
 
 
 
@@ -371,11 +460,12 @@ namespace TEST
 
                 ImpuestoTotalNotaCredito totalConImpuesto = new ImpuestoTotalNotaCredito
                 {
-                    BaseImponible = "100",
-                    Codigo = "2",
-                    CodigoPorcentaje = "2",
-                    Valor = "1.20",
-                    ValorDevolucionIva = "0.00",
+                    BaseImponible = textBox35.Text,
+                    Codigo = textBox36.Text,
+                    CodigoPorcentaje = textBox37.Text,
+                    Valor = textBox40.Text,
+                    ValorDevolucionIva = "0.00"
+                    
                 };
 
                 infonot.TotalConImpuestos = new List<ImpuestoTotalNotaCredito>();
@@ -392,13 +482,15 @@ namespace TEST
 
                 DetalleNotaCredito det = new DetalleNotaCredito
                 {
-                    Cantidad = "1",
-                    CodigoAdicional = "01",
-                    CodigoInterno = "003",
-                    Descripcion = "Descridico",
-                    Descuento = "0.00",
-                    PrecioTotalSinImpuesto = "100.00",
-                    PrecioUnitario = "100.00",
+                    CodigoAdicional = textBox67.Text,
+                    CodigoInterno = textBox68.Text,
+                    Descripcion = textBox69.Text,
+                    Cantidad = textBox70.Text,
+                    PrecioUnitario = textBox71.Text,              
+                    Descuento = textBox73.Text,                
+                    PrecioTotalSinImpuesto = textBox75.Text,
+                    
+                    
 
                 };
 
@@ -431,14 +523,18 @@ namespace TEST
 
                 richTextBox1.Text = resp.Mensaje + "--" + resp.Codigo + "--" + "\r\n" + resp.Archivo;
 
+              
+
                 if (resp.Codigo == "0")
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\Credito_1.xml");
+                    xmlDoc.Save("C:\\XML\\CREDITO\\Credito_"+FormatoFecha()+".xml");
                 }
 
 
+                textBox82.Text = textBox18.Text;
+                comboBox1.Text = "04";
 
 
 
@@ -459,13 +555,15 @@ namespace TEST
             try {
 
                 ServiceClient servicio = new ServiceClient();
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
                 PeticionNotaDebito pet = new PeticionNotaDebito();
-                pet.Clave = "iuytrew";
+                pet.Clave = "dfacture";
                 pet.RUC = "1792433738001";
-                pet.Usuario = "ususario1";
+                pet.Usuario = "usuario1";
                 pet.Documento = new NotaDebito();
                 NotaDebito deb = new NotaDebito();
                 pet.Documento = deb;
+                deb.DirCliente = "DIRECCION DEL CLIENTE";
 
                 //****************************************INFO TRIBUTARIA***********************
                 deb.InfoTributaria = new InfoTributaria();
@@ -478,7 +576,7 @@ namespace TEST
                 Motivo mot = new Motivo()
                 {
                     Razon = "raxoness",
-                    Valor = "123456"
+                    Valor = "100.00"
                 };
 
                 deb.Motivos.Add(mot);
@@ -491,24 +589,28 @@ namespace TEST
                 deb.InfoNotaDebito = new InfoNotaDebito();
                 InfoNotaDebito info = new InfoNotaDebito
                 {
-                    CodDocModificado = "04",
-                    ContribuyenteEspecial = "contribuyente",
-                    DirEstablecimiento = "sabana Grande",
-                    FechaEmision = "01/05/2021",
-                    FechaEmisionDocSustento = "04/04/2021",
-                    IdentificacionComprador = "149796665",
-                    NumDocModificado = "001-002-999777222",
-                    ObligadoContabilidad = "SI",
-                    RazonSocialComprador = "razon socials comprador",
-                    Rise = "RISE",
-                    TipoIdentificacionComprador = "05",
-                    TotalSinImpuestos = "100.00",
-                    ValorTotal = "100"
+                    CodDocModificado = textBox47.Text,
+                    ContribuyenteEspecial = textBox48.Text,
+                    DirEstablecimiento = textBox49.Text,
+                    FechaEmision = textBox1.Text,
+                    IdentificacionComprador = textBox51.Text,
+                    ObligadoContabilidad = textBox52.Text,
+                    Rise = textBox53.Text,
+                    FechaEmisionDocSustento = textBox54.Text,
+                    NumDocModificado = textBox55.Text,
+                    RazonSocialComprador = textBox56.Text,
+                    TotalSinImpuestos = textBox57.Text,
+                    TipoIdentificacionComprador = textBox58.Text,
+                    ValorTotal = textBox62.Text,
+                    
+                    
 
 
 
                 };
-
+                
+                
+                
 
 
 
@@ -517,12 +619,13 @@ namespace TEST
                 ImpuestoTotalNotaDebito imp = new ImpuestoTotalNotaDebito()
 
                 {
-                    BaseImponible = "100.00",
-                    Codigo = "2",
-                    CodigoPorcentaje = "0",
-                    Tarifa = "0.00",
-                    Valor = "100.00",
+                    BaseImponible = textBox35.Text,
+                    Codigo = textBox36.Text,
+                    CodigoPorcentaje = textBox37.Text,
+                    Tarifa = textBox39.Text,
+                    Valor = textBox40.Text,
                     ValorDevolucionIva = "0.00",
+                    
 
 
                 };
@@ -531,10 +634,10 @@ namespace TEST
                 info.Pagos = new List<Pago>();
                 Pago pago = new Pago()
                 {
-                    FormaPago = "01",
-                    Plazo = "05",
-                    UnidadTiempo = "Dias",
-                    Total = "10.00"
+                    FormaPago = textBox63.Text,
+                    Total = textBox64.Text,
+                    Plazo = textBox65.Text,
+                    UnidadTiempo = textBox66.Text
                 };
                 info.Pagos.Add(pago);
 
@@ -553,10 +656,11 @@ namespace TEST
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\Debito_1.xml");
+                    xmlDoc.Save("C:\\XML\\DEBITO\\Debito_"+ FormatoFecha()+".xml");
                 }
 
-
+                textBox82.Text = textBox18.Text;
+                comboBox1.Text = "05";
 
 
 
@@ -579,11 +683,12 @@ namespace TEST
             try {
 
                 ServiceClient servicio = new ServiceClient();
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
                 PeticionRetencion pet = new PeticionRetencion()
                 {
-                    Clave = "iuytrew",
+                    Clave = "dfacture",
                     RUC = "1792433738001",
-                    Usuario = "ususario1"
+                    Usuario = "usuario1"
                 };
 
                 pet.Documento = new ComprobanteRetencion();
@@ -594,8 +699,11 @@ namespace TEST
                 //******************************INFOTRIBUTARIA*********************************
                 ret.InfoTributaria = new InfoTributaria();
                 ret.InfoTributaria = InformacionTrib();
-                ret.CorreoNotificar = "scastillo@gmail.com";
-
+                ret.CorreoNotificar = textBox76.Text;
+                ret.DirCliente = "Direccioncliente";
+                ret.CPCliente = "CPcliente";
+                ret.TelefonoCliente = "234567890";
+                
 
 
                 //**************************************INFO RETENCION*********************************
@@ -606,27 +714,33 @@ namespace TEST
 
                     ContribuyenteEspecial = "contrubuyebte",
                     DirEstablecimiento = "direstableciemie",
-                    FechaEmision = "05/05/2021",
-                    IdentificacionSujetoRetenido = "14979665",
+                    FechaEmision = "05/08/2021",
+                    IdentificacionSujetoRetenido = textBox7.Text,
                     ObligadoContabilidad = "SI",
-                    PeriodoFiscal = "05/2021",
+                    PeriodoFiscal = "07/2021",
                     RazonSocialSujetoRetenido = "razon social sujeto detenido",
                     TipoIdentificacionSujetoRetenido = "04"
+                    
+                    
                 };
 
                 ret.Impuestos = new List<ImpuestoDetalleRetencion>();
                 ImpuestoDetalleRetencion imp = new ImpuestoDetalleRetencion
                 {
-                    BaseImponible = "100.00",
+                    
                     CodDocSustento = "01",
-                    Codigo = "2",
-                    CodigoPorRet = "2",
-                    FechaEmisionDocSustento = "05/04/2021",
+                    BaseImponible = "100.00",
+                    Codigo = "3",
+                    CodigoPorRet = "346",                  
+                    Valor = "1.75",
+                    FechaEmisionDocSustento = "05/07/2021",
                     NumDocSustento = "001002333444555",
-                    PorcentajeRetener = "12",
-                    Valor = "100.00"
+                    PorcentajeRetener = "1",
+       
                 };
+                
 
+                ret.Impuestos.Add(imp);
                 ret.Impuestos.Add(imp);
 
                 ret.Version = "1.0.0";
@@ -646,10 +760,11 @@ namespace TEST
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\Retencion_1.xml");
+                    xmlDoc.Save("C:\\XML\\RETENCION\\Retencion_"+ FormatoFecha()+".xml");
                 }
 
-
+                textBox82.Text = textBox18.Text;
+                comboBox1.Text = "07";
 
 
 
@@ -682,11 +797,12 @@ namespace TEST
             try
             {
                 ServiceClient servicio = new ServiceClient();
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
                 PeticionGuiaRemision pet = new PeticionGuiaRemision()
                 {
-                    Clave = "iuytrew",
+                    Clave = "dfacture",
                     RUC = "1792433738001",
-                    Usuario = "ususario1"
+                    Usuario = "usuario1"
                 };
 
                 pet.Documento = new GuiaRemision();
@@ -702,8 +818,8 @@ namespace TEST
                     ContribuyenteEspecial = "Contribuyente",
                     DirEstablecimiento = "dir establecimineto",
                     DirPartida = "direccion de partida",
-                    FechaIniTransporte = "01/06/2021",
-                    FechaFinTransporte = "02/06/2021",
+                    FechaIniTransporte = "10/08/2021",
+                    FechaFinTransporte = "11/08/2021",
                     ObligadoContabilidad = "SI",
                     Placa = "ADV345",
                     RazonSocialTransportista = "eazon social transportista",
@@ -716,6 +832,7 @@ namespace TEST
 
                 guia.InfoGuia = info;
 
+                guia.DirCliente = "direccion del cleinte";
 
                 //********************************************INFOTRIBUTARIA*****************************
                 guia.InfoTributaria = new InfoTributaria();
@@ -727,25 +844,30 @@ namespace TEST
                     CodDocSustento = "04",
                     CodEstabDestino = "002",
                     DirDestinatario = "dierccion destin¿tatario",
-                    FechaEmisionDocSustento = "01/05/2021",
+                    FechaEmisionDocSustento = "01/08/2021",
                     IdentificacionDestinatario = "1789087654321",
                     MotivoTraslado = "raparacion motivo",
                     NumAutDocSustento = "000999888777666555444333222111",
                     NumDocSustento = "001-002-000000123",
                     RazonSocialDestinatario = "razon social destinatario",
                     Ruta = "ruta:___",
-                    DocAduaneroUnico = "0099887"
+                    DocAduaneroUnico = "0099887",
+                    
 
                 };
+                guia.DirCliente = "direccion del cleinte";
+                guia.CPCliente = "CPcliente";
+                
 
                 dest.Detalles = new List<DetalleGuia>();
                 DetalleGuia detg = new DetalleGuia
                 {
-                    Cantidad = "1",
-                    CodigoAdicional = "002",
-                    CodigoInterno = "009876",
-                    Descripcion = "descripcion del detalle",
-
+                    CodigoAdicional = textBox67.Text,
+                   CodigoInterno = textBox68.Text,
+                    Descripcion = textBox69.Text,
+                    Cantidad = textBox70.Text,
+                    
+   
                 };
 
                 detg.DetallesAdicionales = new List<DetAdicional>();
@@ -761,7 +883,7 @@ namespace TEST
 
                 guia.Notificar = "SI";
                 guia.Version = "1.0.0";
-                guia.CorreoNotificar = "scastillo.com";
+                guia.CorreoNotificar = textBox76.Text;
 
                 pet.Documento = guia;
 
@@ -775,7 +897,7 @@ namespace TEST
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\Remision_1.xml");
+                    xmlDoc.Save("C:\\XML\\GUIA\\Remision_"+ FormatoFecha()+".xml");
                 }
 
 
@@ -801,11 +923,12 @@ namespace TEST
             try
             {
                 ServiceClient servicio = new ServiceClient();
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
                 PeticionLiquidacion pet = new PeticionLiquidacion
                 {
-                    Clave = "iuytrew",
+                    Clave = "MDKLCE6VNWN6",
                     RUC = "1792433738001",
-                    Usuario = "ususario1"
+                    Usuario = "1792433738001_INT"
                 };
 
                 pet.Documento = new Liquidacion();
@@ -817,8 +940,8 @@ namespace TEST
                 liq.InfoTributaria = new InfoTributaria();
                 liq.InfoTributaria = InformacionTrib();
                 liq.Version = "1.1.0";
-                liq.CorreoNotificar = "scastillo@gmail.com";
-
+                liq.CorreoNotificar = textBox76.Text;
+                liq.DirCliente = "Direccion del cliente";
 
 
 
@@ -830,13 +953,13 @@ namespace TEST
                     ContribuyenteEspecial = "CONTRIBUYENTE",
                     DireccionProveedor = "direccion proveedor",
                     DirEstablecimiento = "dir establecimineto",
-                    FechaEmision = "07/06/2021",
-                    IdentificacionProveedor = "14098765",
-                    TipoIdentificacionProveedor = "05",
-                    RazonSocialProveedor = "Razon social proveeedor",
+                    FechaEmision = textBox1.Text,
+                    IdentificacionProveedor = "0993264032001",
+                    TipoIdentificacionProveedor = "04",
+                    RazonSocialProveedor = "INDYA C.A",
                     ObligadoContabilidad = "SI",
                     Moneda = "USD",
-                    ImporteTotal = "100.00",
+                    ImporteTotal = "112.00",
                     TotalSinImpuestos = "100.00",
                     TotalBaseImponibleReembolso = "10.00",
                     TotalComprobantesReembolso = "10.00",
@@ -846,23 +969,25 @@ namespace TEST
                 };
 
                 info.Pagos = new List<Pago>();
-                Pago pago = new Pago();
-                pago.FormaPago = "01";
-                pago.Plazo = "5";
-                pago.UnidadTiempo = "Dias";
-                pago.Total = "110.00";
+                Pago pago = new Pago
+                {
+                    FormaPago = textBox63.Text,
+                    Total = textBox64.Text,
+                    Plazo = textBox65.Text,
+                    UnidadTiempo = textBox66.Text
+                };
                 info.Pagos.Add(pago);
 
 
                 info.TotalConImpuestos = new List<ImpuestoTotalLiquidacion>();
                 ImpuestoTotalLiquidacion imp = new ImpuestoTotalLiquidacion
                 {
-                    Codigo = "2",
-                    BaseImponible = "10.00",
-                    CodigoPorcentaje = "2",
-                    DescuentoAdicional = "0.00",
-                    Tarifa = "0.00",
-                    Valor = "10.00"
+                    BaseImponible = textBox35.Text,
+                    Codigo = textBox36.Text,
+                    CodigoPorcentaje = textBox37.Text,
+                    Tarifa = textBox39.Text,
+                    Valor = textBox40.Text,
+                    DescuentoAdicional="0.00"
                 };
 
                 info.TotalConImpuestos.Add(imp);
@@ -873,15 +998,16 @@ namespace TEST
                 liq.Detalles = new List<Detalle>();
                 Detalle det = new Detalle
                 {
-                    Cantidad = "1",
-                    CodigoAuxiliar = "001",
-                    CodigoPrincipal = "002",
-                    Descripcion = "descrpcionnn",
-                    Descuento = "0.00",
-                    PrecioSinSubsidio = "100.00",
-                    PrecioTotalSinImpuesto = "100.00",
-                    PrecioUnitario = "100.00",
-                    UnidadMedida = "UND"
+                    CodigoPrincipal = textBox67.Text,
+                    CodigoAuxiliar = textBox68.Text,
+                    Descripcion = textBox69.Text,
+                    Cantidad = textBox70.Text,
+                    PrecioUnitario = textBox71.Text,
+                    UnidadMedida = textBox72.Text,
+                    Descuento = textBox73.Text,
+                    PrecioSinSubsidio = textBox74.Text,
+                    PrecioTotalSinImpuesto = textBox75.Text,
+                    
 
                 };
 
@@ -891,7 +1017,7 @@ namespace TEST
 
 
 
-                liq.CorreoNotificar = "SI";
+                liq.CorreoNotificar = textBox76.Text;
                 liq.CampoAdicional = new List<infoAdicional>();
                 infoAdicional inf = new infoAdicional
                 {
@@ -908,11 +1034,11 @@ namespace TEST
                     EstabDocReembolso = "001",
                     PtoEmiDocReembolso = "002",
                     SecuencialDocReembolso = "000000887",
-                    FechaEmisionDocReembolso = "05/06/2021",
-                    IdentificacionProveedorReembolso = "14987654",
-                    TipoIdentificacionProveedorReembolso = "05",
-                    NumeroautorizacionDocReemb = "87654323456987654",
-                    TipoProveedorReembolso = "02"
+                    FechaEmisionDocReembolso = "05/08/2021",
+                    IdentificacionProveedorReembolso = "0993264032001",
+                    TipoIdentificacionProveedorReembolso = "04",                                    
+                    TipoProveedorReembolso = "01",
+                    NumeroautorizacionDocReemb= "1108202101179204823000120010010000047837000070019"
 
                 };
 
@@ -926,17 +1052,20 @@ namespace TEST
                 var resp = servicio.EnviarLiquidacion(pet);
                 servicio.Close();
 
+
+
                 richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje + "\r\n" + resp.Archivo;
 
                 if (resp.Codigo == "0")
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\Liquidacion_1.xml");
+                    xmlDoc.Save("C:\\XML\\LIQUIDACION\\Liquidacion_"+ FormatoFecha()+".xml");
                 }
 
 
-
+                textBox82.Text = textBox18.Text;
+                comboBox1.Text = "03";
 
 
 
@@ -959,12 +1088,12 @@ namespace TEST
             try
             {
                 ServiceClient servicio = new ServiceClient();
-
+                servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());
                 PeticionRetencionATS pet = new PeticionRetencionATS
                 {
-                    Clave = "iuytre",
+                    Clave = "dfacture",
                     RUC = "1792433738001",
-                    Usuario = "ususario1"
+                    Usuario = "usuario1"
                 };
 
                 pet.Documento = new RetencionATS();
@@ -1017,8 +1146,9 @@ namespace TEST
                 doc.Pagos = new List<PagoRetencionATS>();
                 PagoRetencionATS pago = new PagoRetencionATS
                 {
-                    FormaPago = "01",
-                    Total="100.00"
+                    FormaPago = textBox63.Text,
+                    Total = textBox64.Text,
+             
                 };
                 doc.Pagos.Add(pago);
 
@@ -1029,12 +1159,13 @@ namespace TEST
                 doc.Retenciones = new List<RetencionesATS>();
                 RetencionesATS retATS = new RetencionesATS()
                 {
-                    Codigo = "2",
-                    BaseImponible = "100.00",
-                    CodigoPorcentaje = "2",
-                    PorcentajeRetener = "12",
-                    Tarifa = "0.00",
-                    Valor = "100.00",
+                    
+                    BaseImponible = textBox35.Text,
+                    Codigo = textBox36.Text,
+                    CodigoPorcentaje = textBox37.Text,
+                    Tarifa = textBox39.Text,
+                    Valor = textBox40.Text,
+                    PorcentajeRetener="12",
                     Dividendos = new Dividendo()
                     {
                         EjerFisUtDiv = "2021",
@@ -1055,12 +1186,14 @@ namespace TEST
                 doc.Retenciones.Add(retATS);
 
                 ret.Version = "2.0.0";
-                ret.MaquinaFiscal = new MaquinaFiscal();
-                ret.MaquinaFiscal.marca = "MARCA";
-                ret.MaquinaFiscal.modelo = "MODELO";
-                ret.MaquinaFiscal.serie = "234598765";
+                ret.MaquinaFiscal = new MaquinaFiscal
+                {
+                    marca = textBox77.Text,
+                    modelo = textBox78.Text,
+                    serie = textBox79.Text
+                };
 
-                ret.CorreoNotificar = "SI";
+                ret.CorreoNotificar = textBox76.Text;
 
 
                 pet.Documento = ret;
@@ -1076,7 +1209,7 @@ namespace TEST
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.LoadXml(resp.Archivo);
-                    xmlDoc.Save("C:\\XML\\ATS_1.xml");
+                    xmlDoc.Save("C:\\XML\\ATS\\ATS_"+ FormatoFecha()+".xml");
                 }
 
 
@@ -1102,8 +1235,13 @@ namespace TEST
 
         }
 
-//*******************************************FUNCIONES COMUNES*******************************
-//*******************************************DEVUELVE INFORMACION TRIBUTARIA*******************
+        //*******************************************************************************************
+        //*******************************************FUNCIONES COMUNES*******************************
+        //*******************************************************************************************
+
+
+
+ //*******************************************DEVUELVE INFORMACION TRIBUTARIA*******************
         public InfoTributaria InformacionTrib()
         {
             InfoTributaria ret = new InfoTributaria
@@ -1118,42 +1256,82 @@ namespace TEST
                 DirMatriz = textBox19.Text,
                 RegimenMicroempresas = textBox14.Text,
                 
+                
             };
 
             return ret;
          }
 
-
+//***********************************IMPUESTO DETALLE******************************
         public ImpuestoDetalle ImpuestDet()
         {
             ImpuestoDetalle ImpD = new ImpuestoDetalle()
             {
-                Codigo = "2",
-                BaseImponible = "100",
-                CodigoPorRet = "0",
-                Tarifa = "0",
-                Valor = "100"
+                Codigo = textBox42.Text,
+                BaseImponible = textBox43.Text,
+                CodigoPorRet = textBox44.Text,
+                Tarifa = textBox45.Text,
+                Valor = textBox46.Text
             };
 
             return ImpD;
         }
 
 
-
+//***************************************TOTAL CON IMPUESTO********************************************
         public TotalConImpuesto TotImp()
         {
             TotalConImpuesto tot = new TotalConImpuesto
             {
-                BaseImponible = "100.00",
-                Codigo = "2",
-                CodigoPorcentaje = "2",
-                DescuentoAdicional = "0.00",
-                Tarifa = "0.00",
-                Valor = "100.00",
-                ValorDevolucionIva = "0"
-               
+                BaseImponible = textBox35.Text,
+                Codigo = textBox36.Text,
+                CodigoPorcentaje = textBox37.Text,
+                Tarifa = textBox39.Text,
+                Valor = textBox40.Text,
+                DescuentoAdicional = textBox38.Text,
+                ValorDevolucionIva = textBox41.Text
+
             };
             return tot;
+
+        }
+
+
+//***************************************PARA FORMATO DEL LOS ARCHIVOS+*******************************
+        public string FormatoFecha()
+        {
+
+            DateTime tx = DateTime.Now;
+
+            string tiemp = tx.ToLongTimeString() + tx.ToShortDateString();
+
+            tiemp = string.Join("", tiemp.Split(':', '\'', '/'));
+
+            return tiemp;
+
+        }
+
+
+
+
+//*********************************************CON ESTO CAMBIAMOS LA URL DEL MBIENTE*******************
+        public string Url()
+        {
+
+            string url = "";
+
+            if (radioButton1.Checked)
+            {
+                url = "http://demointws.thefactoryhka.com.ec/Service.svc";
+
+            }
+            else
+            {
+                url = "http://testintws.thefactoryhka.com.ec/Service.svc";
+            }
+
+            return url;
+
 
         }
 
