@@ -222,6 +222,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -315,8 +316,6 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(21, 56);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(42, 18);
@@ -327,6 +326,8 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(69, 56);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(42, 18);
@@ -461,7 +462,7 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(174, 20);
             this.textBox18.TabIndex = 15;
-            this.textBox18.Text = "000000021";
+            this.textBox18.Text = "020000330";
             this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox17
@@ -470,7 +471,7 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(174, 20);
             this.textBox17.TabIndex = 13;
-            this.textBox17.Text = "001";
+            this.textBox17.Text = "101";
             this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox16
@@ -691,7 +692,7 @@
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(124, 20);
             this.textBox34.TabIndex = 46;
-            this.textBox34.Text = "0.00";
+            this.textBox34.Text = "12.00";
             this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label33
@@ -709,7 +710,7 @@
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(124, 20);
             this.textBox33.TabIndex = 44;
-            this.textBox33.Text = "0.00";
+            this.textBox33.Text = "100.00";
             this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label32
@@ -727,7 +728,7 @@
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(167, 20);
             this.textBox32.TabIndex = 42;
-            this.textBox32.Text = "00";
+            this.textBox32.Text = "41";
             this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label31
@@ -907,7 +908,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(167, 20);
             this.textBox9.TabIndex = 19;
-            this.textBox9.Text = "200.00";
+            this.textBox9.Text = "100.00";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox10
@@ -916,7 +917,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(167, 20);
             this.textBox10.TabIndex = 17;
-            this.textBox10.Text = "224.00";
+            this.textBox10.Text = "112.00";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox27
@@ -1179,7 +1180,7 @@
             this.textBox40.Name = "textBox40";
             this.textBox40.Size = new System.Drawing.Size(140, 20);
             this.textBox40.TabIndex = 11;
-            this.textBox40.Text = "24.00";
+            this.textBox40.Text = "9.50";
             this.textBox40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label40
@@ -1197,7 +1198,7 @@
             this.textBox39.Name = "textBox39";
             this.textBox39.Size = new System.Drawing.Size(140, 20);
             this.textBox39.TabIndex = 9;
-            this.textBox39.Text = "12";
+            this.textBox39.Text = "9.50";
             this.textBox39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label39
@@ -1233,7 +1234,7 @@
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(140, 20);
             this.textBox37.TabIndex = 5;
-            this.textBox37.Text = "2";
+            this.textBox37.Text = "8";
             this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label37
@@ -1269,7 +1270,7 @@
             this.textBox35.Name = "textBox35";
             this.textBox35.Size = new System.Drawing.Size(140, 20);
             this.textBox35.TabIndex = 1;
-            this.textBox35.Text = "200.00";
+            this.textBox35.Text = "100.00";
             this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label35
@@ -1307,7 +1308,7 @@
             this.textBox46.Name = "textBox46";
             this.textBox46.Size = new System.Drawing.Size(121, 20);
             this.textBox46.TabIndex = 9;
-            this.textBox46.Text = "12.00";
+            this.textBox46.Text = "9.50";
             this.textBox46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label46
@@ -1325,7 +1326,7 @@
             this.textBox45.Name = "textBox45";
             this.textBox45.Size = new System.Drawing.Size(121, 20);
             this.textBox45.TabIndex = 7;
-            this.textBox45.Text = "12";
+            this.textBox45.Text = "9.50";
             this.textBox45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label45
@@ -1343,7 +1344,7 @@
             this.textBox44.Name = "textBox44";
             this.textBox44.Size = new System.Drawing.Size(121, 20);
             this.textBox44.TabIndex = 5;
-            this.textBox44.Text = "2";
+            this.textBox44.Text = "8";
             this.textBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label44
@@ -2201,6 +2202,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Location = new System.Drawing.Point(29, 571);
@@ -2210,26 +2212,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plataforma";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(232, 33);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(53, 18);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.Text = "PROD";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(194, 33);
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(141, 33);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(50, 18);
             this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "TEST";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoCheck = false;
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(72, 34);
+            this.radioButton1.Location = new System.Drawing.Point(30, 33);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(54, 18);
             this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "DEMO";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -2282,7 +2293,7 @@
             this.textBox82.Name = "textBox82";
             this.textBox82.Size = new System.Drawing.Size(174, 20);
             this.textBox82.TabIndex = 21;
-            this.textBox82.Text = "000000000";
+            this.textBox82.Text = "000000001";
             this.textBox82.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox81
@@ -2588,5 +2599,6 @@
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }

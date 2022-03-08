@@ -21,20 +21,19 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://testintws.thefactoryhka.com.ec/Service.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://demointws.thefactoryhka.com.ec/Service.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="f529febd-6e9f-415e-9955-e828387d54d6" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" />
-    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="0b9ef956-010d-4ee3-bedf-bf763f71b71d" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?wsdl" />
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="1ff97b02-f88b-4067-8e35-efa24b7db740" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd7" />
-    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="8f5bfd55-2ab5-4e98-896f-4dfddbe0608c" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd8" />
-    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="40900d27-3b03-4432-a8d9-f4a73e7ce073" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?disco" />
-    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="100d156c-496b-422a-885f-022e527ecb1b" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd6" />
-    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="c39e4a04-4268-4745-b72a-feac73a09f7b" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="30aed15d-8c49-4d2d-a1f9-1e0f6bc0409e" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="ca85be36-4a14-4e7c-be1b-22f155259ca2" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service7.xsd" MetadataType="Schema" ID="b34abd7e-dfa4-4294-86f1-1cb2ed3ade30" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd3" />
-    <MetadataFile FileName="Service8.xsd" MetadataType="Schema" ID="bd62aba9-6eac-48b9-98bb-0135f1572aba" SourceId="1" SourceUrl="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service9.xsd" MetadataType="Schema" ID="75ac954f-f308-472f-b578-aed224dbdb14" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service91.xsd" MetadataType="Schema" ID="ab799182-2155-46fe-aa67-5efacdc519bb" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="8d927ca7-94ee-4bac-a462-b72650b6c97c" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?wsdl" />
+    <MetadataFile FileName="Service92.xsd" MetadataType="Schema" ID="2c3c6681-6c26-49e7-99b6-11a23c27ecf7" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service93.xsd" MetadataType="Schema" ID="a727eb4b-159c-4ab2-b8cf-4462482f52fc" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd7" />
+    <MetadataFile FileName="Service94.xsd" MetadataType="Schema" ID="994a8ad2-ab18-4b72-a719-c9195b0d179d" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="Service95.xsd" MetadataType="Schema" ID="313abd50-9d18-4a80-b283-2c6950898960" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd8" />
+    <MetadataFile FileName="Service96.xsd" MetadataType="Schema" ID="dc10369e-d13b-4a7e-91cd-fabf7a6f9726" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service97.xsd" MetadataType="Schema" ID="b801ea26-5f91-46ce-81a6-9cb50b286d0f" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service98.xsd" MetadataType="Schema" ID="e1922649-0c42-4809-93bb-50d82300a4cd" SourceId="1" SourceUrl="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

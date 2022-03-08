@@ -135,6 +135,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web References\DEMO\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WS_CERT\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,32 +180,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\OTEST\Service.wsdl" />
-    <None Include="Connected Services\OTEST\Service.xsd">
+    <None Include="Connected Services\OTEST\Service1.wsdl" />
+    <None Include="Connected Services\OTEST\Service9.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service1.xsd">
+    <None Include="Connected Services\OTEST\Service91.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service2.xsd">
+    <None Include="Connected Services\OTEST\Service92.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service3.xsd">
+    <None Include="Connected Services\OTEST\Service93.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service4.xsd">
+    <None Include="Connected Services\OTEST\Service94.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service5.xsd">
+    <None Include="Connected Services\OTEST\Service95.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service6.xsd">
+    <None Include="Connected Services\OTEST\Service96.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service7.xsd">
+    <None Include="Connected Services\OTEST\Service97.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\OTEST\Service8.xsd">
+    <None Include="Connected Services\OTEST\Service98.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\OTEST\TEST.OTEST.RepuestaDescargaArchivo.datasource">
@@ -228,6 +233,53 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\DEMO\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DEMO\RepuestaDescargaArchivo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DEMO\RepuestaPeticion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DEMO\RespuestaCargaCertificado.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DEMO\RespuestaEstadoDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DEMO\RespuestaFoliosRestantes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DEMO\Service.wsdl" />
+    <None Include="Web References\DEMO\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\DEMO\Service7.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\WS_CERT\InternalResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -299,6 +351,17 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://demointws.thefactoryhka.com.ec/Service.svc%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DEMO\</RelPath>
+      <UpdateFromURL>http://demointws.thefactoryhka.com.ec/Service.svc%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TEST_DEMO_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://demoint.thefactoryhka.com.ec/Integracion.asmx%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WS_DEMO\</RelPath>
@@ -347,9 +410,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OTEST\Service1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7542,6 +7542,54 @@ namespace TEST.OTEST {
     [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaCargaCertificado", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
     [System.SerializableAttribute()]
     public partial class RespuestaCargaCertificado : TEST.OTEST.RespuestaBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaVigenciaFinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaVigenciaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RUCField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaVigenciaFin {
+            get {
+                return this.FechaVigenciaFinField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaVigenciaFinField, value) != true)) {
+                    this.FechaVigenciaFinField = value;
+                    this.RaisePropertyChanged("FechaVigenciaFin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaVigenciaInicio {
+            get {
+                return this.FechaVigenciaInicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaVigenciaInicioField, value) != true)) {
+                    this.FechaVigenciaInicioField = value;
+                    this.RaisePropertyChanged("FechaVigenciaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RUC {
+            get {
+                return this.RUCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RUCField, value) != true)) {
+                    this.RUCField = value;
+                    this.RaisePropertyChanged("RUC");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -7578,24 +7626,30 @@ namespace TEST.OTEST {
         System.Threading.Tasks.Task<TEST.OTEST.RepuestaPeticion> EnviarFacturaAsync(TEST.OTEST.PeticionFactura data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Enviar", ReplyAction="http://tempuri.org/IService/EnviarResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetAdicional))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleFactura>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleFactura))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleBase))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalle))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalleBase))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetAdicional>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleNotaCredito>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleNotaCredito))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Detalle>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Detalle))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Destinatario>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Destinatario))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleGuia>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleGuia))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalleRetencion>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalleRetencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Factura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Respuesta))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.NotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.NotaDebito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Liquidacion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.GuiaRemision))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ComprobanteRetencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RetencionATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionFactura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionNotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionNotaDebito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionLiquidacion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionGuiaRemision))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencionATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionDescargaArchivo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionEstatusDocumento))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionFolios))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionCargaCertificado))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.infoAdicional>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.infoAdicional))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.MaquinaFiscal))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.TipoNegociable))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoSustitutivaGuiaRemision))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Destino>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Destino))]
@@ -7615,12 +7669,6 @@ namespace TEST.OTEST {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RetencionesATS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.CompraCajBanano))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Dividendo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RepuestaPeticion))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RepuestaDescargaArchivo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaBase))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaEstadoDocumento))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaFoliosRestantes))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaCargaCertificado))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoFactura))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Compensacion>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Compensacion))]
@@ -7642,30 +7690,30 @@ namespace TEST.OTEST {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoGuiaRemision))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoCompRetencion))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoCompRetencionATS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionFactura))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionBase))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionNotaCredito))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionNotaDebito))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionLiquidacion))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionGuiaRemision))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencion))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencionATS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionDescargaArchivo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionEstatusDocumento))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionFolios))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionCargaCertificado))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Factura))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Respuesta))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.NotaCredito))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.NotaDebito))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Liquidacion))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.GuiaRemision))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ComprobanteRetencion))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RetencionATS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.infoAdicional>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.infoAdicional))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.MaquinaFiscal))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.TipoNegociable))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RepuestaPeticion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RepuestaDescargaArchivo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaEstadoDocumento))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaFoliosRestantes))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaCargaCertificado))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetAdicional))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleFactura>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleFactura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalle))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalleBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetAdicional>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleNotaCredito>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleNotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Detalle>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Detalle))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Destinatario>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Destinatario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleGuia>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleGuia))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalleRetencion>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalleRetencion))]
         TEST.OTEST.RepuestaPeticion Enviar(object data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Enviar", ReplyAction="http://tempuri.org/IService/EnviarResponse")]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Other" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" />
+  <xs:import schemaLocation="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" />
   <xs:complexType name="ArrayOfinfoAdicional">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="infoAdicional" nillable="true" type="tns:infoAdicional" />
