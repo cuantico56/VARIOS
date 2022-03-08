@@ -216,7 +216,11 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(158, 20);
             this.textBox3.TabIndex = 4;
+<<<<<<< HEAD
             this.textBox3.Text = "dfacture";
+=======
+            this.textBox3.Text = "GA,UI95PW5G9";
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.UseSystemPasswordChar = true;
             // 

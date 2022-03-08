@@ -98,11 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\OTEST\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,7 +130,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Web References\DEMO\Reference.cs">
+=======
+    <Compile Include="Web References\serviceobj\Reference.cs">
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -180,6 +179,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD
     <None Include="Connected Services\OTEST\Service1.wsdl" />
     <None Include="Connected Services\OTEST\Service9.xsd">
       <SubType>Designer</SubType>
@@ -223,6 +223,8 @@
     <None Include="Connected Services\OTEST\TEST.OTEST.RespuestaFoliosRestantes.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+=======
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -233,6 +235,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <None Include="Web References\DEMO\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -280,6 +283,25 @@
     <None Include="Web References\DEMO\Service7.xsd">
       <SubType>Designer</SubType>
     </None>
+=======
+    <None Include="Web References\serviceobj\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceobj\RepuestaDescargaArchivo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceobj\RepuestaPeticion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceobj\RespuestaEstadoDocumento.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceobj\RespuestaFoliosRestantes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\serviceobj\Service.wsdl" />
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
     <None Include="Web References\WS_CERT\InternalResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -345,9 +367,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
@@ -395,21 +414,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>TEST_WS_CERT_UtilService</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\OTEST\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OTEST\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OTEST\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\OTEST\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <WebReferenceUrl Include="http://testintws.thefactoryhka.com.ec/Service.svc%3fsingleWsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceobj\</RelPath>
+      <UpdateFromURL>http://testintws.thefactoryhka.com.ec/Service.svc%3fsingleWsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TEST_serviceobj_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

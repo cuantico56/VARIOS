@@ -37,6 +37,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+<<<<<<< HEAD
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -252,6 +253,10 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+=======
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             this.SuspendLayout();
             // 
             // button1
@@ -335,6 +340,7 @@
             this.checkBox2.Text = "pdf";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.dataGridView3);
@@ -2271,10 +2277,13 @@
             this.label83.TabIndex = 23;
             this.label83.Text = "TipoDoc";
             // 
+=======
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+<<<<<<< HEAD
             "01",
             "03",
             "04",
@@ -2340,11 +2349,29 @@
             this.label80.Size = new System.Drawing.Size(48, 14);
             this.label80.TabIndex = 20;
             this.label80.Text = "Establec";
+=======
+            "https://demointws.thefactoryhka.com.ec/Service.svc",
+            "http://testintws.thefactoryhka.com.ec/Service.svc"});
+            this.comboBox1.Location = new System.Drawing.Point(142, 120);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(168, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "AMBIENTES";
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(738, 713);
             this.Controls.Add(this.groupBox4);
@@ -2352,6 +2379,16 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
+=======
+            this.ClientSize = new System.Drawing.Size(731, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label1);
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2403,6 +2440,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+<<<<<<< HEAD
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Concepto;
@@ -2600,5 +2638,9 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.RadioButton radioButton3;
+=======
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
     }
 }

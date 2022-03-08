@@ -1,21 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.ServiceModel;
 using System.Web.Services.Protocols;
 using System.Windows.Forms;
 using System.Xml;
 using TEST.OTEST;
+=======
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Services.Description;
+using System.Windows.Forms;
+using TEST.serviceobj;
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
 
 namespace TEST
 {
     public partial class Form5 : Form
     {
+<<<<<<< HEAD
         public object WebOperationContext { get; private set; }
+=======
+        string ambiente;
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
         public Form5()
         {
             InitializeComponent();
+<<<<<<< HEAD
 
 
 
@@ -65,6 +83,9 @@ namespace TEST
 
 
 
+=======
+            
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -77,9 +98,30 @@ namespace TEST
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int amb = comboBox1.SelectedIndex;
+            
+            
+
+            
+
+            switch (amb)
+            {
+                case 0:
+                ambiente = "https://demointws.thefactoryhka.com.ec/Service.svc";
+                    break;
+                case 1:
+                    ambiente = "http://testintws.thefactoryhka.com.ec/Service.svc";
+                    break;
+
+            }
+
+
+
+            
 
             try
             {
+<<<<<<< HEAD
                 ServiceClient servicio = new ServiceClient(); //CREAMOS SERVICIO
                 servicio.Endpoint.Address = new System.ServiceModel.EndpointAddress(Url());              
                 PeticionFactura pet = new PeticionFactura(); //Creamos una peticion             
@@ -96,6 +138,28 @@ namespace TEST
                 fact.DirCliente = "Direccion del cliente";
 
                 //**********************************INFOFACTURA*********************************************
+=======
+
+
+                serviceobj.Service servicio = new serviceobj.Service(); //CREAMOS SERVICIO
+                servicio.Url = ambiente;
+                PeticionFactura pet = new PeticionFactura(); //Creamos una peticion
+                Factura fact = new Factura();
+                InfoTributaria infotrib = new InfoTributaria();
+               
+                fact.InfoTributaria = infotrib;
+                pet.Documento = fact;
+                fact.InfoTributaria.NombreComercial = "ECUAGOCH";
+                fact.InfoTributaria.AgenteRetencion = "SI";
+                fact.InfoTributaria.RazonSocial = "ECUAGOCH";
+                fact.InfoTributaria.Ruc = "1700000000001";
+                fact.InfoTributaria.CodigoNumerico = "01";
+                fact.InfoTributaria.Estab = "001";
+                fact.InfoTributaria.PtoEmi = "001";
+                fact.InfoTributaria.Secuencial = "000000222";
+                fact.InfoTributaria.DirMatriz = "En un lugar de la mancha...";
+
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
                 InfoFactura infoFactura = new InfoFactura();
                 fact.InfoFactura = infoFactura;
                 infoFactura.FechaEmision = textBox1.Text;
@@ -165,6 +229,7 @@ namespace TEST
                 DetalleFactura det = new DetalleFactura()
                 {
 
+<<<<<<< HEAD
                 CodigoPrincipal = textBox67.Text,
                 CodigoAuxiliar = textBox68.Text,
                 Descripcion = textBox69.Text,
@@ -175,9 +240,21 @@ namespace TEST
                 PrecioSinSubsidio = textBox74.Text,
                 PrecioTotalSinImpuesto = textBox75.Text
 
+=======
+//************************CREAMOS OTROS RUBREOS TERCEROS*****************************
+                Rubro rubro = new Rubro();   // se deben instanciar
+                fact.OtrosRubrosTerceros = new List<Rubro>().ToArray();
+                rubro.Total = "total1";
+
+                for(int i = 0; i <3; i++)
+                {
+                    rubro.Concepto = "concepto"+i.ToString();
+                    fact.OtrosRubrosTerceros.ToList().Add(rubro);
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
                 };
 
+<<<<<<< HEAD
                 det.Impuestos = new List<ImpuestoDetalle>();           
                 det.Impuestos.Add(ImpuestDet());
                 
@@ -190,10 +267,19 @@ namespace TEST
                 det.DetAdicional.Add(detAd);
 
                 fact.Detalles.Add(det);
+=======
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
+
+                InfoCompRetencion inforet = new InfoCompRetencion();
+                ImpuestoDetalleRetencion imp = new ImpuestoDetalleRetencion();
+
+<<<<<<< HEAD
+=======
+                //**********************************INFOADICIONAL**************************************
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
 
-
-
+<<<<<<< HEAD
 
 
                 //***********************************PAGOS*********************************
@@ -210,6 +296,45 @@ namespace TEST
                 fact.InfoFactura.Pagos.Add(pago);
 
                 
+=======
+                fact.CampoAdicional = new List<infoAdicional>().ToArray();
+                fact.CampoAdicional.ToList().Add(info1);
+                fact.CampoAdicional.ToList().Add(info2);
+
+
+                //*****************************DETALLES***********************************************
+
+                Detalle detalle1 = new Detalle();
+                Detalle detalle2 = new Detalle();
+                detalle1.CodigoPrincipal = "Detalle detalle1 = new Detalle()";
+                detalle1.CodigoAuxiliar = "codigo auxiliar";
+                detalle1.Descripcion = "descriplkugyjf";
+                detalle1.UnidadMedida = "UND";
+                detalle1.Cantidad = "1";
+                detalle1.PrecioUnitario = "10.00";
+                detalle1.PrecioSinSubsidio = "0.00";
+                detalle1.Descuento = "0.00";
+                detalle1.PrecioTotalSinImpuesto = "10.00";
+                detalle2 = detalle1;
+                detalle1.DetAdicional = new List<DetAdicional>().ToArray();
+                var detAd1 = new DetAdicional();
+                var detAd2 = new DetAdicional();
+                fact.Detalles = new List<Detalle>().ToArray();
+                fact.Detalles.ToList().Add(detalle1);
+                fact.Detalles.ToList().Add(detalle2);
+
+
+//***********************************PAGOS*********************************
+                Pago pago = new Pago();
+                pago.FormaPago = "01";
+                pago.Total = "50.00";
+                pago.Plazo = "3";
+                pago.UnidadTiempo = "Dias";
+
+                fact.InfoFactura.Pagos = new List<Pago>().ToArray();
+                fact.InfoFactura.Pagos.ToList().Add(pago);
+                fact.InfoFactura.Pagos.ToList().Add(pago);
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
 
 
@@ -223,6 +348,11 @@ namespace TEST
 
                 //*****************************TOTAL CON IMPUESTOS**********************
 
+<<<<<<< HEAD
+=======
+                fact.InfoFactura.TotalConImpuestos = new List<TotalConImpuesto>().ToArray();
+                fact.InfoFactura.TotalConImpuestos.ToList().Add(totalConImpuesto);
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
 
 
@@ -243,6 +373,7 @@ namespace TEST
                 //fact.MaquinaFiscal = new MaquinaFiscal();
                 //fact.MaquinaFiscal = maquina;
 
+<<<<<<< HEAD
 
 
 
@@ -267,6 +398,13 @@ namespace TEST
                 }
 
                 servicio.Close();
+=======
+//**********************************ENVIO PETICION***************************
+                pet.Clave = "12345";
+                pet.RUC = "17999888222";
+                pet.Usuario = "usuario1";
+                var resp = servicio.EnviarFactura(pet);
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
                 textBox82.Text = textBox18.Text;
                 comboBox1.Text = "01";
@@ -281,9 +419,12 @@ namespace TEST
 
             }
 
+                
+
         }
 
         private void button3_Click(object sender, EventArgs e)
+<<<<<<< HEAD
         {
 
 
@@ -381,10 +522,26 @@ namespace TEST
 
 
 
+=======
+        {         
+            serviceobj.Service servicio = new serviceobj.Service();
+            servicio.Url = "https://demointws.thefactoryhka.com.ec/Service.svc";
+            PeticionDescargaArchivo pet = new PeticionDescargaArchivo();
+            pet.Clave = "CLAVE123456";
+            pet.Documento = "01-001-002-000444222";
+            pet.RUC = "1345623808765";
+            pet.Extension = "Pdf";
+            pet.Usuario = "ususario1";
+            RepuestaDescargaArchivo resp = new RepuestaDescargaArchivo();
+            resp = servicio.DescargaArchivo(pet); 
+            richTextBox1.Text = "La respuesta es: \r\n" + "procesado: " + resp.Procesado.ToString()+"\r\n"+ "Mensaje: " + resp.Mensaje + "\r\n" +"UUID: "+"falta"+"\r\n" + "Codigo" + resp.Codigo + "\r\n" + "archivo: "+"\r\n" + resp.Archivo;
+          
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             ServiceClient servicio = new ServiceClient();
             PeticionFolios folios = new PeticionFolios();
             folios.Usuario = "usuario1";
@@ -395,12 +552,17 @@ namespace TEST
 
             richTextBox1.Text = "Codigo: " + resp.Codigo + "\n\r" + "Mensaje: " + resp.Mensaje + "\r\n" + "Folios Restantes: " + resp.FoliosRestantes + "\r\n" + "Fecha Vencimiento" + resp.FechaVencimiento;
 
+=======
+            
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
 
         }
 
         private void button5_Click(object sender, EventArgs e)
+
         {
+<<<<<<< HEAD
             try
             {
                 ServiceClient servicio = new ServiceClient();
@@ -652,6 +814,10 @@ namespace TEST
 
 
 
+=======
+
+           
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
 
         }
 
