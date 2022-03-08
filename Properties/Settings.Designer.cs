@@ -12,7 +12,7 @@ namespace TEST.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -56,10 +56,17 @@ namespace TEST.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+<<<<<<< HEAD
+        [global::System.Configuration.DefaultSettingValueAttribute("http://demointws.thefactoryhka.com.ec/Service.svc")]
+        public string TEST_DEMO_Service {
+            get {
+                return ((string)(this["TEST_DEMO_Service"]));
+=======
         [global::System.Configuration.DefaultSettingValueAttribute("http://testintws.thefactoryhka.com.ec/Service.svc")]
         public string TEST_serviceobj_Service {
             get {
                 return ((string)(this["TEST_serviceobj_Service"]));
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             }
         }
     }

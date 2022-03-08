@@ -11,8 +11,13 @@
     <Setting Name="TEST_WS_DEMO_Integracion" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://demoint.thefactoryhka.com.ec/Integracion.asmx</Value>
     </Setting>
+<<<<<<< HEAD
+    <Setting Name="TEST_DEMO_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://demointws.thefactoryhka.com.ec/Service.svc</Value>
+=======
     <Setting Name="TEST_serviceobj_Service" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://testintws.thefactoryhka.com.ec/Service.svc</Value>
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
     </Setting>
   </Settings>
 </SettingsFile>
