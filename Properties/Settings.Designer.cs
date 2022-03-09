@@ -56,10 +56,17 @@ namespace TEST.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("http://demointws.thefactoryhka.com.ec/Service.svc")]
         public string TEST_DEMO_Service {
             get {
                 return ((string)(this["TEST_DEMO_Service"]));
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("http://testintws.thefactoryhka.com.ec/Service.svc")]
+        public string TEST_serviceobj_Service {
+            get {
+                return ((string)(this["TEST_serviceobj_Service"]));
+>>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
             }
         }
     }
