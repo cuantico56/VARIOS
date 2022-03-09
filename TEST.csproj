@@ -179,6 +179,7 @@
     <None Include="Connected Services\OTEST\Service.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\OTEST\Service1.wsdl" />
     <None Include="Connected Services\OTEST\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -201,6 +202,33 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\OTEST\Service8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service91.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service92.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service93.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service94.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service95.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service96.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service97.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service98.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\OTEST\TEST.OTEST.RepuestaDescargaArchivo.datasource">
@@ -350,6 +378,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\OTEST\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OTEST\Service.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

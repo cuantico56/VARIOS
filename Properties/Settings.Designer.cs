@@ -27,6 +27,7 @@ namespace TEST.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://testint.thefactoryhka.com.ec/Integracion.asmx")]
+
         public string TEST_WS_Ecuador_Integracion {
             get {
                 return ((string)(this["TEST_WS_Ecuador_Integracion"]));
@@ -37,6 +38,7 @@ namespace TEST.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://demoint.thefactoryhka.com.ec/UtilService.asmx")]
+ 
         public string TEST_WS_CERT_UtilService {
             get {
                 return ((string)(this["TEST_WS_CERT_UtilService"]));
@@ -47,6 +49,7 @@ namespace TEST.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://demoint.thefactoryhka.com.ec/Integracion.asmx")]
+       
         public string TEST_WS_DEMO_Integracion {
             get {
                 return ((string)(this["TEST_WS_DEMO_Integracion"]));
@@ -56,17 +59,20 @@ namespace TEST.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-<<<<<<< HEAD
+
         [global::System.Configuration.DefaultSettingValueAttribute("http://demointws.thefactoryhka.com.ec/Service.svc")]
-        public string TEST_DEMO_Service {
-            get {
+        public string TEST_DEMO_Service
+        {
+            get
+            {
                 return ((string)(this["TEST_DEMO_Service"]));
-=======
-        [global::System.Configuration.DefaultSettingValueAttribute("http://testintws.thefactoryhka.com.ec/Service.svc")]
+            }
+        }
+        
         public string TEST_serviceobj_Service {
             get {
                 return ((string)(this["TEST_serviceobj_Service"]));
->>>>>>> 8c6a4fae666257f4ee7ce7994d4a98aa0a86cd62
+
             }
         }
     }

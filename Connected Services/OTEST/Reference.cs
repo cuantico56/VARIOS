@@ -23,9 +23,10 @@ namespace TEST.OTEST {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionGuiaRemision))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencionATS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionDescargaArchivo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionEstatusDocumento))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionDescargaArchivo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionFolios))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionCargaCertificado))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionFactura))]
     public partial class PeticionBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -240,16 +241,13 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionDescargaArchivo", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionEstatusDocumento", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionEstatusDocumento))]
-    public partial class PeticionDescargaArchivo : TEST.OTEST.PeticionBase {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.PeticionDescargaArchivo))]
+    public partial class PeticionEstatusDocumento : TEST.OTEST.PeticionBase {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DocumentoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ExtensionField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Documento {
@@ -263,6 +261,16 @@ namespace TEST.OTEST {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionDescargaArchivo", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
+    [System.SerializableAttribute()]
+    public partial class PeticionDescargaArchivo : TEST.OTEST.PeticionEstatusDocumento {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExtensionField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Extension {
@@ -280,16 +288,64 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionEstatusDocumento", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionFolios", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
     [System.SerializableAttribute()]
-    public partial class PeticionEstatusDocumento : TEST.OTEST.PeticionDescargaArchivo {
+    public partial class PeticionFolios : TEST.OTEST.PeticionBase {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionFolios", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PeticionCargaCertificado", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request")]
     [System.SerializableAttribute()]
-    public partial class PeticionFolios : TEST.OTEST.PeticionBase {
+    public partial class PeticionCargaCertificado : TEST.OTEST.PeticionBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CertificadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClaveCertificadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExtensionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Certificado {
+            get {
+                return this.CertificadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CertificadoField, value) != true)) {
+                    this.CertificadoField = value;
+                    this.RaisePropertyChanged("Certificado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClaveCertificado {
+            get {
+                return this.ClaveCertificadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClaveCertificadoField, value) != true)) {
+                    this.ClaveCertificadoField = value;
+                    this.RaisePropertyChanged("ClaveCertificado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Extension {
+            get {
+                return this.ExtensionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExtensionField, value) != true)) {
+                    this.ExtensionField = value;
+                    this.RaisePropertyChanged("Extension");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -325,13 +381,22 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.DetalleFactura> DetallesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoFactura InfoFacturaField;
@@ -361,6 +426,9 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.Retencion> RetencionesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -374,6 +442,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
             get {
                 return this.CampoAdicionalField;
@@ -382,6 +463,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
                     this.CampoAdicionalField = value;
                     this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
                 }
             }
         }
@@ -408,6 +502,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.DetallesField, value) != true)) {
                     this.DetallesField = value;
                     this.RaisePropertyChanged("Detalles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -530,6 +637,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Version {
             get {
                 return this.VersionField;
@@ -562,13 +682,22 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.DetalleNotaCredito> DetallesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoNotaCredito InfoNotaCreditoField;
@@ -581,6 +710,9 @@ namespace TEST.OTEST {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -596,6 +728,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
             get {
                 return this.CampoAdicionalField;
@@ -604,6 +749,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
                     this.CampoAdicionalField = value;
                     this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
                 }
             }
         }
@@ -630,6 +788,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.DetallesField, value) != true)) {
                     this.DetallesField = value;
                     this.RaisePropertyChanged("Detalles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -682,6 +853,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
                     this.NotificarField = value;
                     this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
                 }
             }
         }
@@ -2056,10 +2240,19 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoNotaDebito InfoNotaDebitoField;
@@ -2077,6 +2270,9 @@ namespace TEST.OTEST {
         private string NotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -2086,6 +2282,19 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
             }
         }
         
@@ -2103,6 +2312,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string CorreoNotificar {
             get {
                 return this.CorreoNotificarField;
@@ -2111,6 +2333,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
                     this.CorreoNotificarField = value;
                     this.RaisePropertyChanged("CorreoNotificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -2176,6 +2411,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
                     this.NotificarField = value;
                     this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
                 }
             }
         }
@@ -2652,13 +2900,22 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.Detalle> DetallesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoLiquidacionCompra InfoLiquidacionField;
@@ -2679,6 +2936,9 @@ namespace TEST.OTEST {
         private System.Collections.Generic.List<TEST.OTEST.ReembolsoDetalle> ReembolsosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -2692,6 +2952,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
             get {
                 return this.CampoAdicionalField;
@@ -2700,6 +2973,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
                     this.CampoAdicionalField = value;
                     this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
                 }
             }
         }
@@ -2726,6 +3012,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.DetallesField, value) != true)) {
                     this.DetallesField = value;
                     this.RaisePropertyChanged("Detalles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -2804,6 +3103,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.ReembolsosField, value) != true)) {
                     this.ReembolsosField = value;
                     this.RaisePropertyChanged("Reembolsos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
                 }
             }
         }
@@ -3629,10 +3941,22 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.Destinatario> DestinatariosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoGuiaRemision InfoGuiaField;
@@ -3641,7 +3965,13 @@ namespace TEST.OTEST {
         private TEST.OTEST.InfoTributaria InfoTributariaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -3653,6 +3983,45 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
+            get {
+                return this.CampoAdicionalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CampoAdicionalField, value) != true)) {
+                    this.CampoAdicionalField = value;
+                    this.RaisePropertyChanged("CampoAdicional");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
+                }
             }
         }
         
@@ -3678,6 +4047,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.DestinatariosField, value) != true)) {
                     this.DestinatariosField = value;
                     this.RaisePropertyChanged("Destinatarios");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -3709,6 +4091,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
+            get {
+                return this.MaquinaFiscalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Notificar {
             get {
                 return this.NotificarField;
@@ -3717,6 +4112,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
                     this.NotificarField = value;
                     this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
                 }
             }
         }
@@ -4289,10 +4697,19 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalleRetencion> ImpuestosField;
@@ -4304,10 +4721,13 @@ namespace TEST.OTEST {
         private TEST.OTEST.InfoTributaria InfoTributariaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private TEST.OTEST.MaquinaFiscal MaquinafiscalField;
+        private TEST.OTEST.MaquinaFiscal MaquinaFiscalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -4319,6 +4739,19 @@ namespace TEST.OTEST {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
             }
         }
         
@@ -4336,6 +4769,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string CorreoNotificar {
             get {
                 return this.CorreoNotificarField;
@@ -4344,6 +4790,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
                     this.CorreoNotificarField = value;
                     this.RaisePropertyChanged("CorreoNotificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -4388,14 +4847,14 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public TEST.OTEST.MaquinaFiscal Maquinafiscal {
+        public TEST.OTEST.MaquinaFiscal MaquinaFiscal {
             get {
-                return this.MaquinafiscalField;
+                return this.MaquinaFiscalField;
             }
             set {
-                if ((object.ReferenceEquals(this.MaquinafiscalField, value) != true)) {
-                    this.MaquinafiscalField = value;
-                    this.RaisePropertyChanged("Maquinafiscal");
+                if ((object.ReferenceEquals(this.MaquinaFiscalField, value) != true)) {
+                    this.MaquinaFiscalField = value;
+                    this.RaisePropertyChanged("MaquinaFiscal");
                 }
             }
         }
@@ -4409,6 +4868,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
                     this.NotificarField = value;
                     this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
                 }
             }
         }
@@ -4603,10 +5075,19 @@ namespace TEST.OTEST {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CPClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicionalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoNegociableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CorreoNotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TEST.OTEST.InfoTributaria InfoTributariaField;
@@ -4616,6 +5097,9 @@ namespace TEST.OTEST {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NotificarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -4637,6 +5121,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CPCliente {
+            get {
+                return this.CPClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CPClienteField, value) != true)) {
+                    this.CPClienteField = value;
+                    this.RaisePropertyChanged("CPCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.List<TEST.OTEST.infoAdicional> CampoAdicional {
             get {
                 return this.CampoAdicionalField;
@@ -4650,6 +5147,19 @@ namespace TEST.OTEST {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CorreoNegociable {
+            get {
+                return this.CorreoNegociableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoNegociableField, value) != true)) {
+                    this.CorreoNegociableField = value;
+                    this.RaisePropertyChanged("CorreoNegociable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string CorreoNotificar {
             get {
                 return this.CorreoNotificarField;
@@ -4658,6 +5168,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.CorreoNotificarField, value) != true)) {
                     this.CorreoNotificarField = value;
                     this.RaisePropertyChanged("CorreoNotificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DirCliente {
+            get {
+                return this.DirClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirClienteField, value) != true)) {
+                    this.DirClienteField = value;
+                    this.RaisePropertyChanged("DirCliente");
                 }
             }
         }
@@ -4697,6 +5220,19 @@ namespace TEST.OTEST {
                 if ((object.ReferenceEquals(this.NotificarField, value) != true)) {
                     this.NotificarField = value;
                     this.RaisePropertyChanged("Notificar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelefonoCliente {
+            get {
+                return this.TelefonoClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoClienteField, value) != true)) {
+                    this.TelefonoClienteField = value;
+                    this.RaisePropertyChanged("TelefonoCliente");
                 }
             }
         }
@@ -6777,7 +7313,6 @@ namespace TEST.OTEST {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RepuestaDescargaArchivo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RepuestaPeticion))]
     public partial class Respuesta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -6870,13 +7405,6 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RepuestaDescargaArchivo", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
-    [System.SerializableAttribute()]
-    public partial class RepuestaDescargaArchivo : TEST.OTEST.Respuesta {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RepuestaPeticion", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
     [System.SerializableAttribute()]
     public partial class RepuestaPeticion : TEST.OTEST.Respuesta {
@@ -6886,8 +7414,10 @@ namespace TEST.OTEST {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaBase", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RespuestaFoliosRestantes))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RespuestaEstadoDocumento))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RespuestaFoliosRestantes))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RespuestaCargaCertificado))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TEST.OTEST.RepuestaDescargaArchivo))]
     public partial class RespuestaBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -6947,6 +7477,29 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaEstadoDocumento", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
+    [System.SerializableAttribute()]
+    public partial class RespuestaEstadoDocumento : TEST.OTEST.RespuestaBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int canceladoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cancelado {
+            get {
+                return this.canceladoField;
+            }
+            set {
+                if ((this.canceladoField.Equals(value) != true)) {
+                    this.canceladoField = value;
+                    this.RaisePropertyChanged("cancelado");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaFoliosRestantes", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
     [System.SerializableAttribute()]
     public partial class RespuestaFoliosRestantes : TEST.OTEST.RespuestaBase {
@@ -6986,9 +7539,80 @@ namespace TEST.OTEST {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaEstadoDocumento", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RespuestaCargaCertificado", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
     [System.SerializableAttribute()]
-    public partial class RespuestaEstadoDocumento : TEST.OTEST.RespuestaBase {
+    public partial class RespuestaCargaCertificado : TEST.OTEST.RespuestaBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaVigenciaFinField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaVigenciaInicioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RUCField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaVigenciaFin {
+            get {
+                return this.FechaVigenciaFinField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaVigenciaFinField, value) != true)) {
+                    this.FechaVigenciaFinField = value;
+                    this.RaisePropertyChanged("FechaVigenciaFin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaVigenciaInicio {
+            get {
+                return this.FechaVigenciaInicioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaVigenciaInicioField, value) != true)) {
+                    this.FechaVigenciaInicioField = value;
+                    this.RaisePropertyChanged("FechaVigenciaInicio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RUC {
+            get {
+                return this.RUCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RUCField, value) != true)) {
+                    this.RUCField = value;
+                    this.RaisePropertyChanged("RUC");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RepuestaDescargaArchivo", Namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response")]
+    [System.SerializableAttribute()]
+    public partial class RepuestaDescargaArchivo : TEST.OTEST.RespuestaBase {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ArchivoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Archivo {
+            get {
+                return this.ArchivoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArchivoField, value) != true)) {
+                    this.ArchivoField = value;
+                    this.RaisePropertyChanged("Archivo");
+                }
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -7000,6 +7624,100 @@ namespace TEST.OTEST {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EnviarFactura", ReplyAction="http://tempuri.org/IService/EnviarFacturaResponse")]
         System.Threading.Tasks.Task<TEST.OTEST.RepuestaPeticion> EnviarFacturaAsync(TEST.OTEST.PeticionFactura data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Enviar", ReplyAction="http://tempuri.org/IService/EnviarResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Factura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Respuesta))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.NotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.NotaDebito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Liquidacion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.GuiaRemision))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ComprobanteRetencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RetencionATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionFactura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionNotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionNotaDebito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionLiquidacion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionGuiaRemision))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionRetencionATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionDescargaArchivo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionEstatusDocumento))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionFolios))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PeticionCargaCertificado))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoSustitutivaGuiaRemision))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Destino>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Destino))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Rubro>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Rubro))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ReembolsoDetalle>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ReembolsoDetalle))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Retencion>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Retencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Motivo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Motivo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DocSustento>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DocSustento))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.PagoRetencionATS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.PagoRetencionATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.RetencionesATS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RetencionesATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.CompraCajBanano))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Dividendo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoFactura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Compensacion>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Compensacion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Pago>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Pago))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.TotalConImpuesto>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.TotalConImpuesto))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoTributaria))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoNotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoTotalNotaCredito>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoTotalNotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoNotaDebito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoTotalNotaDebito>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoTotalNotaDebito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoLiquidacionCompra))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoTotalLiquidacion>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoTotalLiquidacion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoGuiaRemision))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoCompRetencion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.InfoCompRetencionATS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RepuestaPeticion))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RepuestaDescargaArchivo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaEstadoDocumento))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaFoliosRestantes))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.RespuestaCargaCertificado))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.infoAdicional>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.infoAdicional))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.MaquinaFiscal))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.TipoNegociable))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetAdicional))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleFactura>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleFactura))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalle>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalle))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalleBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetAdicional>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleNotaCredito>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleNotaCredito))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Detalle>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Detalle))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.Destinatario>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.Destinatario))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.DetalleGuia>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.DetalleGuia))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.List<TEST.OTEST.ImpuestoDetalleRetencion>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TEST.OTEST.ImpuestoDetalleRetencion))]
+        TEST.OTEST.RepuestaPeticion Enviar(object data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Enviar", ReplyAction="http://tempuri.org/IService/EnviarResponse")]
+        System.Threading.Tasks.Task<TEST.OTEST.RepuestaPeticion> EnviarAsync(object data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EnviarNotaCredito", ReplyAction="http://tempuri.org/IService/EnviarNotaCreditoResponse")]
         TEST.OTEST.RepuestaPeticion EnviarNotaCredito(TEST.OTEST.PeticionNotaCredito data);
@@ -7054,6 +7772,12 @@ namespace TEST.OTEST {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FoliosRestantes", ReplyAction="http://tempuri.org/IService/FoliosRestantesResponse")]
         System.Threading.Tasks.Task<TEST.OTEST.RespuestaFoliosRestantes> FoliosRestantesAsync(TEST.OTEST.PeticionFolios data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CargaCertificado", ReplyAction="http://tempuri.org/IService/CargaCertificadoResponse")]
+        TEST.OTEST.RespuestaCargaCertificado CargaCertificado(TEST.OTEST.PeticionCargaCertificado data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CargaCertificado", ReplyAction="http://tempuri.org/IService/CargaCertificadoResponse")]
+        System.Threading.Tasks.Task<TEST.OTEST.RespuestaCargaCertificado> CargaCertificadoAsync(TEST.OTEST.PeticionCargaCertificado data);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -7089,6 +7813,14 @@ namespace TEST.OTEST {
         
         public System.Threading.Tasks.Task<TEST.OTEST.RepuestaPeticion> EnviarFacturaAsync(TEST.OTEST.PeticionFactura data) {
             return base.Channel.EnviarFacturaAsync(data);
+        }
+        
+        public TEST.OTEST.RepuestaPeticion Enviar(object data) {
+            return base.Channel.Enviar(data);
+        }
+        
+        public System.Threading.Tasks.Task<TEST.OTEST.RepuestaPeticion> EnviarAsync(object data) {
+            return base.Channel.EnviarAsync(data);
         }
         
         public TEST.OTEST.RepuestaPeticion EnviarNotaCredito(TEST.OTEST.PeticionNotaCredito data) {
@@ -7161,6 +7893,14 @@ namespace TEST.OTEST {
         
         public System.Threading.Tasks.Task<TEST.OTEST.RespuestaFoliosRestantes> FoliosRestantesAsync(TEST.OTEST.PeticionFolios data) {
             return base.Channel.FoliosRestantesAsync(data);
+        }
+        
+        public TEST.OTEST.RespuestaCargaCertificado CargaCertificado(TEST.OTEST.PeticionCargaCertificado data) {
+            return base.Channel.CargaCertificado(data);
+        }
+        
+        public System.Threading.Tasks.Task<TEST.OTEST.RespuestaCargaCertificado> CargaCertificadoAsync(TEST.OTEST.PeticionCargaCertificado data) {
+            return base.Channel.CargaCertificadoAsync(data);
         }
     }
 }
