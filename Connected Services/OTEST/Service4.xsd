@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" />
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" />
+  <xs:element name="EnviarFactura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q1:PeticionFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarFacturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarFacturaResult" nillable="true" type="q2:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Enviar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarResult" nillable="true" type="q3:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarNotaCredito">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q4:PeticionNotaCredito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarNotaCreditoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarNotaCreditoResult" nillable="true" type="q5:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarNotaDebito">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q6:PeticionNotaDebito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarNotaDebitoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarNotaDebitoResult" nillable="true" type="q7:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarLiquidacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q8:PeticionLiquidacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarLiquidacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarLiquidacionResult" nillable="true" type="q9:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarGuiaRemision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q10:PeticionGuiaRemision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarGuiaRemisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarGuiaRemisionResult" nillable="true" type="q11:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarRetencion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q12:PeticionRetencion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarRetencionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarRetencionResult" nillable="true" type="q13:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarRetencionATS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q14:PeticionRetencionATS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarRetencionATSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EnviarRetencionATSResult" nillable="true" type="q15:RepuestaPeticion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescargaArchivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q16:PeticionDescargaArchivo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescargaArchivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="DescargaArchivoResult" nillable="true" type="q17:RepuestaDescargaArchivo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EstatusDocumento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q18:PeticionEstatusDocumento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EstatusDocumentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="EstatusDocumentoResult" nillable="true" type="q19:RespuestaEstadoDocumento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FoliosRestantes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q20:PeticionFolios" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FoliosRestantesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="FoliosRestantesResult" nillable="true" type="q21:RespuestaFoliosRestantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargaCertificado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WSEcuadorService.Request" minOccurs="0" name="data" nillable="true" type="q22:PeticionCargaCertificado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CargaCertificadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" minOccurs="0" name="CargaCertificadoResult" nillable="true" type="q23:RespuestaCargaCertificado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

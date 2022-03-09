@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject.Common.Detail" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DetAdicional">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetAdicional" nillable="true" type="tns:DetAdicional" />
+  <xs:complexType name="ArrayOfDetalleFactura">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleFactura" nillable="true" type="tns:DetalleFactura" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalleFactura" nillable="true" type="tns:ArrayOfDetalleFactura" />
+  <xs:complexType name="DetalleFactura">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DetalleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodigoAuxiliar" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoPrincipal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+          <xs:element minOccurs="0" name="PrecioSinSubsidio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UnidadMedida" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DetalleFactura" nillable="true" type="tns:DetalleFactura" />
+  <xs:complexType name="DetalleBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descuento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impuestos" nillable="true" type="tns:ArrayOfImpuestoDetalle" />
+      <xs:element minOccurs="0" name="PrecioTotalSinImpuesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrecioUnitario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleBase" nillable="true" type="tns:DetalleBase" />
+  <xs:complexType name="ArrayOfImpuestoDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImpuestoDetalle" nillable="true" type="tns:ImpuestoDetalle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImpuestoDetalle" nillable="true" type="tns:ArrayOfImpuestoDetalle" />
+  <xs:complexType name="ImpuestoDetalle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ImpuestoDetalleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Tarifa" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ImpuestoDetalle" nillable="true" type="tns:ImpuestoDetalle" />
+  <xs:complexType name="ImpuestoDetalleBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaseImponible" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoPorRet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImpuestoDetalleBase" nillable="true" type="tns:ImpuestoDetalleBase" />
+  <xs:complexType name="ArrayOfDetAdicional">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetAdicional" nillable="true" type="tns:DetAdicional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+  <xs:complexType name="ArrayOfDetalleNotaCredito">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleNotaCredito" nillable="true" type="tns:DetalleNotaCredito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalleNotaCredito" nillable="true" type="tns:ArrayOfDetalleNotaCredito" />
+  <xs:complexType name="DetalleNotaCredito">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DetalleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodigoAdicional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CodigoInterno" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DetalleNotaCredito" nillable="true" type="tns:DetalleNotaCredito" />
+  <xs:complexType name="ArrayOfDetalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detalle" nillable="true" type="tns:Detalle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalle" nillable="true" type="tns:ArrayOfDetalle" />
+  <xs:complexType name="Detalle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoAuxiliar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoPrincipal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descuento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetAdicional" nillable="true" type="tns:ArrayOfDetAdicional" />
+      <xs:element minOccurs="0" name="Impuestos" nillable="true" type="tns:ArrayOfImpuestoDetalle" />
+      <xs:element minOccurs="0" name="PrecioSinSubsidio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrecioTotalSinImpuesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrecioUnitario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnidadMedida" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detalle" nillable="true" type="tns:Detalle" />
+  <xs:complexType name="ArrayOfDestinatario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Destinatario" nillable="true" type="tns:Destinatario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDestinatario" nillable="true" type="tns:ArrayOfDestinatario" />
+  <xs:complexType name="Destinatario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodDocSustento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodEstabDestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Detalles" nillable="true" type="tns:ArrayOfDetalleGuia" />
+      <xs:element minOccurs="0" name="DirDestinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocAduaneroUnico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaEmisionDocSustento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdentificacionDestinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotivoTraslado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumAutDocSustento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumDocSustento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RazonSocialDestinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Destinatario" nillable="true" type="tns:Destinatario" />
+  <xs:complexType name="ArrayOfDetalleGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleGuia" nillable="true" type="tns:DetalleGuia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalleGuia" nillable="true" type="tns:ArrayOfDetalleGuia" />
+  <xs:complexType name="DetalleGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoAdicional" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoInterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetallesAdicionales" nillable="true" type="tns:ArrayOfDetAdicional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleGuia" nillable="true" type="tns:DetalleGuia" />
+  <xs:complexType name="ArrayOfImpuestoDetalleRetencion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImpuestoDetalleRetencion" nillable="true" type="tns:ImpuestoDetalleRetencion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImpuestoDetalleRetencion" nillable="true" type="tns:ArrayOfImpuestoDetalleRetencion" />
+  <xs:complexType name="ImpuestoDetalleRetencion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ImpuestoDetalleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodDocSustento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaEmisionDocSustento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumDocSustento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PorcentajeRetener" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ImpuestoDetalleRetencion" nillable="true" type="tns:ImpuestoDetalleRetencion" />
+</xs:schema>

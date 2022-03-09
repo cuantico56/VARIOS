@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WSEcuadorService.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://testintws.thefactoryhka.com.ec/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject" />
+  <xs:complexType name="RepuestaPeticion">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/EcuadorLibraryObject" base="q1:Respuesta">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepuestaPeticion" nillable="true" type="tns:RepuestaPeticion" />
+  <xs:complexType name="RepuestaDescargaArchivo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RespuestaBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Archivo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RepuestaDescargaArchivo" nillable="true" type="tns:RepuestaDescargaArchivo" />
+  <xs:complexType name="RespuestaBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaBase" nillable="true" type="tns:RespuestaBase" />
+  <xs:complexType name="RespuestaEstadoDocumento">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RespuestaBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelado" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RespuestaEstadoDocumento" nillable="true" type="tns:RespuestaEstadoDocumento" />
+  <xs:complexType name="RespuestaFoliosRestantes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RespuestaBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FechaVencimiento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FoliosRestantes" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RespuestaFoliosRestantes" nillable="true" type="tns:RespuestaFoliosRestantes" />
+  <xs:complexType name="RespuestaCargaCertificado">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RespuestaBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FechaVigenciaFin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FechaVigenciaInicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RUC" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RespuestaCargaCertificado" nillable="true" type="tns:RespuestaCargaCertificado" />
+</xs:schema>
