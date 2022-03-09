@@ -36,6 +36,8 @@ namespace TEST
             textBox6.Enabled = false;
             textBox6.Visible = false;
 
+            
+
         }
 
 
@@ -464,7 +466,7 @@ namespace TEST
                 if (comboBox1.SelectedIndex == 0)  // Si seleccionamos TEST
                 {
                     MessageBox.Show("Usted escogió: " + Convert.ToString(comboBox1.SelectedIndex));
-
+                    MessageBox.Show(comboBox1.SelectedText);
 
                     var envi = new WS_Ecuador.Integracion();
                     var resp = new List<WS_Ecuador.RespuestaTimbradoTXT>();
@@ -673,7 +675,7 @@ namespace TEST
                 {
                     
                     fecha = Fechas();  
-                    facturaNueva = "01|SAMIR CASTILLO|04/1791282183001|scastillo@thefactoryhka.com|0011223344|CALLE PRINCIPAL|PICHINCHA|PICHINCHA2|PICHINCHA3|ECUADOR|12345|SI||\r\n02|" + numFact[0] + "|" + numFact[1] + "|" + numFact[2] + "|" + fecha + "|01|||||00||70000700|3||||||||||||0.00|10.00|00.00|00.00|10.00|0.00|0.00|10.00|77777.77|0.00|0.00|10.00|DOLAR|||||||||||||||||01/01/01|10.00/0/0|0/0/0|\r\n03|0000000000002|CEBOLLA|1.000|KGM|10.00|0.00|10.00||0|0.00|0.00|0|0.00|0.00|0.00||0.00|0.00|0.00|||||||||||||AGREGUE COMENT|AGREGUE COMENT|";
+                    facturaNueva = "01|SAMIR CASTILLO|04/1791282183001|scastillo@thefactoryhka.com|0011223344|CALLE PRINCIPAL|PICHINCHA|PICHINCHA2|PICHINCHA3|ECUADOR|12345|SI||\r\n02|" + numFact[0] + "|" + numFact[1] + "|" + numFact[2] + "|" + fecha + "|01|||||00||70000700|3||||||||||||0.00|10.00|00.00|00.00|10.00|0.00|0.00|10.00|77777.77|0.00|0.00|10.00|DOLAR|||||||||||||||||01/01/01|10.00/0/0|0/0/0|\r\n03|0000000000002|CEBOLLA|1.000|KGM|10.00|0.00|10.00||0|0.00|0.00|0|0.00|0.00|77777.77||0.00|0.00|0.00|||||||||||||AGREGUE COMENT|AGREGUE COMENT|";
                 }
                 if (checkBox1.Checked==true)
                 {
@@ -681,7 +683,7 @@ namespace TEST
                     numFact[0] = textBox4.Text;
                     numFact[1] = textBox5.Text;
                     numFact[2] = textBox6.Text;
-                    facturaNueva = "01|SAMIR CASTILLO|04/1791282183001|scastillo@thefactoryhka.com|0011223344|CALLE PRINCIPAL|PICHINCHA|PICHINCHA2|PICHINCHA3|ECUADOR|12345|SI||\r\n02|" + numFact[0] + "|" + numFact[1] + "|" + numFact[2] + "|"+fecha+"|01|||||00||70000700|3||||||||||||0.00|10.00|00.00|00.00|10.00|0.00|0.00|10.00|77777.77|0.00|0.00|10.00|DOLAR|||||||||||||||||01/01/01|10.00/0/0|0/0/0|\r\n03|0000000000002|CEBOLLA|1.000|KGM|10.00|0.00|10.00||0|0.00|0.00|0|0.00|0.00|0.00||0.00|0.00|0.00|||||||||||||AGREGUE COMENT|AGREGUE COMENT|";
+                    facturaNueva = "01|SAMIR CASTILLO|04/1791282183001|scastillo@thefactoryhka.com|0011223344|CALLE PRINCIPAL|PICHINCHA|PICHINCHA2|PICHINCHA3|ECUADOR|12345|SI||\r\n02|" + numFact[0] + "|" + numFact[1] + "|" + numFact[2] + "|"+fecha+ "|01|||||00||70000700|3||||||||||||0.00|10.00|00.00|00.00|10.00|0.00|0.00|10.00|77777.77|0.00|0.00|10.00|DOLAR|||||||||||||||||01/01/01|10.00/0/0|0/0/0|\r\n03|0000000000002|CEBOLLA|1.000|KGM|10.00|0.00|10.00||0|0.00|0.00|0|0.00|0.00|77777.77||0.00|0.00|0.00|||||||||||||AGREGUE COMENT|AGREGUE COMENT|";
 
                 }
 
@@ -696,9 +698,10 @@ namespace TEST
                 try
                 {
                     WS_DEMO.Integracion FactNu = new WS_DEMO.Integracion();
+                    
                     var res = FactNu.Factura("1792433738001", "usuario1", "dfacture", blit, "FacturaRapida");
                     MenEstatus = "codigo: " + Convert.ToString(res.MensajeError) + "\n" + "Mensaje: " + res.NumeroError + "\n" + "UUID: " + res.UUID;
-                    mensaje = res.NumeroError;
+                    mensaje = res.NumeroError;                   
                     richTextBox5.Text = MenEstatus;
                     if (mensaje == "19")
                     {

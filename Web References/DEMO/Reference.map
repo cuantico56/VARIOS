@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd3" filename="Service.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd2" filename="Service0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?wsdl" filename="Service.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd4" filename="Service1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd7" filename="Service2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd6" filename="Service3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd8" filename="Service4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd1" filename="Service5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd5" filename="Service6.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://demointws.thefactoryhka.com.ec/Service.svc?xsd=xsd0" filename="Service7.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

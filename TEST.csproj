@@ -176,10 +176,68 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Connected Services\OTEST\Service.wsdl" />
+    <None Include="Connected Services\OTEST\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service1.wsdl" />
+    <None Include="Connected Services\OTEST\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service91.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service92.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service93.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service94.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service95.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service96.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service97.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\OTEST\Service98.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\OTEST\TEST.OTEST.RepuestaDescargaArchivo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\OTEST\TEST.OTEST.RepuestaPeticion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\OTEST\TEST.OTEST.RespuestaCargaCertificado.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\OTEST\TEST.OTEST.RespuestaEstadoDocumento.datasource">
@@ -269,10 +327,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://demoint.thefactoryhka.com.ec/Integracion.asmx%3fwsdl">
+    <WebReferenceUrl Include="https://demoint.thefactoryhka.com.ec/Integracion.asmx%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WS_DEMO\</RelPath>
-      <UpdateFromURL>http://demoint.thefactoryhka.com.ec/Integracion.asmx%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>https://demoint.thefactoryhka.com.ec/Integracion.asmx%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -317,6 +375,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OTEST\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\OTEST\Service.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
